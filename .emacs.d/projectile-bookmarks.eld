@@ -1,0 +1,1 @@
+("~/proj/advent-of-code-2021/" "~/proj/c-sdl/" "~/.emacs.d/elpa/tsc-20211211.1220/" "~/proj/sdl_seminar/" "~/proj/Space-Roguelike-Proj/")

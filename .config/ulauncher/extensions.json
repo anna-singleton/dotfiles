@@ -1,0 +1,37 @@
+{
+    "com.github.iboyperson.ulauncher-system": {
+        "id": "com.github.iboyperson.ulauncher-system",
+        "url": "https://github.com/iboyperson/ulauncher-system",
+        "updated_at": "2021-11-22T18:33:54.203780",
+        "last_commit": "667613bf7bb6b4affa4f2121b58589477cd89829",
+        "last_commit_time": "2021-11-08T18:16:55"
+    },
+    "com.github.tchar.ulauncher-albert-calculate-anything": {
+        "id": "com.github.tchar.ulauncher-albert-calculate-anything",
+        "url": "https://github.com/tchar/ulauncher-albert-calculate-anything",
+        "updated_at": "2021-11-22T18:34:02.762846",
+        "last_commit": "ee0903174c8b87cd1f7c3b6c1acef10702547507",
+        "last_commit_time": "2021-08-12T06:39:56"
+    },
+    "com.github.kbialek.ulauncher-bitwarden": {
+        "id": "com.github.kbialek.ulauncher-bitwarden",
+        "url": "https://github.com/kbialek/ulauncher-bitwarden",
+        "updated_at": "2021-11-22T18:34:06.593928",
+        "last_commit": "03293cb335c8822dd5ea9b236bc6cce093a9516e",
+        "last_commit_time": "2021-10-19T19:41:50"
+    },
+    "com.github.rnairn01.ulauncher-meme-my-text": {
+        "id": "com.github.rnairn01.ulauncher-meme-my-text",
+        "url": "https://github.com/RNairn01/ulauncher-meme-my-text",
+        "updated_at": "2021-12-12T23:35:13.557724",
+        "last_commit": "5d62830a7a92983a731e15645831f53d48dad913",
+        "last_commit_time": "2021-05-07T17:29:22"
+    },
+    "com.github.pywkm.ulauncher-spotify": {
+        "id": "com.github.pywkm.ulauncher-spotify",
+        "url": "https://github.com/pywkm/ulauncher-spotify",
+        "updated_at": "2021-12-12T23:35:21.498903",
+        "last_commit": "89d9b02316aaccea0d70b458bb97b3976287f03e",
+        "last_commit_time": "2020-02-17T16:20:21"
+    }
+}

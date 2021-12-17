@@ -1,0 +1,6 @@
+(setq inhibit-startup-message t)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(setq visible-bell t)
+(set-fringe-mode 10)

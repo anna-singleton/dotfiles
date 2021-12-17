@@ -1,0 +1,109 @@
+{
+  "main": {
+    "id": "bab12cffbaed4f6d",
+    "type": "split",
+    "children": [
+      {
+        "id": "45f32ca435d8780d",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Plugins/Command palette.md",
+            "mode": "source"
+          }
+        },
+        "group": "8b78ef7a287f34c5"
+      },
+      {
+        "id": "124e1ce6573a699d",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Plugins/Command palette.md",
+            "mode": "preview"
+          }
+        },
+        "group": "8b78ef7a287f34c5"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d111ba553e07e65a",
+    "type": "split",
+    "children": [
+      {
+        "id": "d34353ce388a3d84",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7328fbd137e8cc13",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "4ccd1f5c4c69bf9d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "6d58ce027fc4b930",
+    "type": "split",
+    "children": [
+      {
+        "id": "6a9585d5e3015bac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ec2852fcff50b39c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Plugins/Command palette.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "45f32ca435d8780d",
+  "lastOpenFiles": [
+    "Plugins/Command palette.md",
+    "How to/Use hotkeys.md",
+    "Start here.md"
+  ]
+}
