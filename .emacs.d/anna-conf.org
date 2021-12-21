@@ -3,22 +3,23 @@
 * Init Settings
 ** Start in my TODO orgmode file
 #+begin_src emacs-lisp
-  (setq initial-buffer-choice "~/todo.org")
+  (setq initial-buffer-choice "~/notes/todo.org")
 #+end_src
 * Package System Setups
 ** Package Repos
 #+begin_src emacs-lisp
   (require 'package)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-  (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                           ("org" . "https://orgmode.org/elpa/")
+                           ("elpa" . "https://elpa.gnu.org/packages/")))
   (package-initialize)
+  (unless package-archive-contents
+    (package-refresh-contents))
 #+end_src
 
 ** Use-package setup
 #+begin_src emacs-lisp
   (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
     (package-install 'use-package))
   (require 'use-package)
   (setq use-package-always-ensure 't)
@@ -169,7 +170,7 @@ icons properly
   (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'as/org-babel-tangle-config)))
 #+end_src
 
-this code block automatically tangles all code blocks
+this code block automatically tangles all code blocks.
 
 ** Define Org-Mode Specific Settings
 #+begin_src emacs-lisp
@@ -335,10 +336,12 @@ this code block automatically tangles all code blocks
 
 *** UI Improvements
 #+begin_src emacs-lisp
-(use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode)
-  :custom
-  (lsp-ui-doc-position 'bottom))
+    (use-package lsp-ui
+      :hook (lsp-mode . lsp-ui-mode)
+      :custom
+      (lsp-ui-doc-position 'bottom)
+      (lsp-ui-doc-max-height 5)
+      (lsp-signature-doc-lines 5))
 #+end_src
 
 *** LSP-Ivy
