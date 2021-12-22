@@ -25,7 +25,7 @@
   (setq use-package-always-ensure 't)
 #+end_src
    
-* General Tools
+* General Settings
 ** Ivy
 #+begin_src emacs-lisp
   (use-package ivy
@@ -97,6 +97,13 @@
 
    provides better formatted help pages
 
+** Put autosaves in the cache, not project dirs
+#+begin_src emacs-lisp
+    (setq user-emacs-directory "~/.cache/emacs")
+    (use-package no-littering)
+    (setq auto-save-file-name-transforms
+          `((".*", (no-littering-expand-var-file-name "auto-save/") t)))
+#+end_src
 * UI
 ** Basic UI
 *** Disable Bad UI Features
@@ -164,13 +171,14 @@ icons properly
 #+begin_src emacs-lisp
   (defun as/org-babel-tangle-config ()
     (when (string-equal (buffer-file-name)
-                        (expand-file-name "~/.emacs.d/anna-conf.org"))
+                        (expand-file-name "~/.dotfiles/.emacs.d/anna-conf.org"))
       (let ((org-confirm-babel-evaluate nil))
         (org-babel-tangle))))
   (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'as/org-babel-tangle-config)))
 #+end_src
 
-this code block automatically tangles all code blocks.
+this code block automatically tangles all code blocks
+note: this code does not like symlinks.
 
 ** Define Org-Mode Specific Settings
 #+begin_src emacs-lisp
@@ -228,11 +236,9 @@ this code block automatically tangles all code blocks.
       "o" '(:ignore t :which-key "org-mode")))
 
   (as/leader-keys
-    "oi" '(org-indent-block :which-key "indent org mode block"))
+    "oi" '(org-indent-block :which-key "indent org mode block")
+    "tw" '(whitespace-mode :which-key "toggle whitespace"))
 #+end_src
-
-   #+RESULTS:
-   : t
 
    General provides a global user prefix (C-SPC) which works as a 'leader-key' for assigning
    personally important functions / workflow related stuff
@@ -390,6 +396,11 @@ this enables syntax highlighting, the key to check is C-c s
 ** Enable company-mode in prog-mode
 #+begin_src emacs-lisp
   (add-hook 'prog-mode-hook 'company-mode t) 
+#+end_src
+** Enable origami-mode in prog-mode
+#+begin_src emacs-lisp
+  (use-package origami)
+  (add-hook 'prog-mode-hook 'origami-mode t) 
 #+end_src
 ** Language Specific Configs
 *** C

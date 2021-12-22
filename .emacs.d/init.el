@@ -59,6 +59,11 @@
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
 
+(setq user-emacs-directory "~/.cache/emacs")
+(use-package no-littering)
+(setq auto-save-file-name-transforms
+      `((".*", (no-littering-expand-var-file-name "auto-save/") t)))
+
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -98,7 +103,7 @@
 
 (defun as/org-babel-tangle-config ()
   (when (string-equal (buffer-file-name)
-                      (expand-file-name "~/.emacs.d/anna-conf.org"))
+                      (expand-file-name "~/.dotfiles/.emacs.d/anna-conf.org"))
     (let ((org-confirm-babel-evaluate nil))
       (org-babel-tangle))))
 (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'as/org-babel-tangle-config)))
@@ -141,7 +146,8 @@
     "o" '(:ignore t :which-key "org-mode")))
 
 (as/leader-keys
-  "oi" '(org-indent-block :which-key "indent org mode block"))
+  "oi" '(org-indent-block :which-key "indent org mode block")
+  "tw" '(whitespace-mode :which-key "toggle whitespace"))
 
 (general-define-key
  "C-M-j" 'counsel-switch-buffer
@@ -242,6 +248,9 @@
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
 (add-hook 'prog-mode-hook 'company-mode t)
+
+(use-package origami)
+(add-hook 'prog-mode-hook 'origami-mode t)
 
 (defun as/c-init-hook ()
       (define-key c-mode-base-map "\C-c" 'c-context-line-break)

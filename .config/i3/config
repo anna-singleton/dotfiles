@@ -166,3 +166,5 @@ bindsym $mod+r mode "resize"
 
 #polybar config
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+bindsym Print exec "flameshot gui"
