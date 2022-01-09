@@ -402,13 +402,21 @@ this enables syntax highlighting, the key to check is C-c s
   (use-package origami)
   (add-hook 'prog-mode-hook 'origami-mode t) 
 #+end_src
+** fix tab fuckery with SmartTabs
+#+begin_src emacs-lisp
+  (setq-default indent-tabs-mode t)
+  (use-package smart-tabs-mode)
+  (smart-tabs-insinuate 'c 'java)
+  (setq-default c-basic-offset 4)
+  (setq-default tab-width 4)
+#+end_src
 ** Language Specific Configs
 *** C
 **** set my own init hook for c to fix some things
 #+begin_src emacs-lisp
       (defun as/c-init-hook ()
         (define-key c-mode-base-map "\C-c" 'c-context-line-break)
-        (setq tab-width 4 indent-tabs-mode nil)
+        ;;(setq tab-width 4 indent-tabs-mode nil)
         (electric-pair-mode t) ;;turn on auto pair brackets
         (setq backward-delete-char-untabify-method 'hungry) ;; delete tabs at once
       ;;(hs-minor-mode t) ;; turn on folding support (z a to toggle)
@@ -425,11 +433,6 @@ this enables syntax highlighting, the key to check is C-c s
 (add-hook 'c-mode-hook 'lsp)
 #+end_src
 
-**** fix broken tab widths
-#+begin_src emacs-lisp
-  (setq-default indent-tabs-mode nil)
-  (setq-default c-basic-offset 4)
-#+end_src
 **** fix indentation style
 #+begin_src emacs-lisp
   (setq c-default-style "linux"
@@ -452,4 +455,15 @@ this will also remember the previous command
 
   (add-hook 'makefile-gmake-mode-hook 'as/makefile-init-hook)
 #+end_src
+
+*** Haskell
+**** Install haskell-mode
+#+begin_src emacs-lisp
+  (use-package haskell-mode)
+#+end_src
+**** Install Intero
+#+begin_src emacs-lisp
+  (use-package 'intero)
+  (add-hook 'haskell-mode-hook 'intero-mode)
+#+end_src>
 

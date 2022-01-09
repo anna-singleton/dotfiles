@@ -252,9 +252,15 @@
 (use-package origami)
 (add-hook 'prog-mode-hook 'origami-mode t)
 
+(setq-default indent-tabs-mode t)
+(use-package smart-tabs-mode)
+(smart-tabs-insinuate 'c 'java)
+(setq-default c-basic-offset 4)
+(setq-default tab-width 4)
+
 (defun as/c-init-hook ()
       (define-key c-mode-base-map "\C-c" 'c-context-line-break)
-      (setq tab-width 4 indent-tabs-mode nil)
+      ;;(setq tab-width 4 indent-tabs-mode nil)
       (electric-pair-mode t) ;;turn on auto pair brackets
       (setq backward-delete-char-untabify-method 'hungry) ;; delete tabs at once
     ;;(hs-minor-mode t) ;; turn on folding support (z a to toggle)
@@ -266,9 +272,6 @@
 
 (add-hook 'c-mode-hook 'lsp)
 
-(setq-default indent-tabs-mode nil)
-(setq-default c-basic-offset 4)
-
 (setq c-default-style "linux"
       c-basic-offset 4)
 
@@ -276,3 +279,5 @@
 (setq tab-width 4))
 
 (add-hook 'makefile-gmake-mode-hook 'as/makefile-init-hook)
+
+(use-package haskell-mode)
