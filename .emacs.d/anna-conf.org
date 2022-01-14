@@ -318,8 +318,9 @@ note: this code does not like symlinks.
     (when (file-directory-p "~/proj")
       (setq projectile-project-search-path '("~/proj"))))
 
-  (use-package counsel-projectile
-    :config (counsel-projectile-mode))
+    (use-package counsel-projectile
+      :after projectile
+      :config (counsel-projectile-mode))
 #+end_src
 ** Magit (Git Integration)
 
@@ -466,4 +467,9 @@ this will also remember the previous command
   (use-package 'intero)
   (add-hook 'haskell-mode-hook 'intero-mode)
 #+end_src>
-
+*** Java
+**** Gradle
+#+begin_src emacs-lisp
+  (use-package gradle-mode)
+  (gradle-mode 1)
+#+end_src>

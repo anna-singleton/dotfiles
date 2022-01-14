@@ -172,3 +172,7 @@ bindsym Print exec "flameshot gui"
 bindsym $mod+Home exec "i3lock-fancy-dualmonitor -f Fira-Code-Regular"
 
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+
+hide_edge_borders smart
+
+for_window [class="eng1game"] floating enable 
