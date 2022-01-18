@@ -3,7 +3,7 @@
 * Init Settings
 ** Start in my TODO orgmode file
 #+begin_src emacs-lisp
-  (setq initial-buffer-choice "~/notes/todo.org")
+  (setq initial-buffer-choice "~/Dropbox/notes/todo.org")
 #+end_src
 * Package System Setups
 ** Package Repos
@@ -472,4 +472,10 @@ this will also remember the previous command
 #+begin_src emacs-lisp
   (use-package gradle-mode)
   (gradle-mode 1)
+#+end_src>
+
+**** Enable LSP-Mode Integration
+#+begin_src emacs-lisp
+  (use-package lsp-java)
+  (add-hook 'java-mode-hook #'lsp)
 #+end_src>
