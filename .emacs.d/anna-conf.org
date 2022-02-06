@@ -128,9 +128,10 @@
       :config
       (setq doom-themes-enable-bold t
             doom-themes-enable-italic t)
-      (load-theme 'doom-palenight t)
+      (load-theme 'doom-material-dark t)
       (doom-themes-visual-bell-config))
 #+end_src
+
    
 *** Modeline
 #+begin_src emacs-lisp
@@ -180,11 +181,17 @@ icons properly
 this code block automatically tangles all code blocks
 note: this code does not like symlinks.
 
+** Reload inline images on eval
+#+begin_src emacs-lisp
+  (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
+#+end_src
+
 ** Define Org-Mode Specific Settings
 #+begin_src emacs-lisp
-  (defun as/org-mode-setup ()
-    (org-indent-mode)
-    (visual-line-mode 0))
+    (defun as/org-mode-setup ()
+      (org-indent-mode)
+      (visual-line-mode 0)
+      (setq org-src-preserve-indentation t))
 #+end_src
   
 ** Require Org-Mode
@@ -203,7 +210,8 @@ note: this code does not like symlinks.
      (python . t)
      (C . t)
      (plantuml . t)
-     (latex . t)))
+     (latex . t)
+     (jupyter . t)))
   (setq org-confirm-babel-evaluate nil)
 #+end_src
 
@@ -218,9 +226,11 @@ note: this code does not like symlinks.
 
 ** Org-Superstar
 #+begin_src emacs-lisp
-  (use-package org-superstar)
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+  ;;(use-package org-superstar)
+  ;;(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 #+end_src
+
+org-superstar currently causes issues with fontifying ANSI colour code output in org mode, so it will remain disabled until that is fixed
 
 * Key-Binding
 ** General
@@ -473,9 +483,44 @@ this will also remember the previous command
   (use-package gradle-mode)
   (gradle-mode 1)
 #+end_src>
-
-**** Enable LSP-Mode Integration
+**** LSP-Mode
 #+begin_src emacs-lisp
-  (use-package lsp-java)
-  (add-hook 'java-mode-hook #'lsp)
+  (add-hook 'java-mode-hook 'lsp-mode)
+#+end_src>
+**** Unbreak Projectile
+#+begin_src emacs-lisp
+  (add-hook 'java-mode-hook (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+#+end_src>
+for some reason, java mode unbinds projectile's command map, this binds it back
+
+*** Python
+**** Python Mode
+#+begin_src emacs-lisp
+  (use-package python-mode
+    :ensure t
+    :hook (python-mode . lsp-deferred))
+#+end_src
+
+**** LSP
+#+begin_src emacs-lisp
+  (add-hook 'python-mode-hook '(lsp-mode t))
+  (use-package lsp-jedi
+  :ensure t
+  :config
+  (with-eval-after-load "lsp-mode"
+    (add-to-list 'lsp-disabled-clients 'pyls)
+    (add-to-list 'lsp-enabled-clients 'jedi)))
+#+end_src>
+
+**** Org Mode as Jupyter Notebook
+#+begin_src emacs-lisp
+  (use-package jupyter)
+#+end_src>
+***** Fix ANSI colour codes
+#+begin_src emacs-lisp
+(defun display-ansi-colors ()
+  (ansi-color-apply-on-region (point-min) (point-max)))
+
+(add-hook 'org-babel-after-execute-hook #'display-ansi-colors)
+>>>>>>> 67ffe3e (thinkpad init commit)
 #+end_src>

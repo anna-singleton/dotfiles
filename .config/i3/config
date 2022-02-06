@@ -28,7 +28,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy -f Fira-Code-Retina -t LOCKED --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -51,7 +51,8 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # rofi (app launcher)
-bindsym $mod+d exec "rofi -show combi -combi-modi window,run -modi combi"
+# bindsym $mod+d exec "rofi -show combi -combi-modi window,run -modi combi"
+bindsym $mod+d exec "rofi -show run"
 
 # emacs hotkey
 bindsym $mod+p exec emacs
@@ -169,11 +170,15 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 bindsym Print exec "flameshot gui"
 
-bindsym $mod+Home exec "i3lock-fancy-dualmonitor -f Fira-Code-Regular"
+bindsym $mod+Home exec "i3lock-fancy -f Fira-Code-Retina -t LOCKED"
+
+exec "xfce4-panel -q"
 
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 
 exec "systemctl --user start redshift"
+
+exec "nitrogen --restore"
 
 hide_edge_borders smart
 
