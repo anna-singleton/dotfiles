@@ -1,151 +1,3 @@
-<<<<<<< ours
-(setq initial-buffer-choice "~/Dropbox/notes/todo.org")
-
-(require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
-(package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
-
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(require 'use-package)
-(setq use-package-always-ensure 't)
-
-(use-package ivy
-  :diminish
-  :bind (("C-s" . swiper)
-         :map ivy-minibuffer-map
-         ("TAB" . ivy-alt-done)
-         ("C-l" . ivy-alt-done)
-         ("C-j" . ivy-next-line)
-         ("C-h" . ivy-previous-line)
-         :map ivy-switch-buffer-map
-         ("C-k" . ivy-previous-line)
-         ("C-l" . ivy-done)
-         ("C-d" . ivy-switch-buffer-kill)
-         :map ivy-reverse-i-search-map
-         ("C-k" . ivy-previous-line)
-         ("C-d" . ivy-reverse-i-search-kill))
-  :config
-  (ivy-mode 1))
-
-(use-package ivy-rich
-  :init
-  (ivy-rich-mode 1))
-
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-         ("C-x C-f" . counsel-find-file)
-         :map minibuffer-local-map
-         ("C-r" . counsel-minibuffer-history)))
-
-(use-package swiper)
-
-(use-package which-key
-  :init (which-key-mode)
-  :diminish which-key-mode
-  :config
-  (setq which-key-idle-delay 0.3))
-
-(use-package helpful
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
-  :bind
-  ([remap describe-function] . counsel-describe-function)
-  ([remap describe-command] . counsel-describe-command)
-  ([remap describe-variable] . counsel-describe-variable)
-  ([remap describe-key] . helpful-key))
-
-(setq user-emacs-directory "~/.cache/emacs")
-(use-package no-littering)
-(setq auto-save-file-name-transforms
-      `((".*", (no-littering-expand-var-file-name "auto-save/") t)))
-
-(setq inhibit-startup-message t)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(setq visible-bell t)
-(set-fringe-mode 10)
-
-(set-face-attribute 'default nil :font "Fira Code" :height 130)
-
-(use-package doom-themes
-  :ensure t
-  :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
-  (load-theme 'doom-palenight t)
-  (doom-themes-visual-bell-config))
-
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1))
-(setq doom-modeline-height 16)
-
-(use-package all-the-icons)
-
-(column-number-mode)
-(global-display-line-numbers-mode t)
-
-;; disable line nums for some modes
-(dolist (mode '(org-mode-hook
-                shell-mode-hook
-                term-mode-hook
-                eshell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
-
-(defun as/org-babel-tangle-config ()
-  (when (string-equal (buffer-file-name)
-                      (expand-file-name "~/.dotfiles/.emacs.d/anna-conf.org"))
-    (let ((org-confirm-babel-evaluate nil))
-      (org-babel-tangle))))
-(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'as/org-babel-tangle-config)))
-
-(defun as/org-mode-setup ()
-  (org-indent-mode)
-  (visual-line-mode 0))
-
-(use-package org
-  :hook (org-mode . as/org-mode-setup)
-  :config
-  (setq org-ellipsis "▼"))
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (python . t)
-   (C . t)
-   (plantuml . t)
-   (latex . t)))
-(setq org-confirm-babel-evaluate nil)
-
-(require 'org-tempo)
-(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
-(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
-(add-to-list 'org-structure-template-alist '("cl" . "src c"))
-(add-to-list 'org-structure-template-alist '("py" . "src python"))
-
-(use-package org-superstar)
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-
-(use-package general
-  :config
-  (general-create-definer as/leader-keys
-    :keymaps '(normal insert visual emacs)
-    :prefix "SPC"
-    :global-prefix "C-SPC")
-  (as/leader-keys
-    "t" '(:ignore t :which-key "toggles")
-    "o" '(:ignore t :which-key "org-mode")))
-=======
   (setq initial-buffer-choice "~/Dropbox/notes/todo.org")
 
   (require 'package)
@@ -296,7 +148,6 @@
     (as/leader-keys
       "t" '(:ignore t :which-key "toggles")
       "o" '(:ignore t :which-key "org-mode")))
->>>>>>> theirs
 
   (as/leader-keys
     "oi" '(org-indent-block :which-key "indent org mode block")
@@ -426,17 +277,6 @@
 
 (add-hook 'c-mode-hook 'lsp)
 
-<<<<<<< ours
-(setq c-default-style "linux"
-      c-basic-offset 4)
-
-(defun as/makefile-init-hook ()
-(setq tab-width 4))
-
-(add-hook 'makefile-gmake-mode-hook 'as/makefile-init-hook)
-
-(use-package haskell-mode)
-=======
   (setq c-default-style "linux"
         c-basic-offset 4)
 
@@ -450,4 +290,16 @@
   (use-package python-mode
     :ensure t
     :hook (python-mode . lsp-deferred))
->>>>>>> theirs
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(python-mode haskell-mode company-c-headers smart-tabs-mode origami tree-sitter-langs tree-sitter flycheck company-box company lsp-ivy lsp-ui lsp-mode magit counsel-projectile projectile evil-collection evil hydra general which-key use-package rainbow-delimiters no-littering jupyter ivy-rich helpful doom-themes doom-modeline counsel)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
