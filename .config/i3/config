@@ -180,6 +180,8 @@ exec "systemctl --user start redshift"
 
 exec "nitrogen --restore"
 
+exec "dropbox"
+
 hide_edge_borders smart
 
 for_window [class="eng1game"] floating enable 
