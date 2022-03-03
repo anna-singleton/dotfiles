@@ -1,0 +1,630 @@
+#+title Anna's System Config with OrgMode Babel
+#+PROPERTY: header-args :mkdirp yes :noweb yes
+
+* General Setup
+** System Names
+#+NAME: thinkpad
+#+begin_src emacs-lisp 
+  "anna-thinkpad"
+#+end_src
+
+#+NAME: desktop
+#+begin_src emacs-lisp
+  "anna-arch"
+#+end_src
+
+* i3
+:PROPERTIES:
+:header-args+: :tangle ".config/i3/config" :noweb yes
+:header-args:emacs-lisp: :tangle no
+:END:
+
+** Per System Config
+#+NAME: i3-lock-screen
+#+begin_src emacs-lisp
+  (if (string-equal (system-name) <<thinkpad>>)
+"i3lock-fancy -f Monoid-Retina -t LOCKED --nofork"
+"i3lock-fancy-dualmonitors -f Monoid-Retina -t LOCKED --nofork")
+#+end_src
+
+** General Config
+*** Keybindings
+**** Mod Key
+#+begin_src conf
+set $mod Mod4
+#+end_src
+ 
+**** Programs
+#+begin_src conf
+
+# kitty terminal
+bindsym $mod+Return exec kitty
+
+# quit window
+bindsym $mod+Shift+q kill
+
+# rofi (app launcher)
+bindsym $mod+d exec "rofi -show run"
+
+# emacs hotkey
+bindsym $mod+p exec emacs
+
+# screenshot via flameshot
+bindsym Print exec "flameshot gui"
+bindsym Shift+Print exec "flameshot full"
+
+#+end_src
+
+**** Window Navigation
+#+begin_src conf
+
+#use mouse + super to drag floating windows
+floating_modifier $mod
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# move focused workspace between monitors
+bindsym $mod+Left move workspace to output left
+bindsym $mod+Right move workspace to output right
+
+# splitting bindings (i3 calls the splits the reverse of vim)
+# split in horizontal orientation
+bindsym $mod+Shift+v split v
+
+# split in vertical orientation
+bindsym $mod+v split h
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+Shift+a focus child
+#+end_src
+
+**** Workspaces
+#+begin_src conf
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+#+end_src
+
+**** Resizing
+#+begin_src conf
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+#+end_src
+ 
+**** Volume Control
+#+begin_src conf
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+#+end_src
+ 
+**** System Level Bindings
+#+begin_src conf
+
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# lock computer
+bindsym $mod+Home exec <<i3-lock-screen()>>
+
+#+end_src
+ 
+*** Execs
+**** Backend Stuff
+#+begin_src conf
+exec --no-startup-id dex --autostart --environment i3
+
+exec --no-startup-id xss-lock --transfer-sleep-lock -- <<i3-lock-screen()>>
+
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+#+end_src
+
+**** Desktop Environment
+#+begin_src conf
+
+# polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# nitrogen (wallpaper)
+exec "nitrogen --restore"
+
+# close xfce4 panel
+exec "xfce4-panel -q"
+
+# update the out of date package checker
+exec "/home/anna/.util/writeupdateablepackages &"
+#+end_src
+
+*** UI
+**** Font
+#+begin_src conf 
+font pango:Monoid 10
+#+end_src
+
+**** Colours
+#+begin_src conf
+client.focused          #7400B8 #8013BD #ffffff #7400B5   #7400B8
+client.focused_inactive #AE60D3 #B973D8 #ffffff #AE60D3   #AE60D3
+client.unfocused        #530053 #420042 #888888 #49004e   #420042
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+#+end_src
+
+**** Other tweaks
+
+#+begin_src conf
+hide_edge_borders smart
+#+end_src
+
+hides borders at the edge of the screen
+
+* polybar
+:PROPERTIES:
+:header-args+: :tangle ".config/polybar/config" :noweb yes
+:header-args:emacs-lisp: :tangle no
+:END:
+** Per System Config
+*** Battery
+#+NAME: polybar-battery
+#+begin_src emacs-lisp
+  (if (string-equal (system-name) <<thinkpad>>)
+"bat_internal bat_swap" "")
+#+end_src
+
+*** Bar Size
+#+NAME: polybar-height
+#+begin_src emacs-lisp
+  (if (string-equal (system-name) <<thinkpad>>)
+"32" "27")
+#+end_src
+
+*** Font Size
+#+NAME: polybar-fontsize
+#+begin_src emacs-lisp
+  (if (string-equal (system-name) <<thinkpad>>)
+"14" "12")
+#+end_src
+
+** General Config
+*** Colours
+#+begin_src conf
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #dfdfdf
+secondary = #dfdfdf
+alert = #bd2c40
+#+end_src
+ 
+*** Bar
+#+begin_src conf
+[bar/annabar]
+width = 100%
+height = <<polybar-height()>>
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = monoid:pixelsize=<<polybar-fontsize()>>;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+
+modules-right = pulseaudio <<polybar-battery()>>
+modules-center = date
+modules-left = i3
+
+tray-position = right
+tray-padding = 2
+
+wm-restack = i3
+
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+#+end_src
+ 
+*** Modules
+**** i3
+#+begin_src conf
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-background}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+#+end_src
+
+**** Date & Time
+#+begin_src conf
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%d-%m"
+date-alt = " %Y-%b-%d"
+
+time = %I:%M %p
+time-alt = %I:%M %p
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+
+label = %time% %date% 
+#+end_src
+  
+**** PulseAudio
+#+begin_src conf
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+label-volume = VOL %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted = muted
+label-muted-foreground = #666
+#+end_src
+  
+**** Batteries
+
+#+begin_src conf
+[module/bat_internal]
+type = internal/battery
+battery = BAT0
+adapter = AC
+
+label-charging = BAT0: %percentage%% (C)
+label-discharging = BAT0: %percentage%%
+label-full = BAT0: %percentage%%
+
+poll-interval = 5
+
+[module/bat_swap]
+type = internal/battery
+battery = BAT1
+adapter = AC
+
+label-charging = BAT1: %percentage%% (C)
+label-discharging = BAT1: %percentage%%
+label-full = BAT1: %percentage%%
+
+poll-interval = 5
+
+#+end_src
+ 
+*** General Settings
+#+begin_src conf
+[settings]
+screenchange-reload = true
+#+end_src
+ 
+* kitty
+:PROPERTIES:
+:header-args+: :tangle ".config/kitty/kitty.conf" :noweb yes
+:header-args:emacs-lisp: :tangle no
+:END:
+** Per System Config
+#+NAME: kitty-fontsize
+#+begin_src emacs-lisp
+  (if (string-equal (system-name) <<thinkpad>>)
+  "16.0" "14.0")
+#+end_src
+ 
+** General Config
+*** Text Display
+#+begin_src conf
+font_family Monoid
+
+font_size <<kitty-fontsize()>>
+
+disable_ligatures cursor
+#+end_src
+ 
+*** Colours
+#+begin_src conf
+background_opacity 0.9
+
+background            #0d0f18
+foreground            #fffaf3
+cursor                #ff0017
+selection_background  #002a3a
+color0                #222222
+color8                #444444
+color1                #ff000f
+color9                #ff273f
+color2                #8ce00a
+color10               #abe05a
+color3                #ffb900
+color11               #ffd141
+color4                #008df8
+color12               #0092ff
+color5                #6c43a5
+color13               #9a5feb
+color6                #00d7eb
+color14               #67ffef
+color7                #ffffff
+color15               #ffffff
+selection_foreground  #0d0f18
+#+end_src
+ 
+* bash
+:PROPERTIES:
+:header-args+: :tangle ".bashrc" :noweb yes
+:header-args:emacs-lisp: :tangle no
+:END:
+** General Config
+#+begin_src conf
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+
+# custom bash output
+outofdate()
+{
+	echo $(cat /home/anna/.util/outofdatepackages)
+}
+
+RED="\[$(tput setaf 1)\]"
+GREEN="\[$(tput setaf 2)\]"
+BOLD="\[$(tput bold)\]"
+RESET="\[$(tput sgr0)\]"
+
+PS1="${BOLD}anna ${RESET}${GREEN}[\W] ${RESET}${RED}${BOLD}"'($(outofdate))'"${RESET} >"
+
+# ssh-keychain
+
+eval $(keychain --eval --nogui --quiet ~/.ssh/github)
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
+#+end_src
+
+* neovim
+:PROPERTIES:
+:header-args+: :tangle ".config/nvim/init.vim" :noweb yes
+:header-args:emacs-lisp: :tangle no
+:END:
+** General Config
+*** vim-plug
+#+begin_src vimrc
+
+"AUTO INSTALLATION OF vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+call plug#begin(has('nvim') ? stdpath('data') . 'plugged' : '~/.vim/plugged')
+
+" Declare the list of plugins
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-sensible'
+Plug 'vim-airline/vim-airline'
+Plug 'tomtom/tcomment_vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'godlygeek/tabular'
+Plug 'fladson/vim-kitty'
+
+"
+" List ends here. Plugins become visible to nvim after this call
+call plug#end()
+
+#+end_src
+
+*** General Config
+#+begin_src vimrc
+syntax on
+set showmatch
+set tabstop=4
+set softtabstop=4
+set sw=4
+set autoindent
+set cc=80
+set completeopt-=preview
+set cursorline
+set scrolloff=10
+set foldenable
+set foldmethod=syntax
+#+end_src
+
+*** Relative Line Number 
+#+begin_src vimrc
+
+:set number relativenumber
+:set nu rnu
+
+:set number
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
+
+#+end_src
+
+*** Bindings
+#+begin_src vimrc
+tnoremap <Esc> <C-\><C-n>
+let mapleader = ","
+nnoremap <C-t> :NERDTreeToggle<CR>
+#+end_src
+
+* rofi
+:PROPERTIES:
+:header-args+: :tangle ".config/rofi/config.rasi" :noweb yes
+:header-args:emacs-lisp: :tangle no
+:END:
+** General Config
+#+begin_src conf
+@theme "/usr/share/rofi/themes/dmenu.rasi"
+#+end_src
+
+* Xmodmap
+:PROPERTIES:
+:header-args+: :tangle ".Xmodmap" :noweb yes
+:header-args:emacs-lisp: :tangle no
+:END:
+** General Config
+#+begin_src conf
+clear lock
+clear control
+keycode 66 = Control_L
+add control = Control_L
+add Lock = Control_R
+#+end_src
+
+Rebinds capslock to ctrl, and rctrl to capslock
+
+* redshift
+:PROPERTIES:
+:header-args+: :tangle ".config/redshift/redshift.conf" :noweb yes
+:header-args:emacs-lisp: :tangle no
+:END:
+** General Config
+#+begin_src conf
+[redshift]
+
+location-provider=manual
+
+[manual]
+lat=36
+lon=-76
+#+end_src
+
+Sets redshift to use a manually set location, instead of fetching it
+* flameshot
+currently no config required, its pretty good at setting itself up
