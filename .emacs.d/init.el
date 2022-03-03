@@ -71,7 +71,7 @@
   (setq visible-bell t)
   (set-fringe-mode 10)
 
-  (set-face-attribute 'default nil :font "Fira Code" :height 130)
+  (set-face-attribute 'default nil :font "Monoid" :height 130)
 
     (use-package doom-themes
       :ensure t
@@ -264,7 +264,7 @@
   (setq-default tab-width 4)
 
       (defun as/c-init-hook ()
-        (define-key c-mode-base-map "\C-c" 'c-context-line-break)
+        ;;(define-key c-mode-base-map "\C-c" 'c-context-line-break)
         ;;(setq tab-width 4 indent-tabs-mode nil)
         (electric-pair-mode t) ;;turn on auto pair brackets
         (setq backward-delete-char-untabify-method 'hungry) ;; delete tabs at once
@@ -287,19 +287,25 @@
 
   (use-package haskell-mode)
 
+  (use-package gradle-mode)
+  (gradle-mode 1)
+
+  (add-hook 'java-mode-hook 'lsp)
+
   (use-package python-mode
     :ensure t
     :hook (python-mode . lsp-deferred))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(python-mode haskell-mode company-c-headers smart-tabs-mode origami tree-sitter-langs tree-sitter flycheck company-box company lsp-ivy lsp-ui lsp-mode magit counsel-projectile projectile evil-collection evil hydra general which-key use-package rainbow-delimiters no-littering jupyter ivy-rich helpful doom-themes doom-modeline counsel)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+  (add-hook 'python-mode-hook '(lsp-mode t))
+  (use-package lsp-jedi
+  :ensure t
+  :config
+  (with-eval-after-load "lsp-mode"
+    (add-to-list 'lsp-disabled-clients 'pyls)))
+
+  (use-package jupyter)
+
+(defun display-ansi-colors ()
+  (ansi-color-apply-on-region (point-min) (point-max)))
+
+(add-hook 'org-babel-after-execute-hook #'display-ansi-colors)

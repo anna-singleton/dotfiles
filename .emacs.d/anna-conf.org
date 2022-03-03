@@ -118,7 +118,7 @@
   
 *** Font Settings
 #+begin_src emacs-lisp
-  (set-face-attribute 'default nil :font "Fira Code" :height 130)
+  (set-face-attribute 'default nil :font "Monoid" :height 130)
 #+end_src 
 
 *** Theme
@@ -426,7 +426,7 @@ this enables syntax highlighting, the key to check is C-c s
 **** set my own init hook for c to fix some things
 #+begin_src emacs-lisp
       (defun as/c-init-hook ()
-        (define-key c-mode-base-map "\C-c" 'c-context-line-break)
+        ;;(define-key c-mode-base-map "\C-c" 'c-context-line-break)
         ;;(setq tab-width 4 indent-tabs-mode nil)
         (electric-pair-mode t) ;;turn on auto pair brackets
         (setq backward-delete-char-untabify-method 'hungry) ;; delete tabs at once
@@ -472,26 +472,16 @@ this will also remember the previous command
 #+begin_src emacs-lisp
   (use-package haskell-mode)
 #+end_src
-**** Install Intero
-#+begin_src emacs-lisp
-  (use-package 'intero)
-  (add-hook 'haskell-mode-hook 'intero-mode)
-#+end_src>
 *** Java
 **** Gradle
 #+begin_src emacs-lisp
   (use-package gradle-mode)
   (gradle-mode 1)
-#+end_src>
+#+end_src
 **** LSP-Mode
 #+begin_src emacs-lisp
-  (add-hook 'java-mode-hook 'lsp-mode)
-#+end_src>
-**** Unbreak Projectile
-#+begin_src emacs-lisp
-  (add-hook 'java-mode-hook (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
-#+end_src>
-for some reason, java mode unbinds projectile's command map, this binds it back
+  (add-hook 'java-mode-hook 'lsp)
+#+end_src
 
 *** Python
 **** Python Mode
@@ -508,19 +498,17 @@ for some reason, java mode unbinds projectile's command map, this binds it back
   :ensure t
   :config
   (with-eval-after-load "lsp-mode"
-    (add-to-list 'lsp-disabled-clients 'pyls)
-    (add-to-list 'lsp-enabled-clients 'jedi)))
-#+end_src>
+    (add-to-list 'lsp-disabled-clients 'pyls)))
+#+end_src
 
 **** Org Mode as Jupyter Notebook
 #+begin_src emacs-lisp
   (use-package jupyter)
-#+end_src>
+#+end_src
 ***** Fix ANSI colour codes
 #+begin_src emacs-lisp
 (defun display-ansi-colors ()
   (ansi-color-apply-on-region (point-min) (point-max)))
 
 (add-hook 'org-babel-after-execute-hook #'display-ansi-colors)
->>>>>>> 67ffe3e (thinkpad init commit)
-#+end_src>
+#+end_src

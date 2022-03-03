@@ -1,3 +1,5 @@
 .emacs.d/*
 !.emacs.d/anna-conf.org
 !.emacs.d/init.el
+.config/*
+.util/outofdatepackages
