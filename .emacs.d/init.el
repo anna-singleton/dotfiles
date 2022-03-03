@@ -102,8 +102,9 @@
     :hook (prog-mode . rainbow-delimiters-mode))
 
   (defun as/org-babel-tangle-config ()
-    (when (string-equal (buffer-file-name)
-                        (expand-file-name "~/.dotfiles/.emacs.d/anna-conf.org"))
+    (when (or
+(string-equal (buffer-file-name) (expand-file-name "~/.dotfiles/.emacs.d/anna-conf.org"))
+(string-equal (buffer-file-name) (expand-file-name "~/.dotfiles/systemconf.org")))
       (let ((org-confirm-babel-evaluate nil))
         (org-babel-tangle))))
   (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'as/org-babel-tangle-config)))

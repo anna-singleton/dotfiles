@@ -47,7 +47,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec "rofi -show run"
 
 # emacs hotkey
-bindsym $mod+p exec emacs
+bindsym $mod+p exec emacs -bg BLACK
 
 # screenshot via flameshot
 bindsym Print exec "flameshot gui"
