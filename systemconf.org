@@ -487,6 +487,7 @@ selection_foreground  #0d0f18
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias cl='clear'
 
 # custom bash output
 outofdate()

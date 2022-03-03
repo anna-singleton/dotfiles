@@ -3,3 +3,4 @@
 !.emacs.d/init.el
 .config/*
 .util/outofdatepackages
+.bashrc
