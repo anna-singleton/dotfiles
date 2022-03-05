@@ -1,6 +1,5 @@
 #+title Anna's System Config with OrgMode Babel
 #+PROPERTY: header-args :mkdirp yes :noweb yes
-
 * General Setup
 ** System Names
 #+NAME: thinkpad
