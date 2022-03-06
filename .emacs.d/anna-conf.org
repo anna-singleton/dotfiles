@@ -318,6 +318,12 @@ org-superstar currently causes issues with fontifying ANSI colour code output in
 #+begin_src emacs-lisp
   (add-hook 'prog-mode-hook 'electric-pair-mode t)
 #+end_src
+
+** Turn on relative line numbers
+#+begin_src emacs-lisp
+(setq display-line-numbers-type 'relative)
+#+end_src
+ 
 ** Projectile
 #+begin_src emacs-lisp
   (use-package projectile
@@ -513,4 +519,9 @@ this will also remember the previous command
   (ansi-color-apply-on-region (point-min) (point-max)))
 
 (add-hook 'org-babel-after-execute-hook #'display-ansi-colors)
+#+end_src
+
+*** Vimrc
+#+begin_src emacs-lisp
+  (use-package vimrc-mode)
 #+end_src

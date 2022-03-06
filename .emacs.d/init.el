@@ -196,6 +196,8 @@
 
   (add-hook 'prog-mode-hook 'electric-pair-mode t)
 
+(setq display-line-numbers-type 'relative)
+
   (use-package projectile
     :diminish projectile-mode
     :config (projectile-mode)
@@ -311,16 +313,5 @@
   (ansi-color-apply-on-region (point-min) (point-max)))
 
 (add-hook 'org-babel-after-execute-hook #'display-ansi-colors)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(lsp-java which-key use-package tree-sitter-langs smart-tabs-mode rainbow-delimiters python-mode origami no-littering magit lsp-ui lsp-jedi lsp-ivy jupyter ivy-rich hydra helpful haskell-mode gradle-mode general flycheck evil-collection doom-themes doom-modeline counsel-projectile company-c-headers company-box)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+  (use-package vimrc-mode)
