@@ -481,6 +481,7 @@ this will also remember the previous command
 #+end_src
 **** LSP-Mode
 #+begin_src emacs-lisp
+  (use-package lsp-java)
   (add-hook 'java-mode-hook 'lsp)
 #+end_src
 

@@ -451,27 +451,27 @@ disable_ligatures cursor
 #+begin_src conf
 background_opacity 0.9
 
-background            #0d0f18
-foreground            #fffaf3
-cursor                #ff0017
-selection_background  #002a3a
-color0                #222222
-color8                #444444
-color1                #ff000f
-color9                #ff273f
-color2                #8ce00a
-color10               #abe05a
-color3                #ffb900
-color11               #ffd141
-color4                #008df8
-color12               #0092ff
-color5                #6c43a5
-color13               #9a5feb
-color6                #00d7eb
-color14               #67ffef
-color7                #ffffff
-color15               #ffffff
-selection_foreground  #0d0f18
+# background            #0d0f18
+# foreground            #fffaf3
+# cursor                #ff0017
+# selection_background  #002a3a
+# color0                #222222
+# color8                #444444
+# color1                #ff000f
+# color9                #ff273f
+# color2                #8ce00a
+# color10               #abe05a
+# color3                #ffb900
+# color11               #ffd141
+# color4                #008df8
+# color12               #0092ff
+# color5                #6c43a5
+# color13               #9a5feb
+# color6                #00d7eb
+# color14               #67ffef
+# color7                #ffffff
+# color15               #ffffff
+# selection_foreground  #0d0f18
 #+end_src
  
 * bash
@@ -494,12 +494,18 @@ outofdate()
 	echo $(cat /home/anna/.util/outofdatepackages)
 }
 
+BLACK="\[$(tput setaf 0)\]"
 RED="\[$(tput setaf 1)\]"
 GREEN="\[$(tput setaf 2)\]"
+YELLOW="\[$(tput setaf 3)\]"
+BLUE="\[$(tput setaf 4)\]"
+MAGENTA="\[$(tput setaf 5)\]"
+CYAN="\[$(tput setaf 6)\]"
+WHITE="\[$(tput setaf 6)\]"
 BOLD="\[$(tput bold)\]"
 RESET="\[$(tput sgr0)\]"
 
-PS1="${BOLD}anna ${RESET}${GREEN}[\W] ${RESET}${RED}${BOLD}"'($(outofdate))'"${RESET} >"
+PS1="${BOLD}anna ${RESET}${GREEN}[\W] ${RESET}${RED}${BOLD}"'($(outofdate))'"${RESET} ${CYAN}█${MAGENTA}█${RESET}█${MAGENTA}█${CYAN}█ ${RESET}>"
 
 # ssh-keychain
 
