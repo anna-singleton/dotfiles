@@ -52,6 +52,9 @@ bindsym $mod+p exec emacs -bg BLACK
 bindsym Print exec "flameshot gui"
 bindsym Shift+Print exec "flameshot full"
 
+# start obsidian
+bindsym $mod+o exec "obsidian"
+
 #+end_src
 
 **** Window Navigation
