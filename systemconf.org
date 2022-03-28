@@ -23,7 +23,7 @@
 #+begin_src emacs-lisp
   (if (string-equal (system-name) <<thinkpad>>)
 "i3lock-fancy -f Monoid-Retina -t LOCKED --nofork"
-"i3lock-fancy-dualmonitors -f Monoid-Retina -t LOCKED --nofork")
+"i3lock-fancy-dualmonitor -f Monoid-Retina -t LOCKED --nofork")
 #+end_src
 
 ** General Config
@@ -54,6 +54,9 @@ bindsym Shift+Print exec "flameshot full"
 
 # start obsidian
 bindsym $mod+o exec "obsidian"
+
+# start firefox
+bindsym $mod+i exec "firefox"
 
 #+end_src
 
