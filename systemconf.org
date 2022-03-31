@@ -273,7 +273,7 @@ for_window [class="matplotlib"] floating enable
 #+NAME: polybar-fontsize
 #+begin_src emacs-lisp
   (if (string-equal (system-name) <<thinkpad>>)
-"14" "12")
+"12" "10")
 #+end_src
 
 ** General Config
@@ -309,22 +309,19 @@ border-color = #00000000
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left = 0
+module-margin-right = 0
+separator = "|"
 
 font-0 = monoid:pixelsize=<<polybar-fontsize()>>;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-right = pulseaudio <<polybar-battery()>>
-modules-center = date
+modules-right = pulseaudio <<polybar-battery()>> date
+modules-center = title
 modules-left = i3
 
-tray-position = right
-tray-padding = 2
-
 wm-restack = i3
-
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -378,15 +375,15 @@ type = internal/date
 interval = 5
 
 date = "%d-%m"
-date-alt = " %Y-%b-%d"
+date-alt = "%Y-%b-%d"
 
-time = %I:%M %p
-time-alt = %I:%M %p
+time = %H:%M
+time-alt = %H:%M
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 
-label = %time% %date% 
+label = %time%|%date% 
 #+end_src
   
 **** PulseAudio
@@ -410,9 +407,9 @@ type = internal/battery
 battery = BAT0
 adapter = AC
 
-label-charging = BAT0: %percentage%% (C)
-label-discharging = BAT0: %percentage%%
-label-full = BAT0: %percentage%%
+label-charging = B0: %percentage%|PWR
+label-discharging = B0: %percentage%
+label-full = B0: %percentage%
 
 poll-interval = 5
 
@@ -421,12 +418,19 @@ type = internal/battery
 battery = BAT1
 adapter = AC
 
-label-charging = BAT1: %percentage%% (C)
-label-discharging = BAT1: %percentage%%
-label-full = BAT1: %percentage%%
+label-charging = B1: %percentage%|PWR
+label-discharging = B1: %percentage%
+label-full = B1: %percentage%
 
 poll-interval = 5
 
+#+end_src
+ 
+**** XWindow Title
+
+#+begin_src conf
+[module/title]
+type = internal/xwindow
 #+end_src
  
 *** General Settings
