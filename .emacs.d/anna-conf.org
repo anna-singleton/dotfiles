@@ -501,7 +501,7 @@ this will also remember the previous command
 
 **** LSP
 #+begin_src emacs-lisp
-  (add-hook 'python-mode-hook '(lsp-mode t))
+  (add-hook 'python-mode-hook 'lsp)
   (use-package lsp-jedi
   :ensure t
   :config

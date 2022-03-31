@@ -245,6 +245,10 @@ hide_edge_borders smart
 
 hides borders at the edge of the screen
 
+#+begin_src conf
+for_window [class="matplotlib"] floating enable
+#+end_src
+
 * polybar
 :PROPERTIES:
 :header-args+: :tangle ".config/polybar/config" :noweb yes

@@ -300,7 +300,7 @@
     :ensure t
     :hook (python-mode . lsp-deferred))
 
-  (add-hook 'python-mode-hook '(lsp-mode t))
+  (add-hook 'python-mode-hook 'lsp)
   (use-package lsp-jedi
   :ensure t
   :config
@@ -315,3 +315,17 @@
 (add-hook 'org-babel-after-execute-hook #'display-ansi-colors)
 
   (use-package vimrc-mode)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files '("~/Dropbox/notes/todo.org"))
+ '(package-selected-packages
+   '(yaml-mode which-key vimrc-mode use-package tree-sitter-langs smart-tabs-mode rainbow-delimiters python-mode polymode origami org-superstar no-littering magit lsp-ui lsp-jedi lsp-java lsp-ivy jupyter ivy-rich helpful haskell-mode gradle-mode general flycheck evil-collection eclim doom-themes doom-modeline deferred dash-functional counsel-projectile company-c-headers company-box auto-package-update anaphora)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
