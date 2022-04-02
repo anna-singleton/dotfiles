@@ -392,7 +392,7 @@ label = %time%|%date%
 type = internal/pulseaudio
 
 format-volume = <label-volume>
-label-volume = VOL %percentage%%
+label-volume = VOL: %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = muted
@@ -610,7 +610,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 :END:
 ** General Config
 #+begin_src conf
-@theme "/usr/share/rofi/themes/dmenu.rasi"
+@theme "/home/anna/.config/rofi/dmenu-custom.rasi"
 #+end_src
 
 * Xmodmap
