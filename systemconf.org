@@ -247,6 +247,7 @@ hides borders at the edge of the screen
 
 #+begin_src conf
 for_window [class="matplotlib"] floating enable
+for_window [class="chatterino"] floating enable
 #+end_src
 
 * polybar
