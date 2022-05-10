@@ -718,7 +718,7 @@ function fish_prompt
   printf " (%s) " (cat /home/anna/.util/outofdatepackages)
   set_color normal
   set_color white
-  printf "><>"
+  printf "><> "
 end
 
 #+end_src
