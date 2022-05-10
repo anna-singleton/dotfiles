@@ -519,6 +519,12 @@ background_opacity 0.9
 # selection_foreground  #0d0f18
 #+end_src
  
+*** Shell
+#+begin_src conf
+
+shell /usr/bin/fish
+
+#+end_src
 * bash
 :PROPERTIES:
 :header-args+: :tangle ".bashrc" :noweb yes
@@ -679,3 +685,57 @@ lon=-76
 Sets redshift to use a manually set location, instead of fetching it
 * flameshot
 currently no config required, its pretty good at setting itself up
+* fish
+:PROPERTIES:
+:header-args+: :tangle ".config/fish/config.fish" :noweb yes
+:header-args:emacs-lisp: :tangle no
+:END:
+** prompt
+:PROPERTIES:
+:header-args+: :tangle ".config/fish/functions/fish_prompt.fish" :noweb yes
+:header-args:emacs-lisp: :tangle no
+:END:
+
+#+begin_src conf
+
+function fish_prompt
+  set_color white -o
+  printf "anna"
+  set_color normal
+  set_color green
+  printf " [%s] " (basename $PWD)
+  set_color 7ACBF5
+  printf "█"
+  set_color EAACB8
+  printf "█"
+  set_color FFFFFF
+  printf "█"
+  set_color EAACB8
+  printf "█"
+  set_color 7ACBF5
+  printf "█"
+  set_color red -o
+  printf " (%s) " (cat /home/anna/.util/outofdatepackages)
+  set_color normal
+  set_color white
+  printf "><>"
+end
+
+#+end_src
+
+** greeting
+:PROPERTIES:
+:header-args+: :tangle ".config/fish/functions/fish_greeting.fish" :noweb yes
+:header-args:emacs-lisp: :tangle no
+:END:
+#+begin_src conf
+
+function fish_greeting
+  printf "Investing in"
+  set_color blue -o
+  printf " rare "
+  set_color normal
+  echo "fish..."
+end
+
+#+end_src
