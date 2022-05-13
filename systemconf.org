@@ -690,6 +690,23 @@ currently no config required, its pretty good at setting itself up
 :header-args+: :tangle ".config/fish/config.fish" :noweb yes
 :header-args:emacs-lisp: :tangle no
 :END:
+** basic config
+#+begin_src conf
+if status is-interactive
+    alias pacman "sudo pacman"
+    alias cl "clear"
+end
+
+thefuck --alias | source
+
+if test -z (pgrep ssh-agent)
+  eval (ssh-agent -c)
+  set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+  set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+  set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+end
+#+end_src
+ 
 ** prompt
 :PROPERTIES:
 :header-args+: :tangle ".config/fish/functions/fish_prompt.fish" :noweb yes

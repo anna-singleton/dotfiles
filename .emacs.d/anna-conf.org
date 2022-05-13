@@ -525,3 +525,10 @@ this will also remember the previous command
 #+begin_src emacs-lisp
   (use-package vimrc-mode)
 #+end_src
+
+*** Fish Scripting
+#+begin_src emacs-lisp
+  (use-package fish-mode)
+  (use-package fish-completion)
+#+end_src
+ 
