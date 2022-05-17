@@ -432,14 +432,15 @@ this enables syntax highlighting, the key to check is C-c s
 *** C
 **** set my own init hook for c to fix some things
 #+begin_src emacs-lisp
-      (defun as/c-init-hook ()
-        ;;(define-key c-mode-base-map "\C-c" 'c-context-line-break)
-        ;;(setq tab-width 4 indent-tabs-mode nil)
-        (electric-pair-mode t) ;;turn on auto pair brackets
-        (setq backward-delete-char-untabify-method 'hungry) ;; delete tabs at once
-      ;;(hs-minor-mode t) ;; turn on folding support (z a to toggle)
+(defun as/c-init-hook ()
+  ;;(define-key c-mode-base-map "\C-c" 'c-context-line-break)
+  ;;(setq tab-width 4 indent-tabs-mode nil)
+  (electric-pair-mode t) ;;turn on auto pair brackets
+  (setq backward-delete-char-untabify-method 'hungry) ;; delete tabs at once
+  (yas-minor-mode-on)
+  ;;(hs-minor-mode t) ;; turn on folding support (z a to toggle)
   )
-      (add-hook 'c-initialization-hook 'as/c-init-hook)
+(add-hook 'c-initialization-hook 'as/c-init-hook)
 #+end_src
 **** c-headers completion
 #+begin_src emacs-lisp
