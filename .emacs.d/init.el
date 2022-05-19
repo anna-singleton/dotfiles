@@ -264,20 +264,20 @@
   (use-package origami)
   (add-hook 'prog-mode-hook 'origami-mode t)
 
-  (setq-default indent-tabs-mode t)
-  (use-package smart-tabs-mode)
-  (smart-tabs-insinuate 'c 'java)
-  (setq-default c-basic-offset 4)
-  (setq-default tab-width 4)
+   ;(setq-default indent-tabs-mode nil)
+   ;(use-package smart-tabs-mode)
+   ;(smart-tabs-insinuate 'c 'java)
+   (setq-default c-basic-offset 4)
+   (setq-default tab-width 4)
 
   (use-package yasnippet)
 
 (defun as/c-init-hook ()
   ;;(define-key c-mode-base-map "\C-c" 'c-context-line-break)
-  ;;(setq tab-width 4 indent-tabs-mode nil)
+  (setq tab-width 4 indent-tabs-mode nil)
   (electric-pair-mode t) ;;turn on auto pair brackets
   (setq backward-delete-char-untabify-method 'hungry) ;; delete tabs at once
-  (yas-minor-mode-on)
+  (yas-minor-mode t)
   ;;(hs-minor-mode t) ;; turn on folding support (z a to toggle)
   )
 (add-hook 'c-initialization-hook 'as/c-init-hook)
