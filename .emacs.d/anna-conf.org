@@ -118,7 +118,7 @@
   
 *** Font Settings
 #+begin_src emacs-lisp
-  (set-face-attribute 'default nil :font "Monoid" :height 130)
+  (set-face-attribute 'default nil :font "NotoSansMono" :height 130)
 #+end_src 
 
 *** Theme
@@ -128,7 +128,7 @@
       :config
       (setq doom-themes-enable-bold t
             doom-themes-enable-italic t)
-      (load-theme 'doom-material-dark t)
+      (load-theme 'doom-snazzy t)
       (doom-themes-visual-bell-config))
 #+end_src
 
@@ -139,6 +139,7 @@
     :ensure t
     :init (doom-modeline-mode 1))
   (setq doom-modeline-height 16)
+  (setq doom-modeline-modal-icon nil)
 
   (use-package all-the-icons)
 #+end_src
@@ -282,6 +283,7 @@ org-superstar currently causes issues with fontifying ANSI colour code output in
 
 ** Evil Mode
 
+*** Add extra modes to use evil mode
 #+begin_src emacs-lisp
   (defun as/evil-hook ()
     (dolist (mode '(custom-mode
@@ -292,6 +294,7 @@ org-superstar currently causes issues with fontifying ANSI colour code output in
       (add-to-list 'evil-emacs-state-modes mode)))
 #+end_src
 
+*** Install & Activate evil mode
 #+begin_src emacs-lisp
   (use-package evil
     :init
@@ -301,16 +304,27 @@ org-superstar currently causes issues with fontifying ANSI colour code output in
     (evil-mode 1)
     (evil-global-set-key 'motion "j" 'evil-next-visual-line)
     (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+    (evil-define-key 'normal 'local "K" 'man)
     (evil-define-key 'visual 'local "C-x C-;" 'comment-or-uncomment-region)
     (evil-set-initial-state 'messages-buffer-mode 'normal)
     (evil-set-initial-state 'dashboard-mode 'normal))
 #+end_src
   
+*** Install & Activate evil collection
 #+begin_src emacs-lisp
   (use-package evil-collection
     :after evil
     :config
     (evil-collection-init))
+#+end_src
+
+evil collection is a package which adds bindings for other common non-text editor
+modes.
+
+*** Add undo-fu
+
+#+begin_src emacs-lisp
+  (use-package undo-fu)
 #+end_src
 
 * Development
@@ -428,6 +442,15 @@ this enables syntax highlighting, the key to check is C-c s
   (setq-default c-basic-offset 4)
   (setq-default tab-width 4)
 #+end_src
+
+** YASnippet
+
+#+begin_src emacs-lisp
+  (use-package yasnippet)
+#+end_src
+
+YASnippet is a plugin to allow insertion of snippets into code
+ 
 ** Language Specific Configs
 *** C
 **** set my own init hook for c to fix some things
@@ -457,6 +480,14 @@ this enables syntax highlighting, the key to check is C-c s
   (setq c-default-style "linux"
         c-basic-offset 4)
 #+end_src
+
+**** manpage keybind
+
+#+begin_src emacs-lisp
+
+#+end_src
+
+set `K` (in normal mode) to run the command `man`
 
 **** note on build -> run
 we can use C-c p P to do a test command such as:

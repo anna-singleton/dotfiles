@@ -231,7 +231,7 @@ exec "/home/anna/.util/writeupdateablepackages &"
 *** UI
 **** Font
 #+begin_src conf 
-font pango:Monoid 10
+font pango:NotoSansMono 10
 #+end_src
 
 **** Colours
@@ -485,7 +485,7 @@ screenchange-reload = true
 ** General Config
 *** Text Display
 #+begin_src conf
-font_family Monoid
+font_family NotoSansMono
 
 font_size <<kitty-fontsize()>>
 

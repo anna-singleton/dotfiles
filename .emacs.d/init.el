@@ -71,20 +71,21 @@
   (setq visible-bell t)
   (set-fringe-mode 10)
 
-  (set-face-attribute 'default nil :font "Monoid" :height 130)
+  (set-face-attribute 'default nil :font "NotoSansMono" :height 130)
 
     (use-package doom-themes
       :ensure t
       :config
       (setq doom-themes-enable-bold t
             doom-themes-enable-italic t)
-      (load-theme 'doom-material-dark t)
+      (load-theme 'doom-snazzy t)
       (doom-themes-visual-bell-config))
 
   (use-package doom-modeline
     :ensure t
     :init (doom-modeline-mode 1))
   (setq doom-modeline-height 16)
+  (setq doom-modeline-modal-icon nil)
 
   (use-package all-the-icons)
 
@@ -185,6 +186,7 @@
     (evil-mode 1)
     (evil-global-set-key 'motion "j" 'evil-next-visual-line)
     (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+    (evil-define-key 'normal 'local "K" 'man)
     (evil-define-key 'visual 'local "C-x C-;" 'comment-or-uncomment-region)
     (evil-set-initial-state 'messages-buffer-mode 'normal)
     (evil-set-initial-state 'dashboard-mode 'normal))
@@ -193,6 +195,8 @@
     :after evil
     :config
     (evil-collection-init))
+
+  (use-package undo-fu)
 
   (add-hook 'prog-mode-hook 'electric-pair-mode t)
 
@@ -266,6 +270,8 @@
   (setq-default c-basic-offset 4)
   (setq-default tab-width 4)
 
+  (use-package yasnippet)
+
 (defun as/c-init-hook ()
   ;;(define-key c-mode-base-map "\C-c" 'c-context-line-break)
   ;;(setq tab-width 4 indent-tabs-mode nil)
@@ -283,6 +289,8 @@
 
   (setq c-default-style "linux"
         c-basic-offset 4)
+
+
 
   (defun as/makefile-init-hook ()
   (setq tab-width 4))
@@ -319,3 +327,16 @@
 
   (use-package fish-mode)
   (use-package fish-completion)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(undo-fu yasnippet which-key vimrc-mode use-package tree-sitter-langs theme-looper smart-tabs-mode rainbow-delimiters python-mode origami no-littering magit lsp-ui lsp-jedi lsp-java lsp-ivy jupyter ivy-rich helpful haskell-mode gradle-mode general flycheck fish-mode fish-completion evil-collection doom-themes doom-modeline counsel-projectile company-c-headers company-box)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
