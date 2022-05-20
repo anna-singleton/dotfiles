@@ -277,7 +277,7 @@
   (setq tab-width 4 indent-tabs-mode nil)
   (electric-pair-mode t) ;;turn on auto pair brackets
   (setq backward-delete-char-untabify-method 'hungry) ;; delete tabs at once
-  (yas-minor-mode t)
+  (yas-minor-mode)
   ;;(hs-minor-mode t) ;; turn on folding support (z a to toggle)
   )
 (add-hook 'c-initialization-hook 'as/c-init-hook)
@@ -298,9 +298,6 @@
   (add-hook 'makefile-gmake-mode-hook 'as/makefile-init-hook)
 
   (use-package haskell-mode)
-
-  (use-package gradle-mode)
-  (gradle-mode 1)
 
   (use-package lsp-java)
   (add-hook 'java-mode-hook 'lsp)
@@ -333,7 +330,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(undo-fu yasnippet which-key vimrc-mode use-package tree-sitter-langs theme-looper smart-tabs-mode rainbow-delimiters python-mode origami no-littering magit lsp-ui lsp-jedi lsp-java lsp-ivy jupyter ivy-rich helpful haskell-mode gradle-mode general flycheck fish-mode fish-completion evil-collection doom-themes doom-modeline counsel-projectile company-c-headers company-box)))
+   '(yaml-mode which-key vimrc-mode use-package undo-fu tree-sitter-langs smart-tabs-mode rainbow-delimiters python-mode polymode origami org-superstar no-littering magit lsp-ui lsp-jedi lsp-java lsp-ivy jupyter ivy-rich helpful haskell-mode general flycheck fish-mode fish-completion evil-collection eclim doom-themes doom-modeline deferred dash-functional counsel-projectile company-c-headers company-box auto-package-update anaphora)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
