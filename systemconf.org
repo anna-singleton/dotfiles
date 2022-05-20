@@ -748,6 +748,8 @@ end
 #+begin_src conf
 
 function fish_greeting
+  fortune -s | cowsay
+  echo ""
   printf "Investing in"
   set_color blue -o
   printf " rare "
