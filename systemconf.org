@@ -695,6 +695,7 @@ currently no config required, its pretty good at setting itself up
 if status is-interactive
     alias pacman "sudo pacman"
     alias cl "clear"
+    alias ll "ls -lah"
 end
 
 thefuck --alias | source
