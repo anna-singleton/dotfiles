@@ -678,8 +678,8 @@ Rebinds capslock to ctrl, and rctrl to capslock
 location-provider=manual
 
 [manual]
-lat=36
-lon=-76
+lat=53
+lon=-1
 #+end_src
 
 Sets redshift to use a manually set location, instead of fetching it
