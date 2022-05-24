@@ -118,8 +118,11 @@
   
 *** Font Settings
 #+begin_src emacs-lisp
+  (add-to-list 'default-frame-alist '(font . "NotoSansMono"))
   (set-face-attribute 'default nil :font "NotoSansMono" :height 130)
 #+end_src 
+
+the 1st line is to fix emacs setting the incorrect font in daemon mode
 
 *** Theme
 #+begin_src emacs-lisp

@@ -46,7 +46,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec "rofi -show run"
 
 # emacs hotkey
-bindsym $mod+p exec emacs -bg BLACK
+bindsym $mod+p exec emacsclient -c
 
 # screenshot via flameshot
 bindsym Print exec "flameshot gui"
@@ -144,6 +144,7 @@ bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
@@ -226,6 +227,14 @@ exec "xfce4-panel -q"
 
 # update the out of date package checker
 exec "/home/anna/.util/writeupdateablepackages &"
+#+end_src
+
+**** Emacs Daemon
+
+#+begin_src conf
+
+exec "emacs --daemon"
+
 #+end_src
 
 *** UI
@@ -696,6 +705,9 @@ if status is-interactive
     alias pacman "sudo pacman"
     alias cl "clear"
     alias ll "ls -lah"
+    alias emacs-kill "emacsclient --eval '(kill-emacs)'"
+    alias emacs-start "emacs --daemon"
+    alias emacs-restart "emacs-kill; emacs-start"
 end
 
 thefuck --alias | source

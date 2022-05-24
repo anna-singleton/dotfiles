@@ -71,6 +71,7 @@
   (setq visible-bell t)
   (set-fringe-mode 10)
 
+  (add-to-list 'default-frame-alist '(font . "NotoSansMono"))
   (set-face-attribute 'default nil :font "NotoSansMono" :height 130)
 
     (use-package doom-themes
@@ -324,16 +325,3 @@
 
   (use-package fish-mode)
   (use-package fish-completion)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(yaml-mode which-key vimrc-mode use-package undo-fu tree-sitter-langs smart-tabs-mode rainbow-delimiters python-mode polymode origami org-superstar no-littering magit lsp-ui lsp-jedi lsp-java lsp-ivy jupyter ivy-rich helpful haskell-mode general flycheck fish-mode fish-completion evil-collection eclim doom-themes doom-modeline deferred dash-functional counsel-projectile company-c-headers company-box auto-package-update anaphora)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
