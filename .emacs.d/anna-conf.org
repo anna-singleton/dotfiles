@@ -104,6 +104,11 @@
     (setq auto-save-file-name-transforms
           `((".*", (no-littering-expand-var-file-name "auto-save/") t)))
 #+end_src
+** Dired
+*** keep only one dired buffer at a time
+#+begin_src emacs-lisp
+  (setq dired-kill-when-opening-new-dired-buffer t)
+#+end_src
 * UI
 ** Basic UI
 *** Disable Bad UI Features

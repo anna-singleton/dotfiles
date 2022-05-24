@@ -64,6 +64,8 @@
     (setq auto-save-file-name-transforms
           `((".*", (no-littering-expand-var-file-name "auto-save/") t)))
 
+  (setq dired-kill-when-opening-new-dired-buffer t)
+
   (setq inhibit-startup-message t)
   (tool-bar-mode -1)
   (menu-bar-mode -1)
