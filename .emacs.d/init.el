@@ -281,7 +281,7 @@
   (electric-pair-mode t) ;;turn on auto pair brackets
   (setq backward-delete-char-untabify-method 'hungry) ;; delete tabs at once
   (yas-minor-mode)
-  ;;(hs-minor-mode t) ;; turn on folding support (z a to toggle)
+  ;(hs-minor-mode) ;; turn on folding support (z a to toggle)
   )
 (add-hook 'c-initialization-hook 'as/c-init-hook)
 
