@@ -36,7 +36,8 @@ element {
     padding: 0px 2px;
 }
 element selected {
-    background-color: Grey;
+    background-color: Red;
+	text-color: Black;
 }
 
 element-text, element-icon {
