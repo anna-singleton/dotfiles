@@ -468,7 +468,6 @@ YASnippet is a plugin to allow insertion of snippets into code
   (setq tab-width 4 indent-tabs-mode nil)
   (electric-pair-mode t) ;;turn on auto pair brackets
   (setq backward-delete-char-untabify-method 'hungry) ;; delete tabs at once
-  (yas-minor-mode)
   ;(hs-minor-mode) ;; turn on folding support (z a to toggle)
   )
 (add-hook 'c-initialization-hook 'as/c-init-hook)
@@ -478,10 +477,17 @@ YASnippet is a plugin to allow insertion of snippets into code
   (use-package company-c-headers)
   (add-to-list 'company-backends 'company-c-headers)
 #+end_src
-**** enable lsp mode
+
+**** each buffer required commands
 #+begin_src emacs-lisp
-(add-hook 'c-mode-hook 'lsp)
+(defun as/c-buffer-init ()
+  (lsp)
+  (yas-minor-mode))
+
+  (add-hook 'c-mode-hook 'as/c-buffer-init)
 #+end_src
+
+some commands need running on each buffer open for C mode.
 
 **** fix indentation style
 #+begin_src emacs-lisp

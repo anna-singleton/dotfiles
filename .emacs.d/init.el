@@ -280,7 +280,6 @@
   (setq tab-width 4 indent-tabs-mode nil)
   (electric-pair-mode t) ;;turn on auto pair brackets
   (setq backward-delete-char-untabify-method 'hungry) ;; delete tabs at once
-  (yas-minor-mode)
   ;(hs-minor-mode) ;; turn on folding support (z a to toggle)
   )
 (add-hook 'c-initialization-hook 'as/c-init-hook)
@@ -288,7 +287,11 @@
   (use-package company-c-headers)
   (add-to-list 'company-backends 'company-c-headers)
 
-(add-hook 'c-mode-hook 'lsp)
+(defun as/c-buffer-init ()
+  (lsp)
+  (yas-minor-mode))
+
+  (add-hook 'c-mode-hook 'as/c-buffer-init)
 
   (setq c-default-style "linux"
         c-basic-offset 4)
