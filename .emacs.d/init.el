@@ -267,7 +267,7 @@
   (use-package origami)
   (add-hook 'prog-mode-hook 'origami-mode t)
 
-   ;(setq-default indent-tabs-mode nil)
+   (setq-default indent-tabs-mode nil)
    ;(use-package smart-tabs-mode)
    ;(smart-tabs-insinuate 'c 'java)
    (setq-default c-basic-offset 4)

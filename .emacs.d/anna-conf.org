@@ -444,7 +444,7 @@ this enables syntax highlighting, the key to check is C-c s
 #+end_src
 ** fix tab fuckery with SmartTabs
 #+begin_src emacs-lisp
-   ;(setq-default indent-tabs-mode nil)
+   (setq-default indent-tabs-mode nil)
    ;(use-package smart-tabs-mode)
    ;(smart-tabs-insinuate 'c 'java)
    (setq-default c-basic-offset 4)
