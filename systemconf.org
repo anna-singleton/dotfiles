@@ -58,6 +58,8 @@ bindsym $mod+o exec "obsidian"
 # start firefox
 bindsym $mod+i exec "firefox"
 
+# use boomer (tsoding's zooming program (f to activate flashlight effect))
+bindsym $mod+m exec boomer
 #+end_src
 
 **** Window Navigation
@@ -108,6 +110,8 @@ bindsym $mod+a focus parent
 
 # focus the child container
 bindsym $mod+Shift+a focus child
+
+
 #+end_src
 
 **** Workspaces
