@@ -257,7 +257,8 @@ org-superstar currently causes issues with fontifying ANSI colour code output in
 
   (as/leader-keys
     "oi" '(org-indent-block :which-key "indent org mode block")
-    "tw" '(whitespace-mode :which-key "toggle whitespace"))
+    "tw" '(whitespace-mode :which-key "toggle whitespace")
+    "b" 'ibuffer)
 #+end_src
 
    General provides a global user prefix (C-SPC) which works as a 'leader-key' for assigning

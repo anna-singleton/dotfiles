@@ -156,7 +156,8 @@
 
   (as/leader-keys
     "oi" '(org-indent-block :which-key "indent org mode block")
-    "tw" '(whitespace-mode :which-key "toggle whitespace"))
+    "tw" '(whitespace-mode :which-key "toggle whitespace")
+    "b" 'ibuffer)
 
 (general-define-key
  "C-M-j" 'counsel-switch-buffer
