@@ -105,6 +105,9 @@
   (use-package rainbow-delimiters
     :hook (prog-mode . rainbow-delimiters-mode))
 
+  (use-package column-enforce-mode)
+  (add-hook 'prog-mode 'column-enforce-mode)
+
   (defun as/org-babel-tangle-config ()
     (when (or
 (string-equal (buffer-file-name) (expand-file-name "~/.dotfiles/.emacs.d/anna-conf.org"))
@@ -298,6 +301,11 @@
         c-basic-offset 4)
 
 
+
+(use-package flycheck-clang-tidy
+  :after flycheck
+  :hook
+  (flycheck-mode . flycheck-clang-tidy-setup))
 
   (defun as/makefile-init-hook ()
   (setq tab-width 4))

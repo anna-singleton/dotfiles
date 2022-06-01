@@ -176,6 +176,13 @@ icons properly
     :hook (prog-mode . rainbow-delimiters-mode))
 #+end_src
 
+*** Highlight 80+ Char lines
+
+#+begin_src emacs-lisp
+  (use-package column-enforce-mode)
+  (add-hook 'prog-mode 'column-enforce-mode)
+#+end_src
+
 * Org-Mode Config
 ** Auto Tangle on Save
 #+begin_src emacs-lisp
@@ -503,6 +510,17 @@ some commands need running on each buffer open for C mode.
 #+end_src
 
 set `K` (in normal mode) to run the command `man`
+
+**** use clang tidy
+
+#+begin_src emacs-lisp
+
+(use-package flycheck-clang-tidy
+  :after flycheck
+  :hook
+  (flycheck-mode . flycheck-clang-tidy-setup))
+
+#+end_src
 
 **** note on build -> run
 we can use C-c p P to do a test command such as:
