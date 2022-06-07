@@ -203,6 +203,11 @@
     :config
     (evil-collection-init))
 
+  (use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+
   (use-package undo-fu)
 
   (add-hook 'prog-mode-hook 'electric-pair-mode t)
@@ -339,3 +344,16 @@
 
   (use-package fish-mode)
   (use-package fish-completion)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(evil-surround yasnippet which-key vimrc-mode use-package undo-fu tree-sitter-langs theme-looper smart-tabs-mode rainbow-delimiters python-mode origami no-littering magit lsp-ui lsp-jedi lsp-java lsp-ivy jupyter ivy-rich helpful haskell-mode gradle-mode general flycheck-clang-tidy fish-mode fish-completion evil-collection doom-themes doom-modeline counsel-projectile company-c-headers company-box column-enforce-mode)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

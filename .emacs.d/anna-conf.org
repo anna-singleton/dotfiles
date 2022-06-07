@@ -337,6 +337,15 @@ org-superstar currently causes issues with fontifying ANSI colour code output in
 evil collection is a package which adds bindings for other common non-text editor
 modes.
 
+*** Add evil-surround
+
+#+begin_src emacs-lisp
+  (use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+#+end_src
+
 *** Add undo-fu
 
 #+begin_src emacs-lisp
