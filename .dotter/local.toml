@@ -1,6 +1,0 @@
-includes = []
-packages = ["default", "desktop"]
-
-[files]
-
-[variables]
