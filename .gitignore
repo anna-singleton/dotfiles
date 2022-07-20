@@ -1,9 +1,1 @@
-.emacs.d/*
-!.emacs.d/anna-conf.org
-!.emacs.d/init.el
-.config/*
-!.config/rofi
-.config/rofi/*
-!.config/rofi/dmenu-custom.rasi
-.util/outofdatepackages
-.bashrc
+.dotter/cache*
