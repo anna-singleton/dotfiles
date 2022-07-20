@@ -73,8 +73,8 @@
   (setq visible-bell t)
   (set-fringe-mode 10)
 
-  (add-to-list 'default-frame-alist '(font . "NotoSansMono"))
-  (set-face-attribute 'default nil :font "NotoSansMono" :height 130)
+  (add-to-list 'default-frame-alist '(font . "IBMPlexMono"))
+  (set-face-attribute 'default nil :font "IBMPlexMono" :height 130)
 
     (use-package doom-themes
       :ensure t
@@ -236,12 +236,12 @@
     :config
     (lsp-enable-which-key-integration t))
 
-    (use-package lsp-ui
-      :hook (lsp-mode . lsp-ui-mode)
-      :custom
-      (lsp-ui-doc-position 'bottom)
-      (lsp-ui-doc-max-height 5)
-      (lsp-signature-doc-lines 5))
+    ;; (use-package lsp-ui
+    ;;   :hook (lsp-mode . lsp-ui-mode)
+    ;;   :custom
+    ;;   (lsp-ui-doc-position 'bottom)
+    ;;   (lsp-ui-doc-max-height 5)
+    ;;   (lsp-signature-doc-lines 5))
 
   (use-package lsp-ivy)
 
@@ -344,13 +344,25 @@
 
   (use-package fish-mode)
   (use-package fish-completion)
+
+  (use-package rustic
+    :ensure)
+  (setq lsp-rust-analyzer-server-display-inlay-hints t)
+
+  (use-package flycheck-rust)
+  (with-eval-after-load 'rust-mode
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+
+  (defun as/rust-init ()
+    (yas-minor-mode))
+  (add-hook 'rust-mode 'as/rust-init)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(evil-surround yasnippet which-key vimrc-mode use-package undo-fu tree-sitter-langs theme-looper smart-tabs-mode rainbow-delimiters python-mode origami no-littering magit lsp-ui lsp-jedi lsp-java lsp-ivy jupyter ivy-rich helpful haskell-mode gradle-mode general flycheck-clang-tidy fish-mode fish-completion evil-collection doom-themes doom-modeline counsel-projectile company-c-headers company-box column-enforce-mode)))
+   '(flycheck-rust yasnippet which-key vimrc-mode use-package undo-fu tree-sitter-langs theme-looper smart-tabs-mode rustic rainbow-delimiters python-mode origami no-littering magit lsp-ui lsp-jedi lsp-java lsp-ivy jupyter ivy-rich helpful haskell-mode gradle-mode general flycheck-clang-tidy fish-mode fish-completion evil-surround evil-collection doom-themes doom-modeline counsel-projectile company-c-headers company-box column-enforce-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

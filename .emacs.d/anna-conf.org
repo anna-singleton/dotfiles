@@ -123,8 +123,8 @@
   
 *** Font Settings
 #+begin_src emacs-lisp
-  (add-to-list 'default-frame-alist '(font . "NotoSansMono"))
-  (set-face-attribute 'default nil :font "NotoSansMono" :height 130)
+  (add-to-list 'default-frame-alist '(font . "IBMPlexMono"))
+  (set-face-attribute 'default nil :font "IBMPlexMono" :height 130)
 #+end_src 
 
 the 1st line is to fix emacs setting the incorrect font in daemon mode
@@ -399,12 +399,12 @@ modes.
 
 *** UI Improvements
 #+begin_src emacs-lisp
-    (use-package lsp-ui
-      :hook (lsp-mode . lsp-ui-mode)
-      :custom
-      (lsp-ui-doc-position 'bottom)
-      (lsp-ui-doc-max-height 5)
-      (lsp-signature-doc-lines 5))
+    ;; (use-package lsp-ui
+    ;;   :hook (lsp-mode . lsp-ui-mode)
+    ;;   :custom
+    ;;   (lsp-ui-doc-position 'bottom)
+    ;;   (lsp-ui-doc-max-height 5)
+    ;;   (lsp-signature-doc-lines 5))
 #+end_src
 
 *** LSP-Ivy
@@ -489,6 +489,7 @@ YASnippet is a plugin to allow insertion of snippets into code
   )
 (add-hook 'c-initialization-hook 'as/c-init-hook)
 #+end_src
+
 **** c-headers completion
 #+begin_src emacs-lisp
   (use-package company-c-headers)
@@ -600,4 +601,23 @@ this will also remember the previous command
   (use-package fish-mode)
   (use-package fish-completion)
 #+end_src
- 
+
+
+*** Rust
+#+begin_src emacs-lisp
+  (use-package rustic
+    :ensure)
+  (setq lsp-rust-analyzer-server-display-inlay-hints t)
+#+end_src
+
+#+begin_src emacs-lisp
+  (use-package flycheck-rust)
+  (with-eval-after-load 'rust-mode
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+#+end_src
+
+#+begin_src emacs-lisp
+  (defun as/rust-init ()
+    (yas-minor-mode))
+  (add-hook 'rust-mode 'as/rust-init)
+#+end_src

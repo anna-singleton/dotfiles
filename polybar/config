@@ -1,0 +1,145 @@
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #dfdfdf
+secondary = #dfdfdf
+alert = #bd2c40
+
+[bar/annabar]
+width = 100%
+height = {{polybar_height}}
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 0
+module-margin-right = 0
+separator = "|"
+
+font-0 = IBMPlexMono:pixelsize={{wm_font_size}};1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+font-3 = Font Awesome 6 Brands,Font Awesome 6 Brands Regular:style=Regular
+font-4 = Font Awesome 6 Free,Font Awesome 6 Free Solid:style=Solid
+font-5 = Font Awesome 6 Free,Font Awesome 6 Free Regular:style=Regular
+
+modules-right = pulseaudio {{polybar_battery}} date
+modules-center = now-playing 
+modules-left = i3
+
+wm-restack = i3
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+#tray-position = right
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary{{wm_font_size}}
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-background}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%d-%m"
+date-alt = "%Y-%b-%d"
+
+time = %H:%M
+time-alt = %H:%M
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+
+label = %time%|%date%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+label-volume = VOL: %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted = muted
+label-muted-foreground = #666
+
+[module/bat_internal]
+type = internal/battery
+battery = BAT0
+adapter = AC
+
+label-charging = B0: %percentage%|PWR
+label-discharging = B0: %percentage%
+label-full = B0: %percentage%
+
+poll-interval = 5
+
+[module/bat_swap]
+type = internal/battery
+battery = BAT1
+adapter = AC
+
+label-charging = B1: %percentage%|PWR
+label-discharging = B1: %percentage%
+label-full = B1: %percentage%
+
+poll-interval = 5
+
+[module/title]
+type = internal/xwindow
+
+[module/now-playing]
+type = custom/script
+tail = true
+format-prefix = "NOW PLAYING: "
+format = <label>
+exec = ~/.config/polybar/custom/polybar-now-playing-script
+click-right = "kill -USR1 $(pgrep --oldest --parent %pid%)"
+
+[settings]
+screenchange-reload = true

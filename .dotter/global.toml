@@ -1,0 +1,38 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+i3 = "~/.config/i3"
+polybar = "~/.config/polybar"
+kitty = "~/.config/kitty"
+rofi = "~/.config/rofi"
+".Xmodmap" = "~/.Xmodmap"
+fish = "~/.config/fish"
+".emacs.d/init.el" = "~/.emacs.d/init.el"
+".emacs.d/anna-conf.org" = "~/.emacs.d/anna-conf.org"
+nvim = "~/.config/nvim"
+".util" = "~/.util"
+
+[default.variables]
+
+[desktop]
+depends = []
+
+[desktop.variables]
+wm_font_size = 10
+i3lock_cmd = "i3lock-fancy-dualmonitor -g"
+polybar_height = 27
+polybar_battery = ""
+term_font_size = 14.0
+
+[thinkpad]
+depends = []
+
+[thinkpad.variables]
+wm_font_size = 10
+i3_lock_cmd = "i3lock-fancy"
+polybar_height = 32
+polybar_battery = "bat_internal bat_swap"
+term_font_size = 16.0
