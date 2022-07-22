@@ -4,6 +4,8 @@ if status is-interactive
     alias ls "ls -l --color=auto"
     alias ll "ls -lah"
     alias nt "ping 8.8.8.8"
+    alias vi nvim
+    alias vim nvim
     alias emacs-kill "emacsclient --eval '(kill-emacs)'"
     alias emacs-start "emacs --daemon"
     alias emacs-restart "emacs-kill; emacs-start"

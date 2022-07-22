@@ -23,9 +23,10 @@ depends = []
 [desktop.variables]
 wm_font_size = 10
 i3lock_cmd = "i3lock-fancy-dualmonitor -g"
-polybar_height = 27
+polybar_height = 19
 polybar_battery = ""
 term_font_size = 14.0
+polybar_offset = 2
 
 [thinkpad]
 depends = []

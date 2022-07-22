@@ -8,7 +8,7 @@ vim.opt.smartindent = true
 
 vim.opt.relativenumber = true
 vim.opt.nu = true
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.cc = "80"
 vim.opt.wrap = false
 vim.opt.signcolumn = "yes"

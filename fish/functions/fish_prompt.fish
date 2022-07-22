@@ -1,3 +1,7 @@
+function info
+    printf "%s " (fish_git_prompt)
+end
+
 function fish_prompt
   set_color white -o
   printf "anna"
@@ -15,8 +19,9 @@ function fish_prompt
   set_color 7ACBF5
   printf "█"
   set_color red -o
-  printf " (%s) " (cat /home/anna/.util/outofdatepackages)
+  printf "%s " (fish_git_prompt)
   set_color normal
   set_color white
   printf "><> "
 end
+
