@@ -1,3 +1,5 @@
+#!/bin/fish
+
 function cr
     if make
         ./a.out
