@@ -25,7 +25,7 @@ depends = []
 wm_font_size = 10
 i3lock_cmd = "i3lock-fancy-dualmonitor -g"
 polybar_height = 19
-polybar_right_modules = "modules-right = upd-end-sep updates vol-upd-sep pulseaudio date-vol-sep date"
+polybar_right_modules = "upd-end-sep updates vol-upd-sep pulseaudio date-vol-sep date"
 term_font_size = 14.0
 polybar_offset = 2
 
@@ -34,8 +34,8 @@ depends = []
 
 [thinkpad.variables]
 wm_font_size = 10
-i3_lock_cmd = "i3lock-fancy"
+i3lock_cmd = "i3lock-fancy"
 polybar_height = 19
-polybar_right_modules = "modules-right = upd-end-sep updates vol-upd-sep pulseaudio bat-vol-sep bat_internal bat_swap date-bat-sep date"
+polybar_right_modules = "upd-end-sep updates vol-upd-sep pulseaudio bat-vol-sep bat_internal bat_swap date-bat-sep date"
 term_font_size = 16.0
 polybar_offset = 2
