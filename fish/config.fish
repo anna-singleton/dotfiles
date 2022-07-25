@@ -1,7 +1,7 @@
 if status is-interactive
     alias pacman "sudo pacman"
     alias cl "clear"
-    alias ls "ls -l --color=auto"
+    alias ls "ls -lh --color=auto"
     alias ll "ls -lah"
     alias nt "ping 8.8.8.8"
     alias vi nvim

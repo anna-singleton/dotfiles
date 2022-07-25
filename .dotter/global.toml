@@ -15,6 +15,7 @@ fish = "~/.config/fish"
 nvim = "~/.config/nvim"
 ".util" = "~/.util"
 "tmux/.tmux.conf" = "~/.tmux.conf"
+git = "~/.config/git"
 
 [default.variables]
 

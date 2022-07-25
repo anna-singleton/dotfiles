@@ -1,5 +1,5 @@
 function quickrun
-    set -l langs "c" "c build" "c run" "rust" "haskell"
+    set -l langs "c" "c build" "rust" "haskell"
 
     set -l chosen "unset"
         
@@ -21,16 +21,15 @@ function quickrun
     
     switch $chosen
         case c
-            echo "c was chosen"
+            cr
         case "c build"
-            echo "c build was chosen"
-        case "c run"
-            echo "c run was chosen"
-        case rust
-            echo "rust"
+            make
+        case "rust" "rust run"
+            cargo run
         case haskell
-            echo "haskell loading"
+            ghci
         case "*"
             echo $chosen " not yet implemented"
     end
+    read
 end
