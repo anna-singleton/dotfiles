@@ -1,5 +1,5 @@
 function quickrun
-    set -l langs "c" "c build" "rust" "haskell"
+    set -l langs "c" "rust" "rust (backtrace)" "haskell"
 
     set -l chosen "unset"
         
@@ -26,6 +26,8 @@ function quickrun
             make
         case "rust" "rust run"
             cargo run
+        case "rust (backtrace)"
+            begin; set -lx RUST_BACKTRACE 1; cargo run; end;
         case haskell
             ghci
         case "*"
