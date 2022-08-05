@@ -31,7 +31,7 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 --vim.g.colors_name = "gruvbox"
 -- no idea why that doesnt work ???
 --
-vim.g.airline_theme = "powerlineish"
+vim.g.airline_theme = "bubblegum"
 vim.g.airline_powerline_fonts = true
 
 vim.cmd("colorscheme gruvbox")

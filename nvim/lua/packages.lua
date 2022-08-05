@@ -20,6 +20,7 @@ require('packer').startup(function()
     use 'ray-x/lsp_signature.nvim'
     use 'windwp/nvim-autopairs'
     use 'ntpeters/vim-better-whitespace'
+    use 'tpope/vim-surround'
 end)
 
 local configs = require 'nvim-treesitter.configs'

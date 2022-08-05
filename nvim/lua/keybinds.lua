@@ -1,26 +1,24 @@
+
 -- keybinds
 local map = vim.api.nvim_set_keymap
 local opt = { noremap = true }
-
-vim.g.mapleader = " "
-
-map('n', '<leader>ps', ":lua require('telescope.builtin').live_grep()<cr>", opt)
-map('n', '<leader>fs', ":lua require('telescope.builtin').find_files()<cr>", opt)
-
-map('n', '<leader>t', ":NERDTreeToggle<CR>", opt)
-
-map('v', 'J', ":m '>+1<CR>gv=gv", opt)
-map('v', 'K', ":m '<-2<CR>gv=gv", opt)
-
-map('t', '<Esc>', "<C-\\><C-n>", opt)
-
-
--- lsp binds
 
 -- quick convenience bind for mapping in normal mode with no recursion
 local function nmap(key, f)
     map('n', key, f, opt)
 end
+
+vim.g.mapleader = " "
+
+-- project navigation
+
+nmap('<leader>sg', ":lua require('telescope.builtin').live_grep()<cr>")
+nmap('<leader>sp', ":lua require('telescope.builtin').find_files()<cr>")
+nmap('<leader>sb', ":lua require('telescope.builtin').buffers()<cr>")
+nmap('<leader>t', ":NERDTreeToggle<CR>")
+nmap('<leader>sf', ":lua require('telescope.builtin').current_buffer_fuzzy_find{}<cr>")
+
+-- lsp binds
 
 nmap('gd', ':lua vim.lsp.buf.definition()<cr>')
 nmap('gD', ':lua vim.lsp.buf.declaration()<cr>')
@@ -36,3 +34,10 @@ nmap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
 nmap('<leader>e', ':lua vim.diagnostic.open_float()<cr>')
 nmap('[d', ':lua vim.diagnostic.goto_prev()<cr>')
 nmap(']d', ':lua vim.diagnostic.goto_next()<cr>')
+
+-- other binds
+
+map('v', 'J', ":m '>+1<CR>gv=gv", opt)
+map('v', 'K', ":m '<-2<CR>gv=gv", opt)
+
+map('t', '<Esc>', "<C-\\><C-n>", opt)
