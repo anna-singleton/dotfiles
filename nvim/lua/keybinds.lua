@@ -34,4 +34,5 @@ nmap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
 nmap('<leader>af', ':lua vim.lsp.buf.code_action()<cr>')
 nmap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
 nmap('<leader>e', ':lua vim.diagnostic.open_float()<cr>')
-
+nmap('[d', ':lua vim.diagnostic.goto_prev()<cr>')
+nmap(']d', ':lua vim.diagnostic.goto_next()<cr>')

@@ -36,7 +36,7 @@ element {
     padding: 0px 2px;
 }
 element selected {
-    background-color: Red;
+    background-color: #77c4b7;
 	text-color: Black;
 }
 
