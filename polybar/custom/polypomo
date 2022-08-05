@@ -18,9 +18,9 @@ from subprocess import call, DEVNULL
 
 SOCKDIR = os.environ.get("XDG_RUNTIME_DIR", "/var/tmp")
 SOCKFILE = os.path.join(SOCKDIR, "polypomo.sock")
-TOMATO = "" # Recommended font: Noto Emoji
-BREAK = "" # Recommended font: Noto Emoji
-PAUSE = ""  # Recommended font: Siji
+TOMATO = "%{T7} %{T-}" # Recommended font: Noto Emoji
+BREAK = "%{T7} %{T-}" # Recommended font: Noto Emoji
+PAUSE = "%{T7} %{T-}"  # Recommended font: Siji
 
 class Exit(Exception):
     pass
