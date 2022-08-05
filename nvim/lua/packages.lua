@@ -21,6 +21,7 @@ require('packer').startup(function()
     use 'windwp/nvim-autopairs'
     use 'ntpeters/vim-better-whitespace'
     use 'tpope/vim-surround'
+    use 'etdev/vim-hexcolor'
 end)
 
 local configs = require 'nvim-treesitter.configs'
