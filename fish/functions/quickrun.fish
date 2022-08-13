@@ -1,8 +1,8 @@
 function quickrun
-    set -l langs "c" "rust" "rust (backtrace)" "rust test" "haskell"
+    set -l langs "c" "rust" "rust (backtrace)" "rust test" "haskell (no file)" "haskell (load file)"
 
     set -l chosen "unset"
-        
+
     if test (count $argv) -eq  1
         if test $argv = "-r"
             set chosen (printf "%s\n" $langs | fzf)
@@ -11,14 +11,14 @@ function quickrun
             set chosen (cat .quickrun)
         end
     else
-        if test -e .quickrun 
+        if test -e .quickrun
             set chosen (cat .quickrun)
         else
             set chosen (printf "%s\n" $langs | fzf)
             echo $chosen > .quickrun
         end
     end
-    
+
     switch $chosen
         case c
             cr
@@ -30,8 +30,10 @@ function quickrun
             begin; set -lx RUST_BACKTRACE 1; cargo run; end;
         case "rust test"
             begin; set -lx RUST_BACKTRACE 1; cargo test; end;
-        case haskell
+        case "haskell (no file)"
             ghci
+        case "haskell (load file)"
+            ghci *.hs
         case "*"
             echo $chosen " not yet implemented"
     end

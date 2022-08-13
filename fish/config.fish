@@ -23,3 +23,5 @@ thefuck --alias | source
 # ruby gem stuff (ffs)
 set -Ux GEM_HOME "$(ruby -e 'puts Gem.user_dir')"
 set PATH $PATH:$GEM_HOME/bin
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/anna/.ghcup/bin # ghcup-env

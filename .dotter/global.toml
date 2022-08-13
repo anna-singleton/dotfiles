@@ -15,6 +15,7 @@ fish = "~/.config/fish"
 nvim = "~/.config/nvim"
 ".util" = "~/.util"
 "tmux/.tmux.conf" = "~/.tmux.conf"
+"tmux/themes" = "~/.config/tmux"
 git = "~/.config/git"
 
 [default.variables]
@@ -29,7 +30,7 @@ polybar_icon_offset = 3
 i3lock_cmd = "i3lock-fancy-dualmonitor -g"
 polybar_height = 19
 polybar_right_modules = "pomo-end-sep polypomo upd-pomo-sep updates vol-upd-sep pulseaudio date-vol-sep date"
-term_font_size = 18.0
+term_font_size = 14.0
 polybar_offset = 2
 
 [thinkpad]

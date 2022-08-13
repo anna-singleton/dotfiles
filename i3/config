@@ -10,7 +10,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec "rofi -show run"
 
 # emacs hotkey
-bindsym $mod+p exec emacsclient -c
+#bindsym $mod+p exec emacsclient -c
 
 # screenshot via flameshot
 bindsym Print exec "flameshot gui"
@@ -20,7 +20,7 @@ bindsym Shift+Print exec "flameshot full"
 bindsym $mod+o exec "obsidian"
 
 # start firefox
-bindsym $mod+i exec "firefox"
+bindsym $mod+i exec "chromium"
 
 # use boomer (tsoding's zooming program (f to activate flashlight effect))
 bindsym $mod+m exec boomer
@@ -169,7 +169,7 @@ exec "twitch-indicator"
 
 # exec "emacs --daemon"
 
-font pango:IBMPlexMono {{wm_font_size}}
+font pango:Hurmit Nerd Font Mono {{wm_font_size}}
 
 client.focused          #7400B8 #8013BD #ffffff #7400B5   #7400B8
 client.focused_inactive #AE60D3 #B973D8 #ffffff #AE60D3   #AE60D3
@@ -183,3 +183,5 @@ hide_edge_borders smart
 
 for_window [class="matplotlib"] floating enable
 for_window [class="chatterino"] floating enable
+for_window [class="graphviz"] floating enable
+for_window [class="Graphviz"] floating enable

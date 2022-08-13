@@ -25,8 +25,8 @@ vim.opt.completeopt = "menu,menuone,noselect,preview"
 vim.opt.scrolloff = 10
 vim.opt.termguicolors = true
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 --vim.g.colors_name = "gruvbox"
 -- no idea why that doesnt work ???

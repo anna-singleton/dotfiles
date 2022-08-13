@@ -1,5 +1,8 @@
-function info
-    printf "%s " (fish_git_prompt)
+function dir
+    set d $(basename $PWD)
+    if test $d = $USER; printf "~";
+    else; printf "%s" $d;
+    end
 end
 
 function fish_prompt
@@ -7,7 +10,7 @@ function fish_prompt
   printf "anna"
   set_color normal
   set_color green
-  printf " [%s] " (basename $PWD)
+  printf " [%s] " (dir)
   set_color 7ACBF5
   printf "█"
   set_color EAACB8
