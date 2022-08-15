@@ -9,6 +9,7 @@ if status is-interactive
     alias emacs-kill "emacsclient --eval '(kill-emacs)'"
     alias emacs-start "emacs --daemon"
     alias emacs-restart "emacs-kill; emacs-start"
+    alias tm "tmux-go"
 end
 
 thefuck --alias | source
