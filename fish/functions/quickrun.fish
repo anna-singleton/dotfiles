@@ -1,5 +1,5 @@
 function quickrun
-    set -l langs "c" "rust" "rust (backtrace)" "rust test" "haskell (no file)" "haskell (load file)"
+    set -l langs "c" "rust" "rust (backtrace)" "rust test" "haskell (no file)" "haskell (load file)" "dotter deploy"
 
     set -l chosen "unset"
 
@@ -22,8 +22,6 @@ function quickrun
     switch $chosen
         case c
             cr
-        case "c build"
-            make
         case "rust" "rust run"
             cargo run
         case "rust (backtrace)"
@@ -34,6 +32,13 @@ function quickrun
             ghci
         case "haskell (load file)"
             ghci *.hs
+        case "dotter deploy"
+            dotter -v
+            if test $status = 0
+                echo "deploy successful"
+            else
+                echo "deploy failed"
+            end
         case "*"
             echo $chosen " not yet implemented"
     end

@@ -8,6 +8,10 @@ local function nmap(key, f)
     map('n', key, f, opt)
 end
 
+local function vmap(key, f)
+    map('v', key, f, opt)
+end
+
 vim.g.mapleader = " "
 
 -- project navigation
@@ -41,3 +45,5 @@ map('v', 'J', ":m '>+1<CR>gv=gv", opt)
 map('v', 'K', ":m '<-2<CR>gv=gv", opt)
 
 map('t', '<Esc>', "<C-\\><C-n>", opt)
+
+vmap("<leader>p", "\"_dP")
