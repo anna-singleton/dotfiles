@@ -17,6 +17,7 @@ nvim = "~/.config/nvim"
 "tmux/.tmux.conf" = "~/.tmux.conf"
 "tmux/themes" = "~/.config/tmux"
 git = "~/.config/git"
+gitui = "~/.config/gitui"
 
 [default.variables]
 
