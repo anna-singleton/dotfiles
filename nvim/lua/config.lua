@@ -12,6 +12,7 @@ vim.opt.cursorline = false
 vim.opt.cc = "80"
 vim.opt.wrap = false
 vim.opt.signcolumn = "yes"
+vim.opt.guicursor = ""
 
 vim.opt.showmatch = true
 vim.opt.swapfile = false
