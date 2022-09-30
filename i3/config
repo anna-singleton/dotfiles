@@ -2,6 +2,7 @@ set $mod Mod4
 
 # kitty terminal
 bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec i3-sensible-terminal -e fish --hide-menubar --hide-toolbar
 
 # quit window
 bindsym $mod+Shift+q kill
@@ -20,7 +21,7 @@ bindsym Shift+Print exec "flameshot full"
 bindsym $mod+o exec "obsidian"
 
 # start firefox
-bindsym $mod+i exec "chromium"
+bindsym $mod+i exec "firefox"
 
 # use boomer (tsoding's zooming program (f to activate flashlight effect))
 bindsym $mod+m exec boomer
