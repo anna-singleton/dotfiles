@@ -10,6 +10,7 @@ if status is-interactive
     alias emacs-start "emacs --daemon"
     alias emacs-restart "emacs-kill; emacs-start"
     alias tm "tmux-go"
+    alias kittyfixssh "kitty +kitten ssh"
 end
 
 thefuck --alias | source
