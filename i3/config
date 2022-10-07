@@ -168,6 +168,8 @@ exec "xbanish"
 
 exec "twitch-indicator"
 
+exec "redshift-gtk"
+
 # exec "emacs --daemon"
 
 font pango:Hurmit Nerd Font Mono {{wm_font_size}}

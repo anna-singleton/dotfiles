@@ -18,6 +18,7 @@ nvim = "~/.config/nvim"
 "tmux/themes" = "~/.config/tmux"
 git = "~/.config/git"
 gitui = "~/.config/gitui"
+"redshift/redshift.conf" = "~/.config/redshift.conf"
 
 [default.variables]
 
