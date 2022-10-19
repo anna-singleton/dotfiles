@@ -1,0 +1,48 @@
+AddKeysToAgent yes
+
+host vm
+    User ubuntu
+    HostName 172.27.27.13
+    ProxyJump as70@ssh.sanger.ac.uk
+
+host f5
+    User as70
+    HostName farm5-login.internal.sanger.ac.uk
+    ProxyJump as70@ssh.sanger.ac.uk
+    ForwardAgent yes
+
+host f5-1
+    User as70
+    HostName farm5-head1.internal.sanger.ac.uk
+    ProxyJump as70@ssh.sanger.ac.uk
+    ForwardAgent yes
+
+host f5-2
+    User as70
+    HostName farm5-head2.internal.sanger.ac.uk
+    ProxyJump as70@ssh.sanger.ac.uk
+    ForwardAgent yes
+
+host casm3
+    User as70
+    HostName casm3-login.internal.sanger.ac.uk
+    ProxyJump as70@ssh.sanger.ac.uk
+    ForwardAgent yes
+
+host isg
+    User as70
+    HostName isg-test-cluster.internal.sanger.ac.uk
+    ProxyJump as70@ssh.sanger.ac.uk
+    ForwardAgent yes
+
+host gateway
+    User as70
+    HostName ssh.sanger.ac.uk
+
+host gitlab.internal.sanger.ac.uk
+    User as70
+    HostName localhost:3333
+
+host *
+    TCPKeepAlive yes
+    ServerAliveInterval 120
