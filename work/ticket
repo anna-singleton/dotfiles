@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd master
+git pull
+cd ..
+
+cmd='git worktree add -b "feat/ch'$1'" ch'$1
+
+echo $cmd
+eval $cmd

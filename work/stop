@@ -1,0 +1,21 @@
+#!/sbin/fish
+
+echo "exiting work mode"
+echo "0" > ~/work/.work-mode
+
+ssh -S .socks/webproxy -O check gateway
+if test $status -eq 0;
+    ssh -S .socks/webproxy -O exit gateway
+    echo "tunnel to webproxy killed"
+else
+    echo "no tunnel exists to webproxy, skipping"
+end
+
+
+ssh -S .socks/glproxy -O check gateway
+if test $status -eq 0;
+    ssh -S .socks/glproxy -O exit gateway
+    echo "tunnel to gitlab killed"
+else
+    echo "no tunnel exists to gitlab, skipping"
+end

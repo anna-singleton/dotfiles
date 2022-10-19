@@ -1,0 +1,34 @@
+#!/sbin/fish
+
+echo "entering work mode!"
+
+echo "1" > ~/work/.work-mode
+
+echo "making SSH tunnel for web proxy"
+set -l prev_clip (xclip -o -selection clipboard)
+cat ~/docs/gateway | xclip -selection clipboard -r
+
+ssh -q -S ~/work/.socks/webproxy -O check gateway
+if test ! $status -eq 0;
+    ssh -M -S ~/work/.socks/webproxy -fN -L3128:wwwcache.sanger.ac.uk:3128 as70@ssh.sanger.ac.uk;
+    echo "new tunnel to webproxy established"
+else
+    echo "already established tunnel on 3128 to the webproxy"
+end
+
+
+ssh -q -S ~/work/.socks/glproxy -O check gateway
+if test ! $status -eq 0;
+    ssh -M -S ~/work/.socks/glproxy -fN -L3333:gitlab.internal.sanger.ac.uk:22 as70@ssh.sanger.ac.uk
+    echo "new tunnel to gitlab established"
+else
+    echo "already established tunnel on 3333 to gitlab"
+end
+
+echo "HTTP Proxy: localhost:3128"
+echo "SSL Proxy: localhost:3128"
+echo "git proxy: localhost:3333"
+
+echo "add ssh key? [y/N]"
+
+echo $prev_clip | xclip -selection clipboard -r

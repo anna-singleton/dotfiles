@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cat ~/docs/gateway | xclip -i -selection clipboard -r
+
+ssh -A $1

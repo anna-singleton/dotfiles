@@ -19,6 +19,7 @@ nvim = "~/.config/nvim"
 git = "~/.config/git"
 gitui = "~/.config/gitui"
 "redshift/redshift.conf" = "~/.config/redshift.conf"
+i3lock = "~/.config/i3lock"
 
 [default.variables]
 
@@ -42,7 +43,7 @@ depends = []
 wm_font_size = 10
 polybar_icon_font_size = 16
 polybar_icon_offset = 3
-i3lock_cmd = "i3lock-fancy"
+i3lock_cmd = "i3lock -ti ~/.config/i3lock/lock-fullscreen.png"
 polybar_height = 19
 polybar_right_modules = "upd-end-sep updates vol-upd-sep pulseaudio bat-vol-sep bat_internal bat_swap date-bat-sep date"
 term_font_size = 12.0
