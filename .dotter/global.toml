@@ -21,6 +21,7 @@ gitui = "~/.config/gitui"
 "redshift/redshift.conf" = "~/.config/redshift.conf"
 i3lock = "~/.config/i3lock"
 sshconfig = "~/.ssh/config"
+work = "~/work"
 
 [default.variables]
 
