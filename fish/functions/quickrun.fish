@@ -1,5 +1,5 @@
 function quickrun
-    set -l langs "c" "rust" "rust (backtrace)" "rust test" "haskell (no file)" "haskell (load file)" "dotter deploy"
+    set -l langs "c" "rust" "rust (backtrace)" "rust test" "haskell (no file)" "haskell (load file)" "dotter deploy" "custom"
 
     set -l chosen "unset"
 
@@ -38,6 +38,12 @@ function quickrun
                 echo "deploy successful"
             else
                 echo "deploy failed"
+            end
+        case "custom"
+            cat .quickrun-exe
+            eval (cat .quickrun-exe)
+            if test $status = 1
+                return
             end
         case "*"
             echo $chosen " not yet implemented"
