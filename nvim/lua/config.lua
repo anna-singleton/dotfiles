@@ -25,6 +25,7 @@ vim.opt.errorbells = false
 vim.opt.completeopt = "menu,menuone,noselect,preview"
 vim.opt.scrolloff = 10
 vim.opt.termguicolors = true
+vim.opt.shell = "/bin/bash"
 
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
