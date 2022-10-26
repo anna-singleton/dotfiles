@@ -11,6 +11,7 @@ if status is-interactive
     alias emacs-restart "emacs-kill; emacs-start"
     alias tm "tmux-go"
     alias kittyfixssh "kitty +kitten ssh"
+    alias sshg "/home/anna/work/sshg"
 end
 
 thefuck --alias | source
@@ -20,7 +21,6 @@ thefuck --alias | source
 #   set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
 #   set -Ux SSH_AGENT_PID $SSH_AGENT_PID
 #   set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
-# end
 
 # ruby gem stuff (ffs)
 set -Ux GEM_HOME "$(ruby -e 'puts Gem.user_dir')"

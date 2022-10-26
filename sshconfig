@@ -50,8 +50,9 @@ host itadmin
 host gateway
     User as70
     HostName ssh.sanger.ac.uk
+    ForwardAgent yes
 
-host gitlab.internal.sanger.ac.uk 
+host gitlab.internal.sanger.ac.uk
     HostName gitlab.internal.sanger.ac.uk
     User git
     IdentityFile ~/.ssh/work_gitlab
@@ -60,3 +61,4 @@ host gitlab.internal.sanger.ac.uk
 host *
     TCPKeepAlive yes
     ServerAliveInterval 120
+

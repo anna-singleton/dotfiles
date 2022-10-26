@@ -1,5 +1,12 @@
 #!/bin/bash
 
-cat ~/docs/gateway | xclip -i -selection clipboard -r
 
-ssh -A $1
+if [[ -z $1 ]]; then
+    echo "pass an ssh target please"
+    exit 1
+fi
+
+# cat ~/docs/gateway | xclip -i -selection clipboard -r
+# ssh -A $1
+
+sshpass -f/home/anna/docs/gateway ssh $@

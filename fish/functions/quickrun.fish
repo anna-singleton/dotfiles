@@ -1,3 +1,6 @@
+#TODO rewrite this whole thing as a proper binary with config files (rust)
+
+
 function quickrun
     set -l langs "c" "rust" "rust (backtrace)" "rust test" "haskell (no file)" "haskell (load file)" "dotter deploy" "custom"
 
@@ -42,7 +45,7 @@ function quickrun
         case "custom"
             cat .quickrun-exe
             eval (cat .quickrun-exe)
-            if test $status = 1
+            if test $status = 1 # this is a dirty nasty hack, pls FIXME
                 return
             end
         case "*"

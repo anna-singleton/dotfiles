@@ -29,6 +29,5 @@ echo "HTTP Proxy: localhost:3128"
 echo "SSL Proxy: localhost:3128"
 echo "git proxy: localhost:3333"
 
-echo "add ssh key? [y/N]"
 
 echo $prev_clip | xclip -selection clipboard -r

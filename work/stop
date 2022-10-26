@@ -19,3 +19,6 @@ if test $status -eq 0;
 else
     echo "no tunnel exists to gitlab, skipping"
 end
+
+echo "yeeting slack"
+pkill slack
