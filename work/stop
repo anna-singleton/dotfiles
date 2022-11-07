@@ -22,3 +22,7 @@ end
 
 echo "yeeting slack"
 pkill slack
+
+
+echo "ending sshfs"
+umount ~/work/vm

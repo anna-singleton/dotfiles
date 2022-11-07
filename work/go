@@ -25,6 +25,12 @@ else
     echo "already established tunnel on 3333 to gitlab"
 end
 
+
+echo "attempting sshfs mount to vm"
+
+mkdir ~/work/vm -p
+sshfs -o ssh_command=sshg ~/work/vm vm:
+
 echo "HTTP Proxy: localhost:3128"
 echo "SSL Proxy: localhost:3128"
 
