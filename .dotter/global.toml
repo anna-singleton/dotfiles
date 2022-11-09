@@ -22,6 +22,7 @@ gitui = "~/.config/gitui"
 i3lock = "~/.config/i3lock"
 sshconfig = "~/.ssh/config"
 work = "~/work"
+runfast = "~/.config/runfast"
 
 [default.variables]
 
