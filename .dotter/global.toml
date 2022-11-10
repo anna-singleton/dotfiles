@@ -23,6 +23,7 @@ i3lock = "~/.config/i3lock"
 sshconfig = "~/.ssh/config"
 work = "~/work"
 runfast = "~/.config/runfast"
+"cheat.bash" = "~/opt/cheat.bash"
 
 [default.variables]
 

@@ -30,7 +30,7 @@ quit_fast = false
 
 [[runners]]
 name = "rust test & run"
-cmd = "cargo run; cargo test"
+cmd = "cargo run; echo '\n\n******************************\n\n'; cargo test"
 quit_fast = false
 
 [[runners]]

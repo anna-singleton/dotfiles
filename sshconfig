@@ -10,42 +10,49 @@ host f5
     HostName farm5-login.internal.sanger.ac.uk
     ProxyJump as70@ssh.sanger.ac.uk
     ForwardAgent yes
+    IdentityFile ~/.ssh/id_ed25519
 
 host f5-1
     User as70
     HostName farm5-head1.internal.sanger.ac.uk
     ProxyJump as70@ssh.sanger.ac.uk
     ForwardAgent yes
+    IdentityFile ~/.ssh/id_ed25519
 
 host f5-2
     User as70
     HostName farm5-head2.internal.sanger.ac.uk
     ProxyJump as70@ssh.sanger.ac.uk
     ForwardAgent yes
+    IdentityFile ~/.ssh/id_ed25519
 
 host casm3
     User as70
     HostName casm3-login.internal.sanger.ac.uk
     ProxyJump as70@ssh.sanger.ac.uk
     ForwardAgent yes
+    IdentityFile ~/.ssh/id_ed25519
 
 host isg
     User as70
     HostName isg-test-cluster.internal.sanger.ac.uk
     ProxyJump as70@ssh.sanger.ac.uk
     ForwardAgent yes
+    IdentityFile ~/.ssh/id_ed25519
 
 host p6
     User as70
     HostName pcs6-head1.internal.sanger.ac.uk
     ProxyJump as70@ssh.sanger.ac.uk
     ForwardAgent yes
+    IdentityFile ~/.ssh/id_ed25519
 
 host itadmin
     User as70
     HostName it-admin2.internal.sanger.ac.uk
     ProxyJump as70@ssh.sanger.ac.uk
     ForwardAgent yes
+    IdentityFile ~/.ssh/id_ed25519
 
 host gateway
     User as70
