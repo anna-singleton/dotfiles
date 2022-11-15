@@ -1,0 +1,12 @@
+[user]
+	name = anna-singleton
+	email = annabeths111@gmail.com
+[core]
+	editor = nvim
+	excludesFile = ~/.config/git/global_ignore
+    # gitProxy= /home/anna/opt/git-proxy for "gitlab.internal.sanger.ac.uk" "2222"
+    # gitProxy= none
+[init]
+	defaultBranch = main
+[alias]
+    worktree-clone = "!sh $HOME/opt/git-clone-worktree.bash"

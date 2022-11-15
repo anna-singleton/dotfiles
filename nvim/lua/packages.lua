@@ -9,6 +9,7 @@ require('packer').startup(function()
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-treesitter/nvim-treesitter-context'
     use 'scrooloose/nerdtree'
     use 'williamboman/nvim-lsp-installer'
     use 'tpope/vim-fugitive'

@@ -25,6 +25,8 @@ else
     echo "already established tunnel on 3333 to gitlab"
 end
 
+# required for sshfs mounting to my vm
+keychain ~/.ssh/id_ed25519
 
 echo "attempting sshfs mount to vm"
 

@@ -16,6 +16,7 @@ nvim = "~/.config/nvim"
 ".util" = "~/.util"
 "tmux/.tmux.conf" = "~/.tmux.conf"
 "tmux/themes" = "~/.config/tmux"
+"git/config" = "~/.gitconfig"
 git = "~/.config/git"
 gitui = "~/.config/gitui"
 "redshift/redshift.conf" = "~/.config/redshift.conf"
@@ -23,7 +24,8 @@ i3lock = "~/.config/i3lock"
 sshconfig = "~/.ssh/config"
 work = "~/work"
 runfast = "~/.config/runfast"
-"cheat.bash" = "~/opt/cheat.bash"
+opt = "~/opt"
+# "cheat.bash" = "~/opt/cheat.bash"
 
 [default.variables]
 
