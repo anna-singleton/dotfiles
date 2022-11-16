@@ -9,4 +9,4 @@
 [init]
 	defaultBranch = main
 [alias]
-    worktree-clone = "!sh $HOME/opt/git-clone-worktree.bash"
+    worktree-clone = "!sh $HOME/opt/git-clone-worktree"
