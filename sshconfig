@@ -65,6 +65,11 @@ host gitlab.internal.sanger.ac.uk
     IdentityFile ~/.ssh/work_gitlab
     ProxyCommand sshg -W %h:%p as70@ssh.sanger.ac.uk
 
+host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github
+
 host *
     TCPKeepAlive yes
     ServerAliveInterval 120
