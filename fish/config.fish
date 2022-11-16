@@ -22,10 +22,10 @@ thefuck --alias | source
 #   set -Ux SSH_AGENT_PID $SSH_AGENT_PID
 #   set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
 
-set PATH $PATH:$HOME/opt
+fish_add_path $HOME/opt
 
 # ruby gem stuff (ffs)
 set -Ux GEM_HOME "$(ruby -e 'puts Gem.user_dir')"
-set PATH $PATH:$GEM_HOME/bin
+fish_add_path $GEM_HOME/bin
 
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/anna/.ghcup/bin # ghcup-env
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; fish_add_path $HOME/.cabal/bin ; fish_add_path -a /home/anna/.ghcup/bin # ghcup-env
