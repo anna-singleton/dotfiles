@@ -47,6 +47,13 @@ host p6
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
+host tol
+    User as70
+    HostName tol-login.internal.sanger.ac.uk
+    ProxyJump as70@ssh.sanger.ac.uk
+    ForwardAgent yes
+    IdentityFile ~/.ssh/id_ed25519
+
 host itadmin
     User as70
     HostName it-admin2.internal.sanger.ac.uk
