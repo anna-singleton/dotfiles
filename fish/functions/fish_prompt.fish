@@ -5,6 +5,14 @@ function dir
     end
 end
 
+function git_prompt_worktree
+    if ! test -e ".bare";
+        printf (fish_git_prompt)
+    else;
+        printf " (wrk:%s)" (git branch --show-current)
+    end
+end
+
 function fish_prompt
   set_color white -o
   printf "anna"
@@ -12,7 +20,7 @@ function fish_prompt
   set_color green
   printf " [%s]" (dir)
   set_color red -o
-  printf "%s " (fish_git_prompt)
+  printf "%s " (git_prompt_worktree)
   set_color normal
   set_color white
   if test ! (cat ~/work/.work-mode) -eq "1";
