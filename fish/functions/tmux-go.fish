@@ -2,6 +2,6 @@ function tmux-go
     if test (pgrep tmux);
         tmux a;
     else;
-        tmux;
+        tmux new-session -c ~;
     end;
 end
