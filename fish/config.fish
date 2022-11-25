@@ -12,6 +12,7 @@ if status is-interactive
     alias tm "tmux-go"
     alias kittyfixssh "kitty +kitten ssh"
     alias ssh "/home/anna/work/sshg"
+    alias proj "cd (/home/anna/opt/proj);clear"
 end
 
 thefuck --alias | source

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+projects=$(ls -l --color=no ~/proj | awk '/^d/ {print $9}')
+projects=$(printf "%s\ndotfiles\n" "$projects")
+
+chosen=$(echo "$projects" | fzf)
+
+if [[ "$chosen" == "dotfiles" ]]; then
+    printf "%s" "$HOME/.dotfiles"
+else
+    printf "%s" "$HOME/proj/$chosen"
+fi
