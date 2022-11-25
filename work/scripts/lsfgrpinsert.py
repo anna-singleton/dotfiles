@@ -1,4 +1,4 @@
-#!/sbin/python
+#!/usr/bin/env python3
 
 def ins(existing, newitems):
     existing += newitems
@@ -7,10 +7,10 @@ def ins(existing, newitems):
 
 
 def getnewnames():
-    print("enter usernames (Q to finish):")
-    choice = input()
+    print("enter username(s) (blank to finish):")
+    choice = input().strip()
     names = []
-    while choice.upper() != "Q":
+    while choice != "":
         names.append(choice)
         choice = input()
     return names

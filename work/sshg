@@ -9,4 +9,8 @@ fi
 # cat ~/docs/gateway | xclip -i -selection clipboard -r
 # ssh -A $1
 
-sshpass -f/home/anna/docs/gateway ssh $@
+if [[ `cat ~/work/.work-mode` -eq "1" ]]; then
+    sshpass -f/home/anna/docs/gateway ssh $@
+else
+    /sbin/ssh $@
+fi

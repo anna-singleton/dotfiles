@@ -24,6 +24,16 @@ cmd = "dotter -v"
 quit_fast = false
 
 [[runners]]
+name = "graphviz dot"
+cmd = "dot {file} -Tsvg | feh --scale-down --geometry '900x900' -"
+quit_fast = true
+
+[[runners]]
+name = "python"
+cmd = "python {file}"
+quit_fast = false
+
+[[runners]]
 name = "rust test"
 cmd = "cargo test"
 quit_fast = false

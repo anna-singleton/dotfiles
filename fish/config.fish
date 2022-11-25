@@ -11,7 +11,7 @@ if status is-interactive
     alias emacs-restart "emacs-kill; emacs-start"
     alias tm "tmux-go"
     alias kittyfixssh "kitty +kitten ssh"
-    alias sshg "/home/anna/work/sshg"
+    alias ssh "/home/anna/work/sshg"
 end
 
 thefuck --alias | source
