@@ -174,13 +174,6 @@ exec "redshift-gtk"
 
 font pango:Hurmit Nerd Font Mono {{wm_font_size}}
 
-client.focused          #7400B8 #8013BD #ffffff #7400B5   #7400B8
-client.focused_inactive #AE60D3 #B973D8 #ffffff #AE60D3   #AE60D3
-client.unfocused        #530053 #420042 #888888 #49004e   #420042
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
-client.background       #ffffff
 
 hide_edge_borders smart
 
@@ -189,3 +182,58 @@ for_window [class="chatterino"] floating enable
 for_window [class="graphviz"] floating enable
 for_window [class="Graphviz"] floating enable
 for_window [class="feh"] floating enable
+
+# theme
+
+# gruvbox colours
+set $bg         #282828
+set $red1       #cc241d
+set $green1     #98971a
+set $yellow1    #d79921
+set $blue1      #458588
+set $purple1    #b16286
+set $aqua1      #689d6a
+set $orange1    #d65d0e
+set $gray1      #a89984
+
+set $fg         #ebdbb2
+set $red2       #fb4934
+set $green2     #b8bb26
+set $yellow2    #fabd2f
+set $blue2      #83a598
+set $purple2    #d3869b
+set $aqua2      #8ec07c
+set $orange2    #fe8019
+set $gray2      #928374
+
+set $bg0h       #f9f5d7
+set $bg0        #282828
+set $bg1        #3c3836
+set $bg2        #504945
+set $bg3        #665c54
+set $bg4        #7c6f64
+
+set $bg0s       #32302f
+
+set $fg0        #fbf1c7
+set $fg1        #ebdbb2
+set $fg2        #d5c4a1
+set $fg3        #bdae93
+set $fg4        #a89984
+
+
+# class                 border  backgr  text    indicator   child_border
+
+client.focused          $blue1  $blue1  $fg1    $blue1      $blue1
+client.focused_inactive $blue2  $blue2  $fg1    $blue2      $blue2
+client.unfocused        $blue2  $blue2  $bg     $blue2      $blue2
+client.urgent           $red2   $red2   $fg1    $red2       $red2
+
+# old theme
+# client.focused          #7400B8 #8013BD #ffffff #7400B5   #7400B8
+# client.focused_inactive #AE60D3 #B973D8 #ffffff #AE60D3   #AE60D3
+# client.unfocused        #530053 #420042 #888888 #49004e   #420042
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+#
+# client.background       #ffffff
