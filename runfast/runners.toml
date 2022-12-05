@@ -9,7 +9,7 @@ cmd = "ghci"
 quit_fast = true
 
 [[runners]]
-name = "rust run"
+name = "rust"
 cmd = "cargo run"
 quit_fast = false
 
@@ -39,8 +39,8 @@ cmd = "cargo test"
 quit_fast = false
 
 [[runners]]
-name = "rust test & run"
-cmd = "cargo run; echo '\n\n******************************\n\n'; cargo test"
+name = "rust build"
+cmd = "cargo build"
 quit_fast = false
 
 [[runners]]
