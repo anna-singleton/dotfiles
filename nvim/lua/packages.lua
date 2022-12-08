@@ -23,6 +23,7 @@ require('packer').startup(function()
     use 'ntpeters/vim-better-whitespace'
     use 'tpope/vim-surround'
     use 'etdev/vim-hexcolor'
+    use 'terrastruct/d2-vim'
 end)
 
 local configs = require 'nvim-treesitter.configs'

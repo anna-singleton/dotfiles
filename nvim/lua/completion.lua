@@ -6,7 +6,7 @@ cmp.setup({
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-e>"] = cmp.mapping.close(),
+    ["<C-e>"] = cmp.mapping.abort(),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -65,7 +65,7 @@ require("luasnip.loaders.from_vscode").load()
 
 -- require("nvim-autopairs").setup()
 -- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local cmp = require("cmp")
+-- local cmp = require("cmp")
 
 -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 --
