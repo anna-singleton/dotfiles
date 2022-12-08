@@ -60,6 +60,10 @@ host itadmin
     ProxyJump as70@ssh.sanger.ac.uk
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
+    KexAlgorithms +diffie-hellman-group1-sha1
+    HostkeyAlgorithms +ssh-dss
+    Ciphers +aes256-cbc
+    PubkeyAcceptedKeyTypes +ssh-dss
 
 host gateway
     User as70
