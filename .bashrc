@@ -70,4 +70,4 @@ alias vim=nvim
 
 export EDITOR=nvim
 
-export PS1="\[$(tput setaf 165)\]\u\[$(tput setaf 171)\] \[$(tput setaf 219)\][\W] \[$(tput setaf 21)\]\$(git_info)\[$(tput setaf 27)\]\$(work_info)\[$(tput sgr0)\]-> "
+export PS1="\[$(tput setaf 10)\]\u \[$(tput setaf 11)\][\W] \[$(tput setaf 9)\]\$(git_info)\[$(tput setaf 12)\]\$(work_info)\[$(tput sgr0)\]-> "
