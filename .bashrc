@@ -68,6 +68,8 @@ alias l='ls -CF'
 alias vi=nvim
 alias vim=nvim
 
+alias ssh=sshg
+
 export EDITOR=nvim
 
 export PS1="\[$(tput setaf 10)\]\u \[$(tput setaf 11)\][\W] \[$(tput setaf 9)\]\$(git_info)\[$(tput setaf 12)\]\$(work_info)\[$(tput sgr0)\]-> "
