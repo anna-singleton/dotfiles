@@ -19,7 +19,7 @@ require('packer').startup(function()
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
     use 'ray-x/lsp_signature.nvim'
-    use 'windwp/nvim-autopairs'
+    -- use 'windwp/nvim-autopairs'
     use 'ntpeters/vim-better-whitespace'
     use 'tpope/vim-surround'
     use 'etdev/vim-hexcolor'

@@ -63,11 +63,11 @@ cmp.setup({
 require("luasnip").config.set_config({ history = true, updateevents = "TextChanged,TextChangedI" })
 require("luasnip.loaders.from_vscode").load()
 
-require("nvim-autopairs").setup()
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+-- require("nvim-autopairs").setup()
+-- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local cmp = require("cmp")
 
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+-- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 --
 --cmp_autopairs.lisp[#cmp_autopairs.lisp + 1] = "racket"
 
