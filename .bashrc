@@ -1,16 +1,73 @@
+export PATH=$PATH:$HOME/opt/
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/anna/.miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/anna/.miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/anna/.miniconda3/etc/profile.d/conda.sh"
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
     else
-        export PATH="/home/anna/.miniconda3/bin:$PATH"
+	color_prompt=
     fi
 fi
-unset __conda_setup
-# <<< conda initialize <<<
 
+unset color_prompt force_color_prompt
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+git_info() {
+    branch=$(git branch --show-current 2> /dev/null)
+    if [[ $? -eq 0 ]]; then
+        printf "(GIT:%s) " "$branch"
+    fi
+}
+
+work_info() {
+    if [[ $(cat "$HOME/work/.work-mode") == "1" ]]; then
+        printf "WRK "
+    fi
+}
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# my stuff
+alias vi=nvim
+alias vim=nvim
+
+export EDITOR=nvim
+
+export PS1="\[$(tput setaf 165)\]\u\[$(tput setaf 171)\] \[$(tput setaf 219)\][\W] \[$(tput setaf 21)\]\$(git_info)\[$(tput setaf 27)\]\$(work_info)\[$(tput sgr0)\]-> "
