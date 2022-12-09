@@ -1,42 +1,28 @@
-#!/sbin/fish
+#!/bin/bash
 
-echo "entering work mode!"
+echo "work mode starting"
 
 echo "1" > ~/work/.work-mode
 
-echo "making SSH tunnel for web proxy"
-set -l prev_clip (xclip -o -selection clipboard)
-cat ~/docs/gateway | xclip -selection clipboard -r
+alias ssh=~/work/sshg
 
-ssh -q -S ~/work/.socks/webproxy -O check gateway
-if test ! $status -eq 0;
-    sshg -M -S ~/work/.socks/webproxy -fN -L3128:wwwcache.sanger.ac.uk:3128 as70@ssh.sanger.ac.uk;
-    echo "new tunnel to webproxy established"
+if ~/work/sshg -q -S ~/work/.socks/webproxy -O check gateway > /dev/null; then
+    echo "tunnel to webproxy already established"
 else
-    echo "already established tunnel on 3128 to the webproxy"
-end
+    ~/work/sshg -M -S ~/work/.socks/webproxy -fN -L3128:wwwcache.sanger.ac.uk:3128 as70@ssh.sanger.ac.uk > /dev/null
+    echo "new tunnel to webproxy establishe on port 3128"
+fi
 
-
-ssh -q -S ~/work/.socks/glproxy -O check gateway
-if test ! $status -eq 0;
-    sshg -M -S ~/work/.socks/glproxy -fN -L3333:gitlab.internal.sanger.ac.uk:22 as70@ssh.sanger.ac.uk
-    echo "new tunnel to gitlab established"
+if ~/work/sshg -q -S ~/work/.socks/glproxy -O check gateway > /dev/null; then
+    echo "tunnel to gitlab already established"
 else
-    echo "already established tunnel on 3333 to gitlab"
-end
+    ~/work/sshg -M -S ~/work/.socks/glproxy -fN -L3333:gitlab.internal.sanger.ac.uk:22 as70@ssh.sanger.ac.uk > /dev/null
+    echo "new tunnel to webproxy establishe on port 3128"
+fi
 
-# required for sshfs mounting to my vm
 keychain ~/.ssh/id_ed25519
 
-echo "attempting sshfs mount to vm"
+echo "sshfs mounting vm"
 
 mkdir ~/work/vm -p
-sshfs -o ssh_command=sshg ~/work/vm vm:
-
-alias ssh=sshg
-
-echo "HTTP Proxy: localhost:3128"
-echo "SSL Proxy: localhost:3128"
-
-
-echo $prev_clip | xclip -selection clipboard -r
+sshfs -o ssh_command=~/work/sshg ~/work/vm vm:
