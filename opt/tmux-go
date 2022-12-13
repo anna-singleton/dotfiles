@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if  tmux ls > /dev/null; then
+if  tmux ls &> /dev/null; then
     tmux a
 else
     tmux new-session -c ~

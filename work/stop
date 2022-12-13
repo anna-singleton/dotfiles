@@ -20,3 +20,4 @@ fi
 
 echo "ending sshfs"
 umount ~/work/vm
+umount ~/work/kp-mnt

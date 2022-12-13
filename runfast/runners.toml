@@ -29,6 +29,11 @@ cmd = "dot {file} -Tsvg | feh --scale-down --geometry '900x900' -"
 quit_fast = true
 
 [[runners]]
+name = "mermaid diagram"
+cmd = "mmdc -i {file}.mmd -o {file}.png -t neutral && feh {file}.png"
+quit_fast = true
+
+[[runners]]
 name = "python"
 cmd = "python {file}"
 quit_fast = false
