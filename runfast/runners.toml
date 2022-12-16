@@ -14,11 +14,6 @@ cmd = "cargo run"
 quit_fast = false
 
 [[runners]]
-name = "echo test"
-cmd = "echo {thing}"
-quit_fast = false
-
-[[runners]]
 name = "dotter deploy"
 cmd = "dotter -v"
 quit_fast = false
@@ -37,6 +32,11 @@ quit_fast = true
 name = "python"
 cmd = "python {file}"
 quit_fast = false
+
+[[runners]]
+name = "python (interactive)"
+cmd = "python -i {file}"
+quit_fast = true
 
 [[runners]]
 name = "rust test"
