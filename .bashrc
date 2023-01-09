@@ -1,5 +1,9 @@
 export PATH=$PATH:$HOME/opt/
 
+if [ -f ~/.secrets/bw_session ] && [ -n $BW_SESSION ]; then
+    export BW_SESSION=$(cat ~/.secrets/bw_session)
+fi
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -70,6 +74,7 @@ alias vim=nvim
 alias ssh=sshg
 alias tm=tmux-go
 alias pacman='sudo pacman'
+alias bwgo=". ~/opt/bwgo"
 
 export EDITOR=nvim
 

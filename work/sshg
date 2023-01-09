@@ -9,7 +9,7 @@ fi
 # cat ~/docs/gateway | xclip -i -selection clipboard -r
 # ssh -A $1
 
-if [[ "$1" == "itadmin" ]]; then
+if [[  "$1" == "itadmin"  ||  "$1" == "root@itadmin"  ]]; then
     /bin/ssh $@
     exit 0
 fi
