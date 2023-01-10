@@ -78,4 +78,6 @@ alias bwgo=". ~/opt/bwgo"
 
 export EDITOR=nvim
 
+eval `keychain --quiet --eval`
+
 export PS1="\[$(tput setaf 10)\]\u \[$(tput setaf 11)\][\W] \[$(tput setaf 9)\]\$(git_info)\[$(tput setaf 12)\]\$(work_info)\[$(tput sgr0)\]-> "
