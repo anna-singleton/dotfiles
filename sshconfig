@@ -56,7 +56,7 @@ host gen3
 
 host tol
     User as70
-    HostName tol-login.internal.sanger.ac.uk
+    HostName tol.internal.sanger.ac.uk
     ProxyJump as70@ssh.sanger.ac.uk
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
@@ -87,6 +87,13 @@ host github.com
     HostName github.com
     User git
     IdentityFile ~/.ssh/github
+
+host vps
+    HostName 51.89.164.190
+    Port 50069
+    User anna
+    IdentityFile ~/.ssh/id_vps
+
 
 host *
     TCPKeepAlive yes

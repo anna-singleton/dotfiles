@@ -9,6 +9,11 @@ cmd = "ghci"
 quit_fast = true
 
 [[runners]]
+name = "rust (release)"
+cmd = "cargo run --release"
+quit_fast = false
+
+[[runners]]
 name = "rust"
 cmd = "cargo run"
 quit_fast = false
