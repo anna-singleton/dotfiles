@@ -26,3 +26,11 @@ echo "sshfs mounting vm"
 
 mkdir ~/work/vm -p
 sshfs -o ssh_command=~/work/sshg ~/work/vm vm:
+
+# start some programs
+
+slack &> /dev/null &
+disown $!
+
+thunderbird &> /dev/null &
+disown $!
