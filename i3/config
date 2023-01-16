@@ -228,10 +228,10 @@ set $fg4        #a89984
 
 # class                 border  backgr  text    indicator   child_border
 
-client.focused          $blue1  $blue1  $fg1    $blue1      $blue1
-client.focused_inactive $blue2  $blue2  $fg1    $blue2      $blue2
-client.unfocused        $blue2  $blue2  $bg     $blue2      $blue2
-client.urgent           $red2   $red2   $fg1    $red2       $red2
+# client.focused          $blue1  $blue1  $fg1    $blue1      $blue1
+# client.focused_inactive $blue2  $blue2  $fg1    $blue2      $blue2
+# client.unfocused        $blue2  $blue2  $bg     $blue2      $blue2
+# client.urgent           $red2   $red2   $fg1    $red2       $red2
 
 # old theme
 # client.focused          #7400B8 #8013BD #ffffff #7400B5   #7400B8
