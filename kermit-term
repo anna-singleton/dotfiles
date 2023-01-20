@@ -1,0 +1,76 @@
+# kermit ~ terminal configuration file
+
+# Locale (numeric)
+locale en_US.UTF-8
+
+# Word char exceptions
+char "-./?%&#_=+@~"
+
+# Action key binding (alt/shift)
+key shift
+
+# Cursor shape (block/ibeam/underline)
+cursor_shape block
+
+# Custom command key bindings
+# bind/bindx [KEY]~"[COMMAND]"
+# bindx f~"df -h"
+
+# Tab position (top/bottom)
+tab bottom
+
+# Terminal font
+font IBMPlexMono normal {{ wm_font_size }}
+
+# Terminal transparency
+opacity 1
+
+# Foreground color
+# foreground         0xffffff
+# foreground_bold    0xffffff
+
+# Cursor color
+#cursor             0x00cc00
+#cursor_foreground  0xefecf4
+
+# Background color
+#background         0x000000
+
+background 0x1d2021
+foreground 0xebdbb2
+foreground_bold 0xebdbb2
+
+color0  0x282828
+color1  0xcc241d
+color2  0x98971a
+color3  0xd79921
+color4  0x689d6a
+color5  0xb16286
+color6  0x689d6a
+color7  0xa89984
+color8  0x665c54
+color9  0xfb4934
+color10 0xb8bb26
+color11 0xfabd2f
+color12 0x83a598
+color13 0xd3869b
+color14 0x8ec07c
+color15 0x928374
+
+# Color palette (16)
+# color0  0x3f3f3f
+# color1  0xcf0000
+# color2  0xa8ff60
+# color3  0xf3f828
+# color4  0x3c70a4
+# color5  0xcc00ff
+# color6  0x3c70a4
+# color7  0xdcdccc
+# color8  0x808080
+# color9  0xcf0000
+# color10 0xa8ff60
+# color11 0x6b6b6b
+# color12 0x3c70a4
+# color13 0xcc00ff
+# color14 0x3c70a4
+# color15 0xdcdccc

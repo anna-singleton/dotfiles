@@ -25,6 +25,7 @@ opt = "~/opt"
 ".bashrc" = "~/.bashrc"
 "picom.conf" = "~/.config/picom.conf"
 # "cheat.bash" = "~/opt/cheat.bash"
+kermit-term = "~/.config/kermit.conf"
 
 [default.variables]
 

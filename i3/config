@@ -1,8 +1,8 @@
 set $mod Mod4
 
 # kitty terminal
-bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec i3-sensible-terminal -e fish --hide-menubar --hide-toolbar
+bindsym $mod+Return exec kermit
+bindsym $mod+Shift+Return exec i3-sensible-terminal --hide-menubar --hide-toolbar
 
 # quit window
 bindsym $mod+Shift+q kill
