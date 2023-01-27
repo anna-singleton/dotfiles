@@ -5,6 +5,16 @@ host vm
     HostName 172.27.27.13
     ProxyJump as70@ssh.sanger.ac.uk
 
+host vm2
+    User ubuntu
+    HostName 172.27.28.130
+    ProxyJump as70@ssh.sanger.ac.uk
+
+host vm3
+    User ubuntu
+    HostName 172.27.25.116
+    ProxyJump as70@ssh.sanger.ac.uk
+
 host f5
     User as70
     HostName farm5-login.internal.sanger.ac.uk
@@ -50,6 +60,13 @@ host p6
 host gen3
     User as70
     HostName gen3.internal.sanger.ac.uk
+    ProxyJump as70@ssh.sanger.ac.uk
+    ForwardAgent yes
+    IdentityFile ~/.ssh/id_ed25519
+
+host impute
+    User as70
+    HostName impute.internal.sanger.ac.uk
     ProxyJump as70@ssh.sanger.ac.uk
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
