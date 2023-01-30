@@ -71,7 +71,6 @@ alias l='ls -CF'
 # my stuff
 alias vi=nvim
 alias vim=nvim
-alias ssh=sshg
 alias tm=tmux-go
 alias pacman='sudo pacman'
 alias bwgo=". ~/opt/bwgo"
