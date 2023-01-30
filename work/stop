@@ -4,18 +4,10 @@ echo "exiting work mode"
 echo "0" > ~/work/.work-mode
 
 
-if ssh -S ~/.socks/webproxy -O check gateway &> /dev/null; then
-    ssh -S ~/.socks/webproxy -O exit gateway > /dev/null
+if ssh -S ~/.socks/tunnel -O check work &> /dev/null; then
+    ssh -S ~/.socks/tunnel -O exit work > /dev/null
 else
     echo "no tunnel to webproxy exists, skipping"
-fi
-
-
-
-if ssh -S ~/.socks/glproxy -O check gateway &> /dev/null; then
-    ssh -S ~/.socks/glproxy -O exit gateway > /dev/null
-else
-    echo "no tunnel to gitlab exists, skipping"
 fi
 
 echo "ending sshfs"

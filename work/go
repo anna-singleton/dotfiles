@@ -6,17 +6,10 @@ echo "1" > ~/work/.work-mode
 
 alias ssh=~/work/sshg
 
-if ~/work/sshg -q -S ~/work/.socks/webproxy -O check gateway > /dev/null; then
+if sshpass -f/home/anna/docs/gateway ssh -q -S ~/work/.socks/tunnel -O check work > /dev/null; then
     echo "tunnel to webproxy already established"
 else
-    ~/work/sshg -M -S ~/work/.socks/webproxy -fN -L3128:wwwcache.sanger.ac.uk:3128 as70@ssh.sanger.ac.uk > /dev/null
-    echo "new tunnel to webproxy establishe on port 3128"
-fi
-
-if ~/work/sshg -q -S ~/work/.socks/glproxy -O check gateway > /dev/null; then
-    echo "tunnel to gitlab already established"
-else
-    ~/work/sshg -M -S ~/work/.socks/glproxy -fN -L3333:gitlab.internal.sanger.ac.uk:22 as70@ssh.sanger.ac.uk > /dev/null
+    sshpass -f/home/anna/docs/gateway ssh -fN -M -S ~/work/.socks/tunnel work > /dev/null
     echo "new tunnel to webproxy establishe on port 3128"
 fi
 
@@ -25,7 +18,7 @@ keychain ~/.ssh/id_ed25519
 echo "sshfs mounting vm"
 
 mkdir ~/work/vm -p
-sshfs -o ssh_command=~/work/sshg ~/work/vm vm:
+sshfs ~/work/vm vm:
 
 # start some programs
 

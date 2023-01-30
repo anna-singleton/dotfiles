@@ -3,85 +3,68 @@ AddKeysToAgent yes
 host vm
     User ubuntu
     HostName 172.27.27.13
-    ProxyJump as70@ssh.sanger.ac.uk
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
+    IdentityFile ~/.ssh/id_ed25519
 
-host vm2
+host civm
     User ubuntu
     HostName 172.27.28.130
-    ProxyJump as70@ssh.sanger.ac.uk
-
-host vm3
-    User ubuntu
-    HostName 172.27.25.116
-    ProxyJump as70@ssh.sanger.ac.uk
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
+    IdentityFile ~/.ssh/id_ed25519
 
 host f5
     User as70
-    HostName farm5-login.internal.sanger.ac.uk
-    ProxyJump as70@ssh.sanger.ac.uk
-    ForwardAgent yes
-    IdentityFile ~/.ssh/id_ed25519
-
-host f5-1
-    User as70
-    HostName farm5-head1.internal.sanger.ac.uk
-    ProxyJump as70@ssh.sanger.ac.uk
-    ForwardAgent yes
-    IdentityFile ~/.ssh/id_ed25519
-
-host f5-2
-    User as70
-    HostName farm5-head2.internal.sanger.ac.uk
-    ProxyJump as70@ssh.sanger.ac.uk
+    HostName farm5-login.internal
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
 host casm3
     User as70
-    HostName casm3-login.internal.sanger.ac.uk
-    ProxyJump as70@ssh.sanger.ac.uk
+    HostName casm3-login.internal
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
 host isg
     User as70
-    HostName isg-test-cluster.internal.sanger.ac.uk
-    ProxyJump as70@ssh.sanger.ac.uk
+    HostName isg-test-cluster.internal
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
-host p6
+host p6 pcs6
     User as70
-    HostName pcs6-head1.internal.sanger.ac.uk
-    ProxyJump as70@ssh.sanger.ac.uk
+    HostName pcs6-head1.internal
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
 host gen3
     User as70
-    HostName gen3.internal.sanger.ac.uk
-    ProxyJump as70@ssh.sanger.ac.uk
+    HostName gen3.internal
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
 host impute
     User as70
-    HostName impute.internal.sanger.ac.uk
-    ProxyJump as70@ssh.sanger.ac.uk
+    HostName impute.internal
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
 host tol
     User as70
-    HostName tol.internal.sanger.ac.uk
-    ProxyJump as70@ssh.sanger.ac.uk
+    HostName tol.internal
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
 host itadmin
     User as70
-    HostName it-admin2.internal.sanger.ac.uk
-    ProxyJump as70@ssh.sanger.ac.uk
+    HostName it-admin2.internal
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
     KexAlgorithms +diffie-hellman-group1-sha1
@@ -94,11 +77,23 @@ host gateway
     HostName ssh.sanger.ac.uk
     ForwardAgent yes
 
+host work
+    User as70
+    HostName ssh.sanger.ac.uk
+    ForwardAgent yes
+    ForwardX11 yes
+    LocalForward 3128 wwwcache.sanger.ac.uk:3128
+    DynamicForward 20002
+
 host gitlab.internal.sanger.ac.uk
-    HostName gitlab.internal.sanger.ac.uk
+    HostName gitlab.internal
     User git
     IdentityFile ~/.ssh/work_gitlab
-    ProxyCommand sshg -W %h:%p as70@ssh.sanger.ac.uk
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
+
+host *.internal *.internal.sanger.ac.uk
+    User as70
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
 
 host github.com
     HostName github.com
@@ -110,7 +105,6 @@ host vps
     Port 50069
     User anna
     IdentityFile ~/.ssh/id_vps
-
 
 host *
     TCPKeepAlive yes
