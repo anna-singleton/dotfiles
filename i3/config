@@ -1,7 +1,7 @@
 set $mod Mod4
 
 # kitty terminal
-bindsym $mod+Return exec kermit
+bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec i3-sensible-terminal --hide-menubar --hide-toolbar
 
 # quit window

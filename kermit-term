@@ -20,7 +20,7 @@ cursor_shape block
 tab bottom
 
 # Terminal font
-font IBMPlexMono normal {{ wm_font_size }}
+font iMWritingMonoS Nerd Font normal {{ term_font_size }}
 
 # Terminal transparency
 opacity 1
