@@ -30,7 +30,7 @@ quit_fast = true
 
 [[runners]]
 name = "mermaid diagram"
-cmd = "mmdc -i {file}.mmd -o {file}.png -t neutral && feh {file}.png"
+cmd = "[[ {file}.mmd -nt {file}.png ]] && mmdc -i {file}.mmd -o {file}.png -t neutral; feh {file}.png"
 quit_fast = true
 
 [[runners]]
