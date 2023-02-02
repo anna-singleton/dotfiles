@@ -19,7 +19,11 @@
 *.color14: #8ec07c
 *.color15: #928374
 
-URxvt.perl-ext-common: default,clipboard,selection-to-clipboard,matcher
+! cursor size fix
+Xcursor.size: 16
+
+! resize font requires 'urxvt-resize-font-git' from the AUR
+URxvt.perl-ext-common: default,clipboard,selection-to-clipboard,matcher,resize-font
 
 !! URxvt Appearance
 URxvt.font: xft:iMWritingMonoS Nerd Font Mono:style=Regular:size={{ term_font_size }}
@@ -54,3 +58,6 @@ URxvt.keysym.Control-Left: \033[1;5D
 
 URxvt.iso14755: false
 URxvt.iso14755_52: false
+
+URxvt.keysym.C-Down:  resize-font:smaller
+URxvt.keysym.C-Up:    resize-font:bigger
