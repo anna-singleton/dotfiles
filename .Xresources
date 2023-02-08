@@ -42,6 +42,7 @@ URxvt.depth: 24
 URxvt.clipboard.autocopy: true
 URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste_escaped
+URxvt.geometry: 400x400
 !URxvt.keysym.C-V: perl:clipboard:paste_escaped
 
 URxvt.matcher.button: 1
