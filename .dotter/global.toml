@@ -27,6 +27,7 @@ opt = "~/opt"
 "picom.conf" = "~/.config/picom.conf"
 # "cheat.bash" = "~/opt/cheat.bash"
 kermit-term = "~/.config/kermit.conf"
+xscreensaver = "~/.xscreensaver"
 
 [default.variables]
 
