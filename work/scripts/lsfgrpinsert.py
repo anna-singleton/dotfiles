@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# this doesnt take advantage of the list already being sorted, and could be
+# more efficient O(n) worst case instead of O(nlogn)
 def ins(existing, newitems):
     existing += newitems
     existing.sort()
