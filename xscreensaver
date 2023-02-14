@@ -8,7 +8,7 @@ dialogTheme: black borderless
 ?.Dialog.buttonFont:	iMWritingMonoS Nerd Font bold 14
 ?.Dialog.dateFont:	iMWritingMonoS Nerd Font 9
 
-mode:		random
+mode:		{{xscreensaver_mode}}
 selected:	174
 
 textMode:	url
@@ -24,6 +24,7 @@ authWarningSlack:   20
 
 fade: False
 unfade: False
+splash: False
 
 programs:								      \
 - GL: 				moebiusgears --root			    \n\

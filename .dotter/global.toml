@@ -43,6 +43,7 @@ polybar_height = 19
 polybar_right_modules = "upd-end-sep updates vol-upd-sep pulseaudio date-vol-sep date"
 term_font_size = 10.0
 polybar_offset = 2
+xscreensaver_mode="random"
 
 [thinkpad]
 depends = []
@@ -56,3 +57,4 @@ polybar_height = 19
 polybar_right_modules = "upd-end-sep updates vol-upd-sep pulseaudio bat-vol-sep bat_internal bat_swap date-bat-sep date"
 term_font_size = 12.0
 polybar_offset = 2
+xscreensaver_mode="blank"
