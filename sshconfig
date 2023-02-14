@@ -19,7 +19,7 @@ host f5
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
-host casm3
+host casm3 casm c3
     User as70
     HostName casm3-login.internal
     ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
