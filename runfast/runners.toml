@@ -49,6 +49,11 @@ cmd = "cargo test"
 quit_fast = false
 
 [[runners]]
+name = "rust with args"
+cmd = "cargo run -- {args}"
+quit_fast = false
+
+[[runners]]
 name = "rust build"
 cmd = "cargo build"
 quit_fast = false
