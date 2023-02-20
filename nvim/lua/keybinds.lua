@@ -38,6 +38,7 @@ nmap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
 nmap('<leader>e', ':lua vim.diagnostic.open_float()<cr>')
 nmap('[d', ':lua vim.diagnostic.goto_prev()<cr>')
 nmap(']d', ':lua vim.diagnostic.goto_next()<cr>')
+nmap('<leader>d', '<cmd>TroubleToggle<cr>')
 
 -- other binds
 
