@@ -33,6 +33,13 @@ host isg
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
+host isg22 i22
+    User as70
+    HostName isg-test-cluster-22-head1.internal
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
+    ForwardAgent yes
+    IdentityFile ~/.ssh/id_ed25519
+
 host p6 pcs6
     User as70
     HostName pcs6-head1.internal
