@@ -4,8 +4,8 @@ echo "exiting work mode"
 echo "0" > ~/work/.work-mode
 
 
-if ssh -S ~/.socks/tunnel -O check work &> /dev/null; then
-    ssh -S ~/.socks/tunnel -O exit work > /dev/null
+if ssh -S ~/work/.socks/tunnel -O check work &> /dev/null; then
+    ssh -S ~/work/.socks/tunnel -O exit work > /dev/null
 else
     echo "no tunnel to webproxy exists, skipping"
 fi
