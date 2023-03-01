@@ -106,6 +106,11 @@ host vps
     User anna
     IdentityFile ~/.ssh/id_vps
 
+host alice rpi
+    HostName 192.168.0.40
+    User anna
+    IdentityFile ~/.ssh/id_alice
+
 host *
     TCPKeepAlive yes
     ServerAliveInterval 120
