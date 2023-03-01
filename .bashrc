@@ -74,6 +74,8 @@ alias vim=nvim
 alias tm=tmux-go
 alias pacman='sudo pacman'
 alias bwgo=". ~/opt/bwgo"
+alias gs="git status"
+alias gd="git diff"
 
 export EDITOR=nvim
 
