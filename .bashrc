@@ -76,6 +76,7 @@ alias pacman='sudo pacman'
 alias bwgo=". ~/opt/bwgo"
 alias gs="git status"
 alias gd="git diff"
+alias gr="cd \$(git rev-parse --show-toplevel)"
 
 export EDITOR=nvim
 
