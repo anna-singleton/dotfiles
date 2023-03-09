@@ -59,6 +59,11 @@ cmd = "cargo build"
 quit_fast = false
 
 [[runners]]
+name = "C build"
+cmd = "make {rule}"
+quit_fast = false
+
+[[runners]]
 name = "C build & run"
 cmd = "make run"
 quit_fast = false
