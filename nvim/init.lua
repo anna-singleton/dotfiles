@@ -1,6 +1,4 @@
-require('keybinds')
-require('packages')
-require('lsp')
-require('config')
-require('autocmd')
-require('completion')
+require("anna.packer")
+require("anna.binds")
+require("anna.cfg")
+
