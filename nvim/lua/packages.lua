@@ -25,6 +25,7 @@ require('packer').startup(function()
     use 'etdev/vim-hexcolor'
     use 'terrastruct/d2-vim'
     use {'folke/trouble.nvim', requires = 'nvim-tree/nvim-web-devicons', config = function() require("trouble").setup{}end}
+    use 'lervag/vimtex'
 end)
 
 local configs = require 'nvim-treesitter.configs'

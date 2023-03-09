@@ -57,9 +57,10 @@ cmp.setup({
 
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-  require('lspconfig')['sumneko_lua'].setup {
-    capabilities = capabilities
-  }
+  -- require('lspconfig')['sumneko_lua'].setup {
+  --   capabilities = capabilities
+  -- }
+require('lspconfig')
 
 require("luasnip").config.set_config({ history = true, updateevents = "TextChanged,TextChangedI" })
 require("luasnip.loaders.from_vscode").load()

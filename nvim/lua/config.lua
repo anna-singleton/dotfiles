@@ -27,14 +27,10 @@ vim.opt.scrolloff = 10
 vim.opt.termguicolors = true
 vim.opt.shell = "/bin/bash"
 
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
---vim.g.colors_name = "gruvbox"
--- no idea why that doesnt work ???
---
 vim.g.airline_theme = "bubblegum"
 vim.g.airline_powerline_fonts = true
 
 vim.cmd("colorscheme gruvbox")
 vim.cmd("highlight Normal guibg=none")
+
+vim.g.vimtex_view_method = 'mupdf'
