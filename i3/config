@@ -175,6 +175,8 @@ exec "redshift-gtk"
 
 exec "picom"
 
+exec_always "xmodmap ~/.Xmodmap"
+
 # exec "emacs --daemon"
 
 font pango:Hurmit Nerd Font Mono {{wm_font_size}}
