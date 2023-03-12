@@ -189,6 +189,7 @@ for_window [class="chatterino"] floating enable
 for_window [class="graphviz"] floating enable
 for_window [class="Graphviz"] floating enable
 for_window [class="feh"] floating enable
+for_window [class="floating"] floating enable
 
 # theme
 
