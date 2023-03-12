@@ -64,6 +64,11 @@ cmd = "make {rule}"
 quit_fast = false
 
 [[runners]]
+name = "C build & run (fast exit)"
+cmd = "make run"
+quit_fast = true
+
+[[runners]]
 name = "C build & run"
 cmd = "make run"
 quit_fast = false
