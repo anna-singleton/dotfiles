@@ -1,0 +1,14 @@
+#!/bin/bash
+
+process() {
+    while read input; do
+        case "$input" in
+            UNBLANK*)
+                dunstctl set-paused false ;;
+            LOCK*)
+                dunstctl set-paused true ;;
+        esac
+    done
+}
+
+xscreensaver-command -watch | process

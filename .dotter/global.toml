@@ -23,6 +23,8 @@ opt = "~/opt"
 ".bashrc" = "~/.bashrc"
 "picom.conf" = "~/.config/picom.conf"
 xscreensaver = "~/.xscreensaver"
+dunst = "~/.config/dunst"
+"systemd/user" = "~/.config/systemd/user/"
 
 [default.variables]
 

@@ -1,0 +1,10 @@
+[Unit]
+Description=Make dunst pause notifications while xscreensaver locks the screen
+After=xscreensaver.service
+
+[Service]
+ExecStart=/home/anna/.config/dunst/dunst-xscreensaver
+Type=simple
+
+[Install]
+WantedBy=default.target
