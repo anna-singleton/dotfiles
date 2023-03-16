@@ -27,6 +27,7 @@ unfade: False
 splash: False
 
 programs:								      \
+GL:             boids \n\
 - GL: 				moebiusgears --root			    \n\
 -				maze --root				    \n\
 - GL: 				superquadrics --root			    \n\
