@@ -4,10 +4,10 @@ echo "work mode starting"
 
 echo "1" > ~/work/.work-mode
 
-if sshpass -f/home/anna/docs/gateway ssh -q -S ~/work/.socks/tunnel -O check work > /dev/null; then
+if sshpass -f/home/anna/work/.gateway-pass ssh -q -S ~/work/.socks/tunnel -O check work > /dev/null; then
     echo "tunnel to webproxy already established"
 else
-    sshpass -f/home/anna/docs/gateway ssh -fN -M -S ~/work/.socks/tunnel work > /dev/null
+    sshpass -f/home/anna/work/.gateway-pass ssh -fN -M -S ~/work/.socks/tunnel work > /dev/null
     echo "new tunnel to webproxy established on port 3128"
 fi
 
