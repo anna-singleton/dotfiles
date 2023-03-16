@@ -6,7 +6,7 @@ lsp.ensure_installed({
     'rust_analyzer',
     'lua_ls',
     'clangd',
-    'texlab'
+    'ltex'
 })
 
 lsp.configure('lua-language-server', {

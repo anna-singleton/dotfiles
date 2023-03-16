@@ -48,4 +48,6 @@ return require('packer').startup(function(use)
     use 'tpope/vim-surround'
     use 'folke/trouble.nvim'
     use 'tomtom/tcomment_vim'
+    use 'lervag/vimtex'
+    -- use 'vigoux/ltex-ls.nvim'
 end)
