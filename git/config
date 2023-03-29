@@ -1,12 +1,16 @@
 [user]
-	name = anna-singleton
-	email = annabeths111@gmail.com
+    name = anna-singleton
+    email = annabeths111@gmail.com
 [core]
-	editor = nvim
-	excludesFile = ~/.config/git/global_ignore
+    editor = nvim
+    excludesFile = ~/.config/git/global_ignore
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [alias]
     worktree-clone = "!sh $HOME/opt/git-clone-worktree"
 [push]
     autoSetupRemote = true
+[includeIf "gitdir:~/work/**"]
+    [user]
+        name = Anna Singleton
+        email = as70@sanger.ac.uk
