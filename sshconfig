@@ -107,16 +107,11 @@ host github.com
     User git
     IdentityFile ~/.ssh/github
 
-host vps
-    HostName 51.89.164.190
-    Port 50069
+host diana
+    HostName 82.24.250.239
     User anna
-    IdentityFile ~/.ssh/id_vps
-
-host alice rpi
-    HostName 192.168.0.40
-    User anna
-    IdentityFile ~/.ssh/id_alice
+    IdentityFile ~/.ssh/id_personal
+    Port 8000
 
 host *
     TCPKeepAlive yes
