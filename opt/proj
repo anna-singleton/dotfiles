@@ -3,7 +3,8 @@
 work_proj=$(ls -l --color=no ~/work | awk '/^d/ {print "work/"$9}')
 personal_proj=$(ls -l --color=no ~/proj | awk '/^d/ {print "proj/"$9}')
 
-projects=$(printf "%s\ndotfiles\n" "$personal_proj" "$work_proj")
+projects=$(printf "%s\n" "$personal_proj" "$work_proj")
+projects=$(printf "%s\ndotfiles\n" "$projects")
 
 chosen=$(echo "$projects" | fzf)
 
