@@ -32,8 +32,34 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
         fallback()
       end
     end, { "i", "s" }),
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-d>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end,
+    ['<C-u>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end,
+    ['<C-b>'] = function(fallback)
+      if cmp.visible() then
+        cmp.scroll_docs(-4)
+      else
+        fallback()
+      end
+    end,
+    ['<C-f>'] = function(fallback)
+      if cmp.visible() then
+        cmp.scroll_docs(4)
+      else
+        fallback()
+      end
+    end,
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({select=true}),
 })
