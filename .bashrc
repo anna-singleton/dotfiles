@@ -53,7 +53,11 @@ fi
 git_info() {
     branch=$(git branch --show-current 2> /dev/null)
     if [[ $? -eq 0 ]]; then
-        printf "(GIT:%s) " "$branch"
+        if [[ -d ".git" ]]; then
+            printf "(GIT:%s) " "$branch"
+        else
+            printf "(GIT:BARE) "
+        fi
     fi
 }
 
