@@ -6,12 +6,6 @@ host vm
     ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
     IdentityFile ~/.ssh/id_ed25519
 
-host civm
-    User ubuntu
-    HostName 172.27.28.130
-    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
-    IdentityFile ~/.ssh/id_ed25519
-
 host f5
     User as70
     HostName farm5-login.internal
