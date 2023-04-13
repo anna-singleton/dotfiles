@@ -1,0 +1,12 @@
+#command structure for changing authors of a whole git history
+
+# must have git filter-repo installed, which can be installed via pip:
+# pip install git-filter-repo
+
+git filter-repo --commit-callback '
+    if commit.author_email == b"incorrect@email":
+        commit.author_email = b"correct@email" 
+        commit.author_name = b"Correct Name"
+        commit.committer_email = b"correct@email" 
+        commit.committer_name = b"Correct Name"
+' 
