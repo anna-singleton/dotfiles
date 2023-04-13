@@ -49,5 +49,6 @@ return require('packer').startup(function(use)
     use 'folke/trouble.nvim'
     use 'tomtom/tcomment_vim'
     use 'lervag/vimtex'
+    use 'mfussenegger/nvim-lint'
     -- use 'vigoux/ltex-ls.nvim'
 end)
