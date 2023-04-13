@@ -10,7 +10,5 @@
     worktree-clone = "!sh $HOME/opt/git-clone-worktree"
 [push]
     autoSetupRemote = true
-[includeIf "gitdir:~/work/**"]
-    [user]
-        name = Anna Singleton
-        email = as70@sanger.ac.uk
+[includeIf "gitdir:~/work/"]
+    path = .gitconfig.work
