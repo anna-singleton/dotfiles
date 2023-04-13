@@ -9,15 +9,27 @@ lsp.ensure_installed({
     'ltex'
 })
 
-lsp.configure('lua-language-server', {
-    settings = {
-        lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
+-- lsp.configure('lua-language-server', {
+--     settings = {
+--         lua = {
+--             diagnostics = {
+--                 globals = { 'vim' }
+--             }
+--         }
+--     }
+-- })
+
+-- require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
+lsp.configure('pyright', {
+    cmd = { 'pyright-langserver', '-v /home/anna/.venvs/', '--stdio' },
+    venvPath = "/home/anna/.venvs/",
 })
+
+lsp.configure('python', {
+    venvPath = "/home/anna/.venvs/",
+})
+
 
 local luasnip = require('luasnip')
 
@@ -26,42 +38,42 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     -- tab / shift-tab move up and down the cmp-list
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
+        if luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
+        else
+            fallback()
+        end
     end, { "i", "s" }),
     ['<C-d>'] = function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()
-      end
+        if cmp.visible() then
+            cmp.select_next_item()
+        else
+            fallback()
+        end
     end,
     ['<C-u>'] = function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        fallback()
-      end
+        if cmp.visible() then
+            cmp.select_prev_item()
+        else
+            fallback()
+        end
     end,
     ['<C-b>'] = function(fallback)
-      if cmp.visible() then
-        cmp.scroll_docs(-4)
-      else
-        fallback()
-      end
+        if cmp.visible() then
+            cmp.scroll_docs(-4)
+        else
+            fallback()
+        end
     end,
     ['<C-f>'] = function(fallback)
-      if cmp.visible() then
-        cmp.scroll_docs(4)
-      else
-        fallback()
-      end
+        if cmp.visible() then
+            cmp.scroll_docs(4)
+        else
+            fallback()
+        end
     end,
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({select=true}),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
 })
 
 lsp.setup_nvim_cmp({
