@@ -31,6 +31,13 @@ lsp.configure('python', {
 })
 
 
+-- install the haskell language servers via the haskell-language-server-static
+-- package on the AUR. its less painful than other ways
+require'lspconfig'.hls.setup{
+    cmd = {"haskell-language-server-9.0.2" , "--lsp"}
+}
+
+
 local luasnip = require('luasnip')
 
 local cmp = require('cmp')
