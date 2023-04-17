@@ -28,5 +28,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- disable capital Q (purgatory)
 vim.keymap.set("n", "Q", "<nop>")
 
+-- disable q: (purgatory 2)
+vim.keymap.set("n", "q:", "<nop>")
+
 -- bind trouble.nvim
 vim.keymap.set("n", "<leader>sd", "<cmd>TroubleToggle<cr>")
