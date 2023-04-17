@@ -40,8 +40,13 @@ git_info() {
     if [[ $? -eq 0 ]]; then
         if [[ -d ".git" ]]; then
             printf "(GIT:%s) " "$branch"
-        else
-            printf "(GIT:BARE) "
+        elif [[ -e ".git" ]]; then
+            gitcontents=$(cat .git)
+            if [[ $gitcontents == 'gitdir: ./.bare' ]]; then
+                printf "(GIT:BARE) "
+            else
+                printf "(GIT:%s) " "$branch"
+            fi
         fi
     fi
 }
