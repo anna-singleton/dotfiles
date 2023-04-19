@@ -10,7 +10,7 @@ flake8.args = {
     "--format=%(path)s:%(row)d:%(col)d:%(code)s:%(text)s",
     "--no-show-source", "-" }
 
-vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+vim.api.nvim_create_autocmd({ "InsertLeave", "BufWrite", "TextChanged", "TextChangedI" }, {
   callback = function()
     require("lint").try_lint()
   end,
