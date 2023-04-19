@@ -47,6 +47,8 @@ git_info() {
             else
                 printf "(GIT:%s) " "$branch"
             fi
+        else
+            printf "(GIT:%s) " "$branch"
         fi
     fi
 }
