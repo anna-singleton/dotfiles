@@ -24,24 +24,17 @@ vim.opt.updatetime = 50
 
 require('lualine').setup({ options = { theme = 'carbonfox' } })
 
--- Default options
 require('nightfox').setup({
   options = {
-    -- Compiled file's destination location
-    styles = {               -- Style to be applied to different syntax groups
-      comments = "italic",     -- Value is any valid attr-list value `:help attr-list`
+    styles = {
+      comments = "italic",
       functions = "bold",
       types = "italic",
-    },
-    inverse = {             -- Inverse highlight for different types
-      match_paren = true,
     },
   },
 })
 
 -- setup must be called before loading
-vim.cmd("colorscheme nightfox")
-
 vim.cmd[[colorscheme carbonfox]]
 
 vim.opt.termguicolors = true

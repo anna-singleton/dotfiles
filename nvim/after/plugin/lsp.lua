@@ -24,18 +24,6 @@ lsp.ensure_installed({
     'ltex'
 })
 
--- lsp.configure('lua-language-server', {
---     settings = {
---         lua = {
---             diagnostics = {
---                 globals = { 'vim' }
---             }
---         }
---     }
--- })
-
--- require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
 lsp.configure('pyright', {
     cmd = { 'pyright-langserver', '-v /home/anna/.venvs/', '--stdio' },
     venvPath = "/home/anna/.venvs/",
