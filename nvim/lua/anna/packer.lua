@@ -51,4 +51,5 @@ return require('packer').startup(function(use)
     use 'lervag/vimtex'
     use 'mfussenegger/nvim-lint'
     use "lukas-reineke/indent-blankline.nvim"
+    use "EdenEast/nightfox.nvim"
 end)

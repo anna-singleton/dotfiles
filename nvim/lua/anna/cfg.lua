@@ -20,35 +20,31 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.errorbells = false
 vim.opt.scrolloff = 5
-vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
-require('lualine').setup({ options = { theme = 'gruvbox' } })
+require('lualine').setup({ options = { theme = 'carbonfox' } })
 
-vim.o.background = "dark" -- or "light" for light mode
-require("gruvbox").setup({
-    undercurl = true,
-    underline = true,
-    bold = true,
-    italic = {
-        strings = false,
-        comments = true,
-        operators = false,
-        folds = false,
-      },
-    strikethrough = true,
-    invert_selection = false,
-    invert_signs = false,
-    invert_tabline = false,
-    invert_intend_guides = false,
-    inverse = true, -- invert background for search, diffs, statuslines and errors
-    contrast = "", -- can be "hard", "soft" or empty string
-    palette_overrides = {},
-    overrides = {},
-    dim_inactive = false,
-    transparent_mode = false,
+-- Default options
+require('nightfox').setup({
+  options = {
+    -- Compiled file's destination location
+    styles = {               -- Style to be applied to different syntax groups
+      comments = "italic",     -- Value is any valid attr-list value `:help attr-list`
+      functions = "bold",
+      types = "italic",
+    },
+    inverse = {             -- Inverse highlight for different types
+      match_paren = true,
+    },
+  },
 })
-vim.cmd("colorscheme gruvbox")
+
+-- setup must be called before loading
+vim.cmd("colorscheme nightfox")
+
+vim.cmd[[colorscheme carbonfox]]
+
+vim.opt.termguicolors = true
 
 vim.g.better_whitespace_enabled = true
 vim.g.strip_whitespace_on_save = true
