@@ -62,6 +62,13 @@ host tol
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
+host bidev
+    User as70
+    HostName bionic-dev64.internal
+    ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
+    ForwardAgent yes
+    IdentityFile ~/.ssh/id_ed25519
+
 host itadmin
     User as70
     HostName it-admin2.internal
