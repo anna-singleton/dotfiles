@@ -31,6 +31,9 @@ require('nightfox').setup({
       functions = "bold",
       types = "italic",
     },
+    inverse = {
+      match_paren = false,
+    }
   },
 })
 
