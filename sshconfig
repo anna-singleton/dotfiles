@@ -114,6 +114,12 @@ host diana
     IdentityFile ~/.ssh/id_personal
     Port 8000
 
+host unison
+    HostName 82.24.250.239
+    User unison
+    IdentityFile ~/.ssh/unison_key
+    Port 8000
+
 host *
     TCPKeepAlive yes
     ServerAliveInterval 120

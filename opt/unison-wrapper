@@ -1,0 +1,3 @@
+#!/bin/bash
+
+unison -sshargs "-i ~/.ssh/unison_key" -repeat watch -batch ~/sync/ 'ssh://unison/sync'

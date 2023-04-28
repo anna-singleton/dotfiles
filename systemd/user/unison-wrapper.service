@@ -1,0 +1,10 @@
+[Unit]
+Description=Sync to diana using unison
+
+[Service]
+ExecStart=/bin/bash /home/anna/opt/unison-wrapper
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=default.target
