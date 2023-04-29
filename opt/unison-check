@@ -4,17 +4,19 @@ systemctl --user status unison-wrapper &> /dev/null
 
 stat=$?
 
+size=$(du -sbh sync/ | awk '{print $1}')
+
 case $stat in
     0)
-        echo "OK"
+        echo "OK $size"
         ;;
     1 | 2 | 4)
-        echo "ERR"
+        echo "ERR $size"
         ;;
     3)
-        echo "STP"
+        echo "STP $size"
         ;;
     *)
-        echo "UKN"
+        echo "UKN $size"
         ;;
 esac
