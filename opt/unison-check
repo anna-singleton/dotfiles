@@ -1,0 +1,20 @@
+#!/bin/bash
+
+systemctl --user status unison-wrapper &> /dev/null
+
+stat=$?
+
+case $stat in
+    0)
+        echo "OK"
+        ;;
+    1 | 2 | 4)
+        echo "ERR"
+        ;;
+    3)
+        echo "STP"
+        ;;
+    *)
+        echo "UKN"
+        ;;
+esac
