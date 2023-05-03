@@ -27,12 +27,10 @@ Xcursor.size: 16
 URxvt.perl-ext-common: default,clipboard,selection-to-clipboard,matcher,resize-font
 
 !! URxvt Appearance
-URxvt.font: xft:iMWritingMonoS Nerd Font Mono:style=Regular:size={{ term_font_size }}
-URxvt.boldFont: xft:iMWritingMonoS Nerd Font Mono:style=Bold:size={{ term_font_size }}
-URxvt.italicFont: xft:iMWritingMonoS Nerd Font Mono:style=Italic:size={{ term_font_size }}
-URxvt.boldItalicfont: xft:iMWritingMonoS Nerd Font Mono:style=Bold Italic:size={{ term_font_size }}
-URxvt.letterSpace: 0
-URxvt.lineSpace: 0
+URxvt.font: xft:iMWritingMono Nerd Font Mono:style=Regular:size={{ term_font_size }}:antialias=true:autohint=true
+URxvt.boldFont: xft:iMWritingMono Nerd Font Mono:style=Bold:size={{ term_font_size }}:antialias=true:autohint=true
+URxvt.italicFont: xft:iMWritingMono Nerd Font Mono:style=Italic:size={{ term_font_size }}:antialias=true:autohint=true
+URxvt.boldItalicfont: xft:iMWritingMono Nerd Font Mono:style=Bold Italic:size={{ term_font_size }}:antialias=true:autohint=true
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
 URxvt.saveline: 2048

@@ -52,4 +52,5 @@ return require('packer').startup(function(use)
     use 'mfussenegger/nvim-lint'
     use "lukas-reineke/indent-blankline.nvim"
     use "EdenEast/nightfox.nvim"
+    use 'ryanoasis/vim-devicons'
 end)

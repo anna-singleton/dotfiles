@@ -179,7 +179,7 @@ exec_always "xmodmap ~/.Xmodmap"
 
 # exec "emacs --daemon"
 
-font pango:iMWritingMonoS Nerd Font Mono {{wm_font_size}}
+font pango:iMWritingMono Nerd Font Mono {{wm_font_size}}
 
 
 hide_edge_borders smart
