@@ -59,6 +59,10 @@ work_info() {
     fi
 }
 
+bang() {
+    echo -n -e "\a"
+}
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
