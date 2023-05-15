@@ -30,8 +30,14 @@ quit_fast = true
 
 [[runners]]
 name = "mermaid diagram"
-cmd = "[[ {file}.mmd -nt {file}.png ]] && mmdc -i {file}.mmd -o {file}.png -t neutral; feh {file}.png"
+cmd = "[[ {file}.mmd -nt {file}.png ]] && mmdc -i {file}.mmd -o {file}.png -t neutral -s {diagram-scale}; feh {file}.png"
 quit_fast = true
+
+[[runners]]
+name = "mermaid diagram (svg)"
+cmd = "[[ {file}.mmd -nt {file}.svg ]] && mmdc -i {file}.mmd -o {file}.svg -t neutral -s {diagram-scale}; feh {file}.svg"
+quit_fast = true
+
 
 [[runners]]
 name = "python"
