@@ -1,6 +1,6 @@
 #!/bin/bash
 
-systemctl --user status unison-wrapper &> /dev/null
+systemctl --user status unison &> /dev/null
 
 stat=$?
 
