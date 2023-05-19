@@ -69,7 +69,7 @@ host bidev
     ForwardAgent yes
     IdentityFile ~/.ssh/id_ed25519
 
-host itadmin
+host itadmin it it2 itadmin2
     User as70
     HostName it-admin2.internal
     ProxyCommand ~anna/opt/connect -S localhost:20002 %h %p
