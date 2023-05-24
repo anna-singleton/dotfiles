@@ -7,7 +7,6 @@ depends = []
 i3 = "~/.config/i3"
 polybar = "~/.config/polybar"
 rofi = "~/.config/rofi"
-".Xmodmap" = "~/.Xmodmap"
 ".Xresources" = "~/.Xresources"
 nvim = "~/.config/nvim"
 ".util" = "~/.util"
@@ -56,3 +55,6 @@ polybar_right_modules = "bat_internal bat_swap unison updates pulseaudio memory 
 term_font_size = 12.0
 polybar_offset = 2
 xscreensaver_mode="blank"
+
+[thinkpad.files]
+".Xmodmap" = "~/.Xmodmap"
