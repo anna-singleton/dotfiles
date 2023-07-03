@@ -55,7 +55,7 @@ git_info() {
 
 work_info() {
     if [[ $(cat "$HOME/work/.work-mode") == "1" ]]; then
-        printf "WRK "
+        printf "W "
     fi
 }
 
