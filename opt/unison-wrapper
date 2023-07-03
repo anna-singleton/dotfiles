@@ -3,4 +3,4 @@
 # Supported unison version (must match server)
 # unison version 2.53.2 (ocaml 4.14.1)
 
-unison -silent -auto -sshargs "-i ~/.ssh/unison_key" -repeat watch -batch ~/sync/ 'ssh://unison/sync'
+unison -batch -prefer newer -copyonconflict -silent -sshargs "-i ~/.ssh/unison_key" -repeat watch ~/sync/ 'ssh://unison/sync'
