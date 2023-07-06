@@ -33,6 +33,15 @@ lsp.configure('python', {
     venvPath = "/home/anna/.venvs/",
 })
 
+lsp.configure('ltex', {
+    settings = {
+        ltex = {
+            language = "en-GB",
+            dictionary = ":.ltex-ignore.json"
+        },
+    },
+    on_attach = attach_func
+})
 
 -- install the haskell language servers via the haskell-language-server-static
 -- package on the AUR. its less painful than other ways
@@ -40,7 +49,6 @@ require'lspconfig'.hls.setup{
     cmd = {"haskell-language-server-9.0.2" , "--lsp"},
     on_attach = attach_func
 }
-
 
 local luasnip = require('luasnip')
 
