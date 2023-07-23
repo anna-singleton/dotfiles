@@ -108,6 +108,12 @@ host github.com
     User git
     IdentityFile ~/.ssh/github
 
+host ellie
+    HostName 31.48.255.45
+    User anna
+    IdentityFile ~/.ssh/id_personal
+    Port 8000
+
 host diana
     HostName 82.24.250.239
     User anna
