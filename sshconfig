@@ -129,4 +129,7 @@ host unison
 host *
     TCPKeepAlive yes
     ServerAliveInterval 120
+#   ControlPath /tmp/cm-%r@%h:%p
+#   ControlMaster auto
+#   ControlPersist 10m
 
