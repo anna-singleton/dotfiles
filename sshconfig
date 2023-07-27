@@ -121,7 +121,7 @@ host diana
     Port 8000
 
 host unison
-    HostName 82.24.250.239
+    HostName 31.48.255.45
     User unison
     IdentityFile ~/.ssh/unison_key
     Port 8000
