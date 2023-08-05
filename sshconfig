@@ -6,19 +6,13 @@ host github.com
     IdentityFile ~/.ssh/github
 
 host ellie
-    HostName 31.48.255.45
-    User anna
-    IdentityFile ~/.ssh/id_personal
-    Port 8000
-
-host diana
-    HostName 82.24.250.239
+    HostName 31.50.176.89
     User anna
     IdentityFile ~/.ssh/id_personal
     Port 8000
 
 host unison
-    HostName 31.48.255.45
+    HostName 31.50.176.89
     User unison
     IdentityFile ~/.ssh/unison_key
     Port 8000
@@ -26,7 +20,6 @@ host unison
 host *
     TCPKeepAlive yes
     ServerAliveInterval 120
-#   ControlPath /tmp/cm-%r@%h:%p
-#   ControlMaster auto
-#   ControlPersist 10m
-
+    ControlPath /tmp/cm-%r@%h:%p
+    ControlMaster auto
+    ControlPersist 10m
