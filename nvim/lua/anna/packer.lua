@@ -54,4 +54,5 @@ return require('packer').startup(function(use)
     use "EdenEast/nightfox.nvim"
     use 'ryanoasis/vim-devicons'
     use 'andweeb/presence.nvim'
+    use 'lambdalisue/suda.vim'
 end)
