@@ -53,12 +53,6 @@ git_info() {
     fi
 }
 
-work_info() {
-    if [[ $(cat "$HOME/work/.work-mode") == "1" ]]; then
-        printf "W "
-    fi
-}
-
 bang() {
     echo -n -e "\a"
 }
@@ -82,4 +76,4 @@ export EDITOR=nvim
 
 eval `keychain --quiet --eval`
 
-export PS1="\[$(tput setaf 10)\]\u@$HOSTNAME \[$(tput setaf 11)\][\W] \[$(tput setaf 9)\]\$(git_info)\[$(tput setaf 12)\]\$(work_info)\[$(tput sgr0)\]-> "
+export PS1="\[$(tput setaf 10)\]\u@$HOSTNAME \[$(tput setaf 11)\][\W] \[$(tput setaf 9)\]\$(git_info)\[$(tput sgr0)\]-> "
