@@ -1,3 +1,7 @@
+# XScreenSaver Preferences File
+# Written by xscreensaver-demo 6.07 for anna on Sun Sep 17 21:01:37 2023.
+# https://www.jwz.org/xscreensaver/
+#
 dialogTheme: black borderless
 
 ?.Dialog.headingFont:	iMWritingMonoS Nerd Font bold 16
@@ -8,6 +12,32 @@ dialogTheme: black borderless
 ?.Dialog.buttonFont:	iMWritingMonoS Nerd Font bold 14
 ?.Dialog.dateFont:	iMWritingMonoS Nerd Font 9
 
+timeout:	0:10:00
+cycle:		0:10:00
+lock:		False
+lockTimeout:	0:00:00
+passwdTimeout:	0:00:30
+visualID:	default
+installColormap:    True
+verbose:	False
+splash:		False
+splashDuration:	0:00:05
+demoCommand:	xscreensaver-settings
+nice:		10
+fade:		False
+unfade:		False
+fadeSeconds:	0:00:03
+ignoreUninstalledPrograms:False
+dpmsEnabled:	False
+dpmsQuickOff:	False
+dpmsStandby:	2:00:00
+dpmsSuspend:	2:00:00
+dpmsOff:	4:00:00
+grabDesktopImages:  True
+grabVideoFrames:    False
+chooseRandomImages: False
+imageDirectory:
+
 mode:		{{xscreensaver_mode}}
 selected:	174
 
@@ -17,17 +47,10 @@ textFile:
 textProgram:	fortune
 textURL:	https://en.wikipedia.org/w/index.php?title=Special:NewPages&feed=rss
 dialogTheme:	black borderless
-settingsGeom:	1920,37 3432,216
-
-pointerHysteresis:  10
-authWarningSlack:   20
-
-fade: False
-unfade: False
-splash: False
+settingsGeom:	0,47 430,201
 
 programs:								      \
-GL:             boids \n\
+  GL: 				boids					    \n\
 - GL: 				moebiusgears --root			    \n\
 -				maze --root				    \n\
 - GL: 				superquadrics --root			    \n\
@@ -68,7 +91,7 @@ GL:             boids \n\
 -				penrose --root				    \n\
 - GL: 				pipes --root				    \n\
 -				rdbomb --root				    \n\
-- GL: 				rubik --root				    \n\
+  GL: 				rubik --root --hideshuffling		    \n\
 -				- sierpinski --root			    \n\
 -				slip --root				    \n\
 - GL: 				sproingies --root			    \n\
@@ -79,7 +102,7 @@ GL:             boids \n\
 -				xjack --root				    \n\
 -				xlyap --root				    \n\
 - GL: 				atlantis --root				    \n\
--				bsod --root				    \n\
+				bsod --root				    \n\
 - GL: 				bubble3d --root				    \n\
 - GL: 				cage --root				    \n\
 -				- crystal --root			    \n\
@@ -192,7 +215,7 @@ GL:             boids \n\
 -				intermomentary --root			    \n\
 -				memscroller --root			    \n\
 - GL: 				noof --root				    \n\
--				pacman --root				    \n\
+				pacman --root				    \n\
 - GL: 				pinion --root				    \n\
 - GL: 				polyhedra --root			    \n\
 -				- GL: providence --root			    \n\
@@ -218,8 +241,9 @@ GL:             boids \n\
 - GL: 				gears --root				    \n\
 - GL: 				glcells --root				    \n\
 - GL: 				lockward --root				    \n\
--				m6502 --root				    \n\
-- GL: 				voronoi --root				    \n\
+				m6502 --root				    \n\
+  GL: 				voronoi --root --points 14 --point-delay      \
+				  0.05					    \n\
 - GL: 				hypnowheel --root			    \n\
 - GL: 				klein --root				    \n\
 -				- lcdscrub --root			    \n\
@@ -293,7 +317,8 @@ GL:             boids \n\
 -				nerverot --root				    \n\
 - GL: 				dnalogo --root				    \n\
 - GL: 				glblur --root				    \n\
--				polyominoes --root			    \n\
+				polyominoes --root --delay 76230	      \
+				  --ncolors 2				    \n\
 - GL: 				sballs --root				    \n\
 - GL: 				antspotlight --root			    \n\
 - GL: 				glslideshow --root			    \n\
@@ -302,4 +327,12 @@ GL:             boids \n\
 - GL: 				providence --root			    \n\
 - GL: 				antmaze --root				    \n\
 -				lcdscrub --root				    \n\
+- GL: 				cubocteversion --root			    \n\
+-				droste --root				    \n\
+- GL: 				papercube --root			    \n\
+  GL: 				skulloop --root				    \n\
+
+
+pointerHysteresis:  10
+authWarningSlack:   20
 

@@ -53,7 +53,7 @@ polybar_height = 19
 polybar_right_modules = "bat_internal bat_swap unison updates pulseaudio memory cpu date"
 term_font_size = 12.0
 polybar_offset = 2
-xscreensaver_mode="blank"
+xscreensaver_mode="random"
 
 [thinkpad.files]
 ".Xmodmap" = "~/.Xmodmap"
