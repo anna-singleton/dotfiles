@@ -157,8 +157,8 @@ exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# nitrogen (wallpaper)
-exec "nitrogen --restore"
+# wallpaper
+exec {{wallpaper_cmd}}
 
 # close xfce4 panel
 exec "xfce4-panel -q"

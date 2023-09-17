@@ -40,6 +40,7 @@ polybar_right_modules = "unison updates pulseaudio memory cpu date"
 term_font_size = 12.0
 polybar_offset = 2
 xscreensaver_mode="random"
+wallpaper_cmd="nitrogen --restore"
 
 [thinkpad]
 depends = []
@@ -54,6 +55,8 @@ polybar_right_modules = "bat_internal bat_swap unison updates pulseaudio memory 
 term_font_size = 12.0
 polybar_offset = 2
 xscreensaver_mode="random"
+wallpaper_cmd="~/.fehbg"
 
 [thinkpad.files]
 ".Xmodmap" = "~/.Xmodmap"
+".fehbg" = "~/.fehbg"
