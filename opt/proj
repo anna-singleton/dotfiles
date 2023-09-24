@@ -1,6 +1,9 @@
 #!/bin/bash
 
-uni_proj=$(ls -l --color=no ~/work | awk '/^d/ {print "uni/"$9}')
+mkdir -p ~/proj
+mkdir -p ~/uni
+
+uni_proj=$(ls -l --color=no ~/uni | awk '/^d/ {print "uni/"$9}')
 personal_proj=$(ls -l --color=no ~/proj | awk '/^d/ {print "proj/"$9}')
 
 projects=$(printf "%s\n" "$personal_proj" "$uni_proj")
