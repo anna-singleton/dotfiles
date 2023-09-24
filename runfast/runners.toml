@@ -55,6 +55,11 @@ cmd = "cargo test"
 quit_fast = false
 
 [[runners]]
+name = "rust test (with backtrace)"
+cmd = "RUST_BACKTRACE=1 cargo test"
+quit_fast = false
+
+[[runners]]
 name = "rust with args"
 cmd = "cargo run -- {args}"
 quit_fast = false
