@@ -6,13 +6,13 @@ host github.com
     IdentityFile ~/.ssh/github
 
 host ellie
-    HostName 31.50.176.89
+    HostName anna-banana.xyz
     User anna
     IdentityFile ~/.ssh/id_personal
     Port 8000
 
 host unison
-    HostName 31.50.176.89
+    HostName anna-banana.xyz
     User unison
     IdentityFile ~/.ssh/unison_key
     Port 8000
