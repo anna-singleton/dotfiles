@@ -330,7 +330,7 @@ programs:								      \
 - GL: 				cubocteversion --root			    \n\
 -				droste --root				    \n\
 - GL: 				papercube --root			    \n\
-  GL: 				skulloop --root				    \n\
+- GL: 				skulloop --root				    \n\
 
 
 pointerHysteresis:  10
