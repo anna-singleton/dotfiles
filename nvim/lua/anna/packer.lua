@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
     use 'tomtom/tcomment_vim'
     use 'lervag/vimtex'
     use 'mfussenegger/nvim-lint'
-    use "lukas-reineke/indent-blankline.nvim"
+    use { "lukas-reineke/indent-blankline.nvim", main='ibl' }
     use "EdenEast/nightfox.nvim"
     use 'ryanoasis/vim-devicons'
     use 'andweeb/presence.nvim'
