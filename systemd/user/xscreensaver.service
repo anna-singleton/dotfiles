@@ -1,0 +1,17 @@
+[Unit]
+Description=XScreenSaver
+Documentation=man:xscreensaver
+Documentation=man:xscreensaver-settings
+Documentation=https://www.jwz.org/xscreensaver/
+After=graphical-session-pre.target
+PartOf=graphical-session.target
+ConditionUser=!@system
+Conflicts=org.gnome.ScreenSaver org.cinnamon.ScreenSaver org.mate.ScreenSaver org.xfce.ScreenSaver light-locker
+
+[Service]
+ExecStart=/usr/bin/xscreensaver -no-splash
+Restart=on-failure
+OOMScoreAdjust=-1000
+
+[Install]
+WantedBy=default.target
