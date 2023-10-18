@@ -60,6 +60,11 @@ cmd = "RUST_BACKTRACE=1 cargo test"
 quit_fast = false
 
 [[runners]]
+name = "rust run bin"
+cmd = "cargo run --bin {bin_name}"
+quit_fast = false
+
+[[runners]]
 name = "rust with args"
 cmd = "cargo run -- {args}"
 quit_fast = false
