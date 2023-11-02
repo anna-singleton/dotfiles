@@ -55,4 +55,5 @@ return require('packer').startup(function(use)
     use 'ryanoasis/vim-devicons'
     use 'andweeb/presence.nvim'
     use 'lambdalisue/suda.vim'
+    use 'rmagatti/auto-session'
 end)

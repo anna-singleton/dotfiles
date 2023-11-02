@@ -47,3 +47,8 @@ vim.g.strip_whitespace_on_save = true
 vim.g.strip_whitespace_confirm = false
 
 vim.g.suda_smart_edit = true
+
+require("auto-session").setup {
+  log_level = "error",
+  auto_session_suppress_dirs = {},
+}
