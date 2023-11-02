@@ -1,5 +1,15 @@
 AddKeysToAgent yes
 
+host uni-ssh
+    HostName ssh.york.ac.uk
+    User ws1015
+
+host viking
+    HostName viking
+    User ws1015
+    ProxyJump uni-ssh
+    IdentityFile ~/.ssh/id_uni
+
 host github.com
     HostName github.com
     User git
