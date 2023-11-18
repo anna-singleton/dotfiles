@@ -32,16 +32,17 @@ dunst = "~/.config/dunst"
 depends = []
 
 [cynthia.variables]
-wm_font_size = 10
+wm_font_size = 16
 polybar_icon_font_size = 14
 polybar_icon_offset = 2
 i3lock_cmd = "i3lock -ti ~/.config/i3lock/lock-fullscreen.png"
-polybar_height = 19
-polybar_right_modules = "unison updates pulseaudio memory cpu date"
+polybar_height = 26
+polybar_right_modules = "unison updates pulseaudio memory cpu date tray"
 term_font_size = 12.0
 polybar_offset = 2
 xscreensaver_mode="random"
 wallpaper_cmd="nitrogen --restore"
+dunst_scale = 2
 
 [thinkpad]
 depends = []
@@ -52,11 +53,12 @@ polybar_icon_font_size = 16
 polybar_icon_offset = 3
 i3lock_cmd = "i3lock -ti ~/.config/i3lock/lock-fullscreen.png"
 polybar_height = 19
-polybar_right_modules = "bat_internal bat_swap unison updates pulseaudio memory cpu date"
+polybar_right_modules = "bat_internal bat_swap unison updates pulseaudio memory cpu date tray"
 term_font_size = 12.0
 polybar_offset = 2
 xscreensaver_mode="random"
 wallpaper_cmd="~/.fehbg"
+dunst_scale = 0
 
 [thinkpad.files]
 ".Xmodmap" = "~/.Xmodmap"
