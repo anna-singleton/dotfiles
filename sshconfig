@@ -4,6 +4,12 @@ host uni-ssh
     HostName ssh.york.ac.uk
     User ws1015
 
+host cs-teach
+    HostName teaching0
+    User ws1015
+    ProxyJump uni-ssh
+    IdentityFile ~/.ssh/id_uni
+
 host viking
     HostName viking
     User ws1015
