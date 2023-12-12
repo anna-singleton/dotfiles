@@ -166,7 +166,7 @@ exec {{wallpaper_cmd}}
 exec "xfce4-panel -q"
 
 # update the out of date package checker
-exec "/home/anna/.util/writeupdateablepackages &"
+exec "/home/anna/opt/count-updatable-packages &"
 
 # start xbanish to move mouse cursor to offscreen when typing
 exec "xbanish"
