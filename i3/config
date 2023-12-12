@@ -44,6 +44,8 @@ bindsym $mod+Shift+l move right
 # move focused workspace between monitors
 bindsym $mod+Left move workspace to output left
 bindsym $mod+Right move workspace to output right
+bindsym $mod+Up move workspace to output up
+bindsym $mod+Down move workspace to output down
 
 # splitting bindings (i3 calls the splits the reverse of vim)
 # split in horizontal orientation
