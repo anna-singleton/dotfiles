@@ -52,3 +52,8 @@ require("auto-session").setup {
   log_level = "error",
   auto_session_suppress_dirs = {},
 }
+
+
+vim.cmd[[set foldmethod=expr]]
+vim.cmd[[set foldexpr=nvim_treesitter#foldexpr()]]
+vim.cmd[[set nofoldenable]]
