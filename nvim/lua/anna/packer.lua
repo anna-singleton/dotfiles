@@ -56,5 +56,6 @@ return require('packer').startup(function(use)
     use 'andweeb/presence.nvim'
     use 'lambdalisue/suda.vim'
     use 'rmagatti/auto-session'
+    use 'danilamihailov/beacon.nvim'   
     use 'ThePrimeagen/harpoon'
 end)
