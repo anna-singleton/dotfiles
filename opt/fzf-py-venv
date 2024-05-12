@@ -1,0 +1,5 @@
+#!/bin/bash
+
+path=$(ls $HOME/.venvs/ | fzf | xargs printf "$HOME/.venvs/%s/bin/activate")
+
+echo $path

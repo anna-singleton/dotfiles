@@ -72,6 +72,8 @@ alias gs="git status"
 alias gd="git diff"
 alias gr="cd \$(git rev-parse --show-toplevel)"
 
+alias pyv=". \$(fzf-py-venv)"
+
 export EDITOR=nvim
 
 eval `keychain --quiet --eval`
