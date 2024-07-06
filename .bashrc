@@ -74,6 +74,8 @@ alias gr="cd \$(git rev-parse --show-toplevel)"
 
 alias pyv=". \$(fzf-py-venv)"
 
+alias ccat="bat -pp"
+
 export EDITOR=nvim
 
 eval `keychain --quiet --eval`
