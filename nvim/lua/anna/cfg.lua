@@ -43,7 +43,7 @@ vim.cmd[[colorscheme carbonfox]]
 vim.opt.termguicolors = true
 
 vim.g.better_whitespace_enabled = true
-vim.g.strip_whitespace_on_save = true
+vim.g.strip_whitespace_on_save = false
 vim.g.strip_whitespace_confirm = false
 
 vim.g.suda_smart_edit = true
@@ -57,3 +57,61 @@ require("auto-session").setup {
 vim.cmd[[set foldmethod=expr]]
 vim.cmd[[set foldexpr=nvim_treesitter#foldexpr()]]
 vim.cmd[[set nofoldenable]]
+
+local dap = require('dap')
+
+dap.adapters.coreclr = {
+  type = 'executable',
+  command = '/home/anna/opt/netcoredbg',
+  args = {'--interpreter=vscode'}
+}
+
+dap.configurations.cs = {
+  {
+    type = "coreclr",
+    name = "launch - netcoredbg",
+    request = "launch",
+    program = function()
+        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+    end,
+  },
+}
+
+local dap_python = require("dap-python")
+dap_python.setup("/home/anna/.venvs/debugvenv/bin/python")
+dap_python.test_runner = 'pytest'
+
+local dapui = require("dapui")
+dapui.setup()
+
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
+end
+
+require("neotest").setup({
+  adapters = {
+    require("neotest-plenary"),
+    require("neotest-dotnet")({
+        dap = {
+            args = {justMyCode = true},
+            adapter_name = "coreclr",
+        },
+        discovery_root = "solution"
+    }),
+  },
+})
+
+require("neotest").setup({
+  adapters = {
+    require("neotest-python")
+  }
+})

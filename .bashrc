@@ -71,6 +71,8 @@ alias bwgo=". ~/opt/bwgo"
 alias gs="git status"
 alias gd="git diff"
 alias gr="cd \$(git rev-parse --show-toplevel)"
+alias gl="git log --oneline"
+alias gls="git log --oneline -n 30"
 
 alias pyv=". \$(fzf-py-venv)"
 
@@ -79,8 +81,11 @@ alias ccat="bat -pp"
 alias protontricks='flatpak run com.github.Matoking.protontricks'
 alias protontricks-launch='flatpak run --command=protontricks-launch com.github.Matoking.protontricks'
 
+alias pretty_csv="sed 's/,/ ,/g' | column -t -s,"
+
 export EDITOR=nvim
 
 eval `keychain --quiet --eval`
 
 export PS1="\[$(tput setaf 10)\]\u@$HOSTNAME \[$(tput setaf 11)\][\W] \[$(tput setaf 9)\]\$(git_info)\[$(tput sgr0)\]-> "
+eval "$(direnv hook bash)"

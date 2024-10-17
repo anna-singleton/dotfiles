@@ -15,7 +15,8 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.4', requires = { { 'nvim-lua/plenary.nvim' } } }
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.4'}
+    use 'nvim-lua/plenary.nvim'
     use "ellisonleao/gruvbox.nvim"
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use 'mbbill/undotree'
@@ -56,6 +57,15 @@ return require('packer').startup(function(use)
     use 'andweeb/presence.nvim'
     use 'lambdalisue/suda.vim'
     use 'rmagatti/auto-session'
-    use 'danilamihailov/beacon.nvim'   
+    use 'danilamihailov/beacon.nvim'
     use 'ThePrimeagen/harpoon'
+    use 'mfussenegger/nvim-dap'
+    use 'mfussenegger/nvim-dap-python'
+    use "nvim-neotest/neotest"
+    use "nvim-neotest/neotest-plenary"
+    use "nvim-neotest/neotest-python"
+    use "Issafalcon/neotest-dotnet"
+    use "antoinemadec/FixCursorHold.nvim"
+    use "nvim-neotest/nvim-nio"
+    use "rcarriga/nvim-dap-ui"
 end)

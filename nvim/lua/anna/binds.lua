@@ -32,7 +32,7 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "q:", "<nop>")
 
 -- bind trouble.nvim
-vim.keymap.set("n", "<leader>sd", "<cmd>TroubleToggle<cr>")
+-- vim.keymap.set("n", "<leader>sd", "<cmd>TroubleToggle<cr>")
 
 -- harpoon
 
@@ -45,3 +45,21 @@ vim.keymap.set("n", "<leader>h5", '<cmd>lua require("harpoon.ui").nav_file(5)<CR
 vim.keymap.set("n", "<leader>hm", '<cmd>lua require("harpoon.mark").add_file()<CR>')
 
 vim.keymap.set("n", "<leader>h`", '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>')
+
+-- place breakpoint
+vim.keymap.set("n", "<leader>tb", '<cmd>lua require("dap").toggle_breakpoint()<CR>')
+
+-- debug nearest test
+vim.keymap.set("n", "<leader>tt", '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>')
+
+-- run tests in file
+vim.keymap.set("n", "<leader>ta", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
+
+-- open neotest summary
+vim.keymap.set("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>')
+
+-- open debug ui
+vim.keymap.set("n", "<leader>td", '<cmd>lua require("dapui").toggle()<CR>')
+
+-- format json
+vim.keymap.set("v", "<leader>fj", ":!jq .<CR>")

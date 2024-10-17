@@ -8,6 +8,8 @@
     defaultBranch = main
 [alias]
     worktree-clone = "!sh $HOME/opt/git-clone-worktree"
+    worktree-new-feat-branch = "!bash $HOME/opt/git-new-feat-branch"
+    worktree-cleanup = "!bash $HOME/opt/git-worktree-cleanup"
 [push]
     autoSetupRemote = true
 [includeIf "gitdir:~/work/"]
