@@ -22,7 +22,7 @@ vim.opt.errorbells = false
 vim.opt.scrolloff = 5
 vim.opt.updatetime = 50
 
-require('lualine').setup({ options = { theme = 'carbonfox' } })
+require('lualine').setup({ options = { theme = 'gruvbox' } })
 
 require('nightfox').setup({
   options = {
@@ -37,10 +37,35 @@ require('nightfox').setup({
   },
 })
 
--- setup must be called before loading
-vim.cmd[[colorscheme carbonfox]]
-
 vim.opt.termguicolors = true
+
+-- setup must be called before loading
+require("gruvbox").setup ({
+  terminal_colors = true, -- add neovim terminal colors
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = {
+    strings = false,
+    emphasis = true,
+    comments = true,
+    operators = false,
+    folds = true,
+  },
+  strikethrough = true,
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  contrast = "hard", -- can be "hard", "soft" or empty string
+  palette_overrides = {},
+  overrides = {},
+  dim_inactive = false,
+  transparent_mode = false,
+})
+vim.cmd[[colorscheme gruvbox]]
+
 
 vim.g.better_whitespace_enabled = true
 vim.g.strip_whitespace_on_save = false

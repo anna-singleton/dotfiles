@@ -84,6 +84,7 @@ alias protontricks-launch='flatpak run --command=protontricks-launch com.github.
 alias pretty_csv="sed 's/,/ ,/g' | column -t -s,"
 
 export EDITOR=nvim
+export GOOGLE_APPLICATION_CREDENTIALS=/home/anna/.config/gcloud/application_default_credentials.json
 
 eval `keychain --quiet --eval`
 
