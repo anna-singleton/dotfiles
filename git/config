@@ -1,6 +1,6 @@
 [user]
-    name = anna-singleton
-    email = annabeths111@gmail.com
+    name = Anna Singleton
+    email = anna.singleton@crispthinking.com
 [core]
     editor = nvim
     excludesFile = ~/.config/git/global_ignore
