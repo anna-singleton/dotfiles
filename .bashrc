@@ -57,6 +57,10 @@ bang() {
     echo -n -e "\a"
 }
 
+if [[ -e "$HOME/.dotnetsuggest" ]]; then
+    source "$HOME/.dotnetsuggest"
+fi
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
