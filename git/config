@@ -14,3 +14,5 @@
     autoSetupRemote = true
 [includeIf "gitdir:~/work/"]
     path = .gitconfig.work
+[credential]
+	helper = store
