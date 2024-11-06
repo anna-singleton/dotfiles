@@ -25,6 +25,7 @@ xscreensaver = "~/.xscreensaver"
 dunst = "~/.config/dunst"
 "systemd/user" = "~/.config/systemd/user/"
 "kitty.conf" = "~/.config/kitty/kitty.conf"
+".dotnetsuggest" = "~/.dotnetsuggest"
 
 [default.variables]
 
