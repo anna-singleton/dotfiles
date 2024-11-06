@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+for var in "$@"; do
+    git worktree remove "$var"
+done

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gcloud compute start-iap-tunnel vdi-anna-debian 22 --project=crisp-vdi --zone=europe-west2-b --local-host-port=localhost:2222 &

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+uv venv
+source .venv/bin/activate
+uv pip sync requirements.txt
+uv pip install -e Scrapy.Common/
+uv pip install -e Scrapy.Config/
+
+echo "source .venv/bin/activate" > .envrc
+direnv allow .
+
+echo '
+
+[tool.pyright]
+include = ["Scrapy.Common", "Scrapy.Config"]
+
+venvPath = ".venv/bin/python3"
+extraPaths = ["Scrapy.Common/", "Scrapy.Config/"]
+' >> pyproject.toml
+
+echo '
+#!/bin/bash
+
+cd Scrapy.Scrapers
+/usr/bin/env '"$(PWD)"'/.venv/bin/python main.py
+' > run.bash
+chmod +x run.bash
