@@ -95,4 +95,6 @@ export GOOGLE_APPLICATION_CREDENTIALS=/home/anna/.config/gcloud/application_defa
 eval `keychain --quiet --eval`
 
 export PS1="\[$(tput setaf 10)\]\u@$HOSTNAME \[$(tput setaf 11)\][\W] \[$(tput setaf 9)\]\$(git_info)\[$(tput sgr0)\]-> "
+. "$HOME/.cargo/env"
+
 eval "$(direnv hook bash)"
