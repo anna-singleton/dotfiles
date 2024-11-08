@@ -1,6 +1,5 @@
 [user]
-    name = Anna Singleton
-    email = anna.singleton@crispthinking.com
+{{git_user}}
 [core]
     editor = nvim
     excludesFile = ~/.config/git/global_ignore
@@ -12,7 +11,5 @@
     worktree-cleanup = "!bash $HOME/opt/git-worktree-cleanup"
 [push]
     autoSetupRemote = true
-[includeIf "gitdir:~/work/"]
-    path = .gitconfig.work
 [credential]
 	helper = store

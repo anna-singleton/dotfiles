@@ -44,6 +44,10 @@ polybar_offset = 2
 xscreensaver_mode="random"
 wallpaper_cmd="nitrogen --restore"
 dunst_scale = 2
+git_user = '''
+    name = anna-singleton
+    email = annabeths111@gmail.com
+'''
 
 [thinkpad]
 depends = []
@@ -60,7 +64,67 @@ polybar_offset = 2
 xscreensaver_mode="random"
 wallpaper_cmd="~/.fehbg"
 dunst_scale = 0
+git_user = '''
+    name = anna-singleton
+    email = annabeths111@gmail.com
+'''
 
 [thinkpad.files]
 ".Xmodmap" = "~/.Xmodmap"
 ".fehbg" = "~/.fehbg"
+
+[work_vdi]
+depends = ["default"]
+
+[work_vdi.variables]
+wm_font_size = 10
+polybar_icon_font_size = 16
+polybar_icon_offset = 3
+i3lock_cmd = "i3lock -ti ~/.config/i3lock/lock-fullscreen.png"
+polybar_height = 19
+polybar_right_modules = "bat_internal bat_swap unison updates pulseaudio memory cpu date tray"
+term_font_size = 8.0
+polybar_offset = 2
+xscreensaver_mode="random"
+wallpaper_cmd="~/.fehbg"
+dunst_scale = 0
+git_user = '''
+    name = Anna Singleton
+    email = anna.singleton@crispthinking.com
+'''
+
+[neovim]
+depends = []
+
+[neovim.files]
+nvim = "~/.config/nvim"
+
+[i3]
+depends = ["polybar", "rofi"]
+
+[i3.files]
+i3 = "~/.config/i3"
+
+[i3.variables]
+wm_font_size = 10
+i3lock_cmd = "i3lock -ti ~/.config/i3lock/lock-fullscreen.png"
+wallpaper_cmd="~/.fehbg"
+
+[polybar]
+depends = ["util"]
+
+[polybar.files]
+polybar = "~/.config/polybar"
+
+[polybar.variables]
+polybar_icon_font_size = 16
+polybar_icon_offset = 3
+polybar_height = 19
+polybar_right_modules = "unison updates pulseaudio memory cpu date tray"
+polybar_offset = 2
+
+[rofi]
+rofi = "~/.config/rofi"
+
+[rofi.files]
+rofi = "~/.config/rofi"
