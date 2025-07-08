@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-gcloud compute instances start --project=crisp-vdi vdi-anna-debian --zone=europe-west2-b

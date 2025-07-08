@@ -1,8 +1,0 @@
-#!/bin/bash
-
-wget 'https://github.com/SuperCuber/dotter/releases/latest/download/dotter-linux-x64-musl'
-
-mv 'dotter-linux-x64-musl' 'dotter'
-
-chmod +x dotter
-./dotter deploy -v

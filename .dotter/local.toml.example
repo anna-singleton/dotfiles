@@ -1,8 +1,0 @@
-includes = []
-packages = ["default", "desktop"]
-
-# provided as an example of how to setup a local.toml
-
-[files]
-
-[variables]

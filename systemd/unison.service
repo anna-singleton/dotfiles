@@ -1,0 +1,10 @@
+[Unit]
+Description=Sync to ellie using unison
+
+[Service]
+ExecStart=/bin/bash /home/anna/opt/unison-wrapper
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=default.target

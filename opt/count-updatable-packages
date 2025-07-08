@@ -1,8 +1,0 @@
-#!/bin/bash
-
-sudo pacman -Syup &> /dev/null
-NON_AUR=$(pacman -Qu | wc -l) &> /dev/null
-AUR=$(yay -Qu --aur | wc -l ) &> /dev/null
-BOTH=$(echo "$NON_AUR + $AUR" | bc)
-
-echo "ARP: $NON_AUR AUR: $AUR ($BOTH)" > $HOME/.config/ood_packages

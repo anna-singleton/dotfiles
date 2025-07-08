@@ -1,3 +1,0 @@
-#!/bin/bash
-#
-man -k . | awk '{print $1 " " $2}' | fzf -i -e --preview="echo {} | awk '{print $1 $2}' | xargs man" | awk '{print $1 $2}' |  xargs man

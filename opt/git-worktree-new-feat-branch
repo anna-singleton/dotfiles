@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+    echo "You must specify a branch name"
+    exit
+fi
+
+git fetch
+
+git worktree add -b"feature/$1" "$1" --guess-remote

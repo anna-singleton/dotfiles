@@ -1,3 +1,1 @@
-.dotter/cache*
-.dotter/local.toml
-dotter
+.dots/*

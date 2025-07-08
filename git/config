@@ -1,18 +1,14 @@
 [user]
     name = Anna Singleton
-    email = anna.singleton@crispthinking.com
+    email = {{git.email}}
 [core]
     editor = nvim
-    excludesFile = ~/.config/git/global_ignore
 [init]
     defaultBranch = main
 [alias]
     worktree-clone = "!sh $HOME/opt/git-clone-worktree"
     worktree-new-feat-branch = "!bash $HOME/opt/git-new-feat-branch"
-    worktree-cleanup = "!bash $HOME/opt/git-worktree-cleanup"
 [push]
     autoSetupRemote = true
-[includeIf "gitdir:~/work/"]
-    path = .gitconfig.work
 [credential]
 	helper = store

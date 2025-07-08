@@ -1,0 +1,65 @@
+dotfiles_dir = ".dotfiles"
+
+[settings]
+vars = []
+
+[settings.dots]
+vars = ["vars/personalvars.toml", "vars/default.toml"]
+
+[profiles.work]
+vars = ["vars/workvars.toml", "vars/default.toml"]
+extra_profiles = ["workopt"]
+
+[profiles.personal]
+vars = ["vars/personalvars.toml", "vars/default.toml"]
+
+
+[profiles.basic]
+extra_profiles = ["bash", "git", "nvim", "tmux", "runfast", "ssh", "misc_opt"]
+
+[profiles.desktop]
+extra_profiles = ["bash", "git", "nvim", "tmux", "runfast", "ssh", "misc_opt", "rofi", "kitty", "unison"]
+
+
+# basic
+
+[profiles.bash.dots]
+bashrc = { source = "bashrc", target = ".bashrc" }
+worktree-clone = { source = "opt/git-worktree-clone", target = "opt/git-worktree-clone" }
+worktree-new-feat-branch = { source = "opt/git-worktree-new-feat-branch", target = "opt/git-worktree-new-feat-branch" }
+
+[profiles.git.dots]
+gitconfig = { source = "git/config", target = ".gitconfig" }
+
+[profiles.tmux.dots]
+tmuxconf = { source = "tmux/conf", target = ".tmux.conf" }
+
+[profiles.nvim.dots]
+nvim = { source = "nvim", target = ".config/nvim" }
+
+[profiles.runfast.dots]
+runnerconfig = { source = "runfast/runners.toml", target = ".config/runners.toml" }
+
+[profiles.ssh.dots]
+sshconfig = { source = "ssh/config", target = ".ssh/config" }
+
+[profiles.unison.dots]
+unison-wrapper = { source = "opt/unison-wrapper", target = "opt/unison-wrapper" }
+unison-systemd = { source = "systemd/unison.service", target = ".config/systemd/user/unison.service" }
+
+[profiles.misc_opt.dots]
+fzf_py_venv = { source = "opt/fzf-py-venv", target = "opt/fzf-py-venv" }
+
+
+# desktop
+
+[profiles.rofi.dots]
+config = { source = "rofi", target = ".config/rofi" }
+
+[profiles.kitty.dots]
+config = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
+
+# work only
+[profiles.workopt.dots]
+scrapy-kickoff = { source = "opt/scrapy-kickoff", target = "opt/scrapy-kickoff" }
+vdi-tunnel = { source = "opt/vdi-tunnel", target = "opt/vdi-tunnel" }

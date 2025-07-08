@@ -1,0 +1,46 @@
+AddKeysToAgent yes
+
+host vdi
+    HostName localhost
+    Port 2222
+    IdentityFile ~/.ssh/google_compute_engine
+
+host uni-ssh
+    HostName ssh.york.ac.uk
+    User ws1015
+
+host cs-teach
+    HostName teaching0
+    User ws1015
+    ProxyJump uni-ssh
+    IdentityFile ~/.ssh/id_uni
+
+host viking
+    HostName viking
+    User ws1015
+    ProxyJump uni-ssh
+    IdentityFile ~/.ssh/id_uni
+
+host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github
+
+host ellie
+    HostName 192.168.1.251
+    User anna
+    IdentityFile ~/.ssh/id_personal
+    Port 8000
+
+host unison
+    HostName 192.168.1.251
+    User unison
+    IdentityFile ~/.ssh/unison_key
+    Port 8000
+
+host *
+    TCPKeepAlive yes
+    ServerAliveInterval 120
+    ControlPath /tmp/cm-%r@%h:%p
+    ControlMaster auto
+    ControlPersist 10m

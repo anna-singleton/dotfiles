@@ -1,2 +1,0 @@
-#!/bin/bash
-sshfs itadmin:/warehouse/isg_warehouse/keepass kp-mnt/

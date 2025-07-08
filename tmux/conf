@@ -1,0 +1,44 @@
+# recolour statusline
+set -g status-style 'bg=#c97aaa fg=#000000'
+
+# set session name variables for a nicer looking tps
+set -g status-left '[#{b:session_name}] '
+set -g status-left-length 20
+
+set -g aggressive-resize on
+
+# set dynamic terminal titling
+set -g set-titles on
+set -g set-titles-string "TMUX #W"
+
+# rebind tmux prefix to C-x
+
+unbind C-b
+set-option -g prefix C-x
+
+# bind quick runner
+
+unbind r
+bind-key r source-file ~/.tmux.conf \; display "Reloaded config file"
+
+unbind g # stands for go
+bind-key g neww -n "runfast" -c "#{pane_current_path}" "runfast"
+bind-key G neww -n "runfast" -c "#{pane_current_path}" "runfast -f"
+
+unbind p
+# bind-key p send-keys -t $TMUX_PANE C-a C-k cd Space $(proj) ENTER
+bind-key p neww -n "tps" "tps"
+
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",*256col*:Tc"
+
+# tmux plugin manager
+
+if "test ! -d ~/.tmux/plugins/tpm" \
+   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
+
+# install tmux plugins here
+
+set -g @plugin 'tmux-plugins/tpm'
+
+run '~/.tmux/plugins/tpm/tpm'
