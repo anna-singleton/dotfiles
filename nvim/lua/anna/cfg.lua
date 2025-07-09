@@ -22,19 +22,17 @@ vim.opt.errorbells = false
 vim.opt.scrolloff = 5
 vim.opt.updatetime = 50
 
-require('lualine').setup({ options = { theme = 'gruvbox' } })
+local git_blame = require('gitblame')
 
-require('nightfox').setup({
+require('lualine').setup({
     options = {
-        styles = {
-            comments = "italic",
-            functions = "bold",
-            types = "italic",
-        },
-        inverse = {
-            match_paren = false,
-        }
+        theme = 'gruvbox'
     },
+    sections = {
+        lualine_c = {
+            'filename', { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available }
+        }
+    }
 })
 
 vim.opt.termguicolors = true

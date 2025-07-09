@@ -75,10 +75,18 @@ return require('packer').startup(function(use)
     use 'koenverburg/cmd-palette.nvim'
     use 'stevearc/dressing.nvim'
     use { 'EthanJWright/vs-tasks.nvim',
-      requires = {
-        'nvim-lua/popup.nvim',
-        'nvim-lua/plenary.nvim',
-        'nvim-telescope/telescope.nvim'
-      }
-}
+        requires = {
+            'nvim-lua/popup.nvim',
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim'
+        }
+    }
+    use 'f-person/git-blame.nvim'
+    use {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup {}
+        end
+    }
 end)
