@@ -86,6 +86,7 @@ alias gl="git log --oneline"
 alias gls="git log --oneline -n 30"
 
 alias pyv=". \$(fzf-py-venv)"
+alias sshkey="fzf-sshkey"
 
 alias ccat="bat -pp"
 

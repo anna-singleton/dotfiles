@@ -49,6 +49,7 @@ unison-systemd = { source = "systemd/unison.service", target = ".config/systemd/
 
 [profiles.misc_opt.dots]
 fzf_py_venv = { source = "opt/fzf-py-venv", target = "opt/fzf-py-venv" }
+fzf_sshkey = { source = "opt/fzf-sshkey", target = "opt/fzf-sshkey" }
 
 
 # desktop

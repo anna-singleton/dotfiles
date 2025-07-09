@@ -1,0 +1,13 @@
+#!/usr/bin/python3
+import os
+import subprocess
+
+if __name__ == "__main__":
+    homedir = os.environ['HOME']
+    all_files = os.listdir(f"{homedir}/.ssh")
+    private_keys = [file for file in all_files if subprocess.check_output(["file", "-b", f"{homedir}/.ssh/{file}"]).decode().strip() == "OpenSSH private key"]
+
+    raw_result = subprocess.run(["fzf"], input='\n'.join(private_keys).encode(), stdout=subprocess.PIPE)
+    result = raw_result.stdout.decode().strip()
+
+    subprocess.check_output(["keychain", result])
