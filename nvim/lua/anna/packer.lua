@@ -15,7 +15,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.4'}
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.4' }
     use 'nvim-lua/plenary.nvim'
     use "ellisonleao/gruvbox.nvim"
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
@@ -26,20 +26,20 @@ return require('packer').startup(function(use)
         branch = 'v1.x',
         requires = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' },     -- Required
-            { 'williamboman/mason.nvim' },   -- Optional
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' }, -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'hrsh7th/cmp-buffer' }, -- Optional
-            { 'hrsh7th/cmp-path' }, -- Optional
+            { 'hrsh7th/nvim-cmp' },         -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },     -- Required
+            { 'hrsh7th/cmp-buffer' },       -- Optional
+            { 'hrsh7th/cmp-path' },         -- Optional
             { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-            { 'hrsh7th/cmp-nvim-lua' }, -- Optional
+            { 'hrsh7th/cmp-nvim-lua' },     -- Optional
 
             -- Snippets
-            { 'L3MON4D3/LuaSnip' },     -- Required
+            { 'L3MON4D3/LuaSnip' },             -- Required
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
     }
@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
     use 'tomtom/tcomment_vim'
     use 'lervag/vimtex'
     use 'mfussenegger/nvim-lint'
-    use { "lukas-reineke/indent-blankline.nvim", main='ibl' }
+    use { "lukas-reineke/indent-blankline.nvim", main = 'ibl' }
     use "EdenEast/nightfox.nvim"
     use 'ryanoasis/vim-devicons'
     use 'andweeb/presence.nvim'
@@ -68,4 +68,8 @@ return require('packer').startup(function(use)
     use "antoinemadec/FixCursorHold.nvim"
     use "nvim-neotest/nvim-nio"
     use "rcarriga/nvim-dap-ui"
+    use "iabdelkareem/csharp.nvim"
+    use "Tastyep/structlog.nvim"
+    use 'Issafalcon/lsp-overloads.nvim'
+    use "Wansmer/sibling-swap.nvim"
 end)

@@ -46,9 +46,6 @@ vim.keymap.set("n", "<leader>hm", '<cmd>lua require("harpoon.mark").add_file()<C
 
 vim.keymap.set("n", "<leader>h`", '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>')
 
--- place breakpoint
-vim.keymap.set("n", "<leader>tb", '<cmd>lua require("dap").toggle_breakpoint()<CR>')
-
 -- debug nearest test
 vim.keymap.set("n", "<leader>tt", '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>')
 
@@ -58,8 +55,11 @@ vim.keymap.set("n", "<leader>ta", '<cmd>lua require("neotest").run.run(vim.fn.ex
 -- open neotest summary
 vim.keymap.set("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>')
 
+-- place breakpoint
+vim.keymap.set("n", "<leader>db", '<cmd>lua require("dap").toggle_breakpoint()<CR>')
+
 -- open debug ui
-vim.keymap.set("n", "<leader>td", '<cmd>lua require("dapui").toggle()<CR>')
+vim.keymap.set("n", "<leader>dd", '<cmd>lua require("dapui").toggle()<CR>')
 
 -- format json
 vim.keymap.set("v", "<leader>fj", ":!jq .<CR>")

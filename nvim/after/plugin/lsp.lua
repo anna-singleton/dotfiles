@@ -3,7 +3,13 @@ local lsp = require("lsp-zero")
 local attach_func = (function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    if client.name == "omnisharp" then
+        -- goto with decompilation support
+        vim.keymap.set("n", "gd", function() require('csharp').go_to_definition() end, opts)
+    else
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    end
+
     vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
@@ -13,6 +19,51 @@ local attach_func = (function(client, bufnr)
     vim.keymap.set("n", "<leader>af", vim.lsp.buf.format)
     vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+    if client.name == "omnisharp" then
+  client.server_capabilities.semanticTokensProvider.legend = {
+    tokenModifiers = { "static" },
+    tokenTypes = { "comment", "excluded", "identifier", "keyword", "keyword", "number", "operator", "operator", "preprocessor", "string", "whitespace", "text", "static", "preprocessor", "punctuation", "string", "string", "class", "delegate", "enum", "interface", "module", "struct", "typeParameter", "field", "enumMember", "constant", "local", "parameter", "method", "method", "property", "event", "namespace", "label", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "xml", "regexp", "regexp", "regexp", "regexp", "regexp", "regexp", "regexp", "regexp", "regexp" }
+  }
+    end
+    if client.server_capabilities.signatureHelpProvider then
+    require('lsp-overloads').setup(client, {
+        -- UI options are mostly the same as those passed to vim.lsp.util.open_floating_preview
+        ui = {
+          border = "single",          -- The border to use for the signature popup window. Accepts same border values as |nvim_open_win()|.
+          height = nil,               -- Height of the signature popup window (nil allows dynamic sizing based on content of the help)
+          width = nil,                -- Width of the signature popup window (nil allows dynamic sizing based on content of the help)
+          wrap = true,                -- Wrap long lines
+          wrap_at = nil,              -- Character to wrap at for computing height when wrap enabled
+          max_width = nil,            -- Maximum signature popup width
+          max_height = nil,           -- Maximum signature popup height
+          -- Events that will close the signature popup window: use {"CursorMoved", "CursorMovedI", "InsertCharPre"} to hide the window when typing
+          close_events = { "CursorMoved", "BufHidden", "InsertLeave" },
+          focusable = true,           -- Make the popup float focusable
+          focus = false,              -- If focusable is also true, and this is set to true, navigating through overloads will focus into the popup window (probably not what you want)
+          offset_x = 0,               -- Horizontal offset of the floating window relative to the cursor position
+          offset_y = 0,                -- Vertical offset of the floating window relative to the cursor position
+          floating_window_above_cur_line = false, -- Attempt to float the popup above the cursor position 
+                                                 -- (note, if the height of the float would be greater than the space left above the cursor, it will default 
+                                                 -- to placing the float below the cursor. The max_height option allows for finer tuning of this)
+          silent = true,               -- Prevents noisy notifications (make false to help debug why signature isn't working)
+          -- Highlight options is null by default, but this just shows an example of how it can be used to modify the LspSignatureActiveParameter highlight property
+          highlight = {
+            italic = true,
+            bold = true,
+            fg = "#ffffff",
+          }
+        },
+        keymaps = {
+          next_signature = "<C-j>",
+          previous_signature = "<C-k>",
+          next_parameter = "<C-l>",
+          previous_parameter = "<C-h>",
+          close_signature = "<A-s>"
+        },
+        display_automatically = true -- Uses trigger characters to automatically display the signature overloads when typing a method signature
+      })
+  end
 end)
 
 lsp.preset("recommended")
@@ -41,51 +92,6 @@ lsp.configure('ltex', {
         },
     },
     on_attach = attach_func
-})
-lsp.configure('omnisharp', {
-      settings = {
-        FormattingOptions = {
-          -- Enables support for reading code style, naming convention and analyzer
-          -- settings from .editorconfig.
-          EnableEditorConfigSupport = true,
-          -- Specifies whether 'using' directives should be grouped and sorted during
-          -- document formatting.
-          OrganizeImports = true,
-        },
-        MsBuild = {
-          -- If true, MSBuild project system will only load projects for files that
-          -- were opened in the editor. This setting is useful for big C# codebases
-          -- and allows for faster initialization of code navigation features only
-          -- for projects that are relevant to code that is being edited. With this
-          -- setting enabled OmniSharp may load fewer projects and may thus display
-          -- incomplete reference lists for symbols.
-          LoadProjectsOnDemand = false,
-        },
-        RoslynExtensionsOptions = {
-          -- Enables support for roslyn analyzers, code fixes and rulesets.
-          EnableAnalyzersSupport = true,
-          -- Enables support for showing unimported types and unimported extension
-          -- methods in completion lists. When committed, the appropriate using
-          -- directive will be added at the top of the current file. This option can
-          -- have a negative impact on initial completion responsiveness,
-          -- particularly for the first few completion sessions after opening a
-          -- solution.
-          EnableImportCompletion = true,
-          -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
-          -- true
-          AnalyzeOpenDocumentsOnly = true,
-        },
-        Sdk = {
-          -- Specifies whether to include preview versions of the .NET SDK when
-          -- determining which version to use for project loading.
-          IncludePrereleases = true,
-        },
-      },
-    -- enable_roslyn_analysers = true,
-    -- enable_import_completion = true,
-    -- organize_imports_on_format = true,
-    -- enable_decompilation_support = false,
-    filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' }
 })
 
 -- install the haskell language servers via the haskell-language-server-static
@@ -215,4 +221,27 @@ require("trouble").setup({
       },
     }
   },
+})
+
+require('mason').setup()
+require('csharp').setup()
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function (args)
+    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = args.buf,
+      callback = function()
+
+        -- Format the code before you run fix usings
+        vim.lsp.buf.format({ timeout = 1000, async = false })
+
+        -- If the file is C# then run fix usings
+        if vim.bo[0].filetype == "cs" then
+          require("csharp").fix_usings()
+        end
+      end,
+    })
+  end
 })
