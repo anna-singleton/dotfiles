@@ -153,10 +153,8 @@ require('sibling-swap').setup({
     -- keybinding for movements to right or left (and up or down, if `allow_interline_swaps` is true)
     -- (`<C-,>` and `<C-.>` may not map to control chars at system level, so are sent by certain terminals as just `,` and `.`. In this case, just add the mappings you want.)
     keymaps = {
-        ['<C-.>'] = 'swap_with_right',
-        ['<C-,>'] = 'swap_with_left',
-        ['<space>.'] = 'swap_with_right_with_opp',
-        ['<space>,'] = 'swap_with_left_with_opp',
+        ['<space>.'] = 'swap_with_right',
+        ['<space>,'] = 'swap_with_left',
     },
     ignore_injected_langs = false,
     -- allow swaps across lines

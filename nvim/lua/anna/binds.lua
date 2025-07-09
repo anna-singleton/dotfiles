@@ -7,10 +7,10 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- delete into void register
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- yank to x11 clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 
 -- move line
@@ -63,3 +63,6 @@ vim.keymap.set("n", "<leader>dd", '<cmd>lua require("dapui").toggle()<CR>')
 
 -- format json
 vim.keymap.set("v", "<leader>fj", ":!jq .<CR>")
+
+-- open command palette
+vim.keymap.set("n", "<leader>c", "<cmd>CmdPalette<CR>")

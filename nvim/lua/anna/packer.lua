@@ -72,4 +72,13 @@ return require('packer').startup(function(use)
     use "Tastyep/structlog.nvim"
     use 'Issafalcon/lsp-overloads.nvim'
     use "Wansmer/sibling-swap.nvim"
+    use 'koenverburg/cmd-palette.nvim'
+    use 'stevearc/dressing.nvim'
+    use { 'EthanJWright/vs-tasks.nvim',
+      requires = {
+        'nvim-lua/popup.nvim',
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope.nvim'
+      }
+}
 end)
