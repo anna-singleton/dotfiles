@@ -32,6 +32,19 @@ host ellie
     IdentityFile ~/.ssh/id_personal
     Port 8000
 
+host ellie-lan
+    HostName 192.168.1.251
+    User anna
+    Port 8000
+    ForwardX11 yes
+    ForwardX11Trusted yes
+
+host cynthia
+    HostName 192.168.0.15
+    Port 22
+    User anna
+    ProxyJump ellie
+
 host unison
     HostName 192.168.1.251
     User unison

@@ -38,7 +38,7 @@ tmuxconf = { source = "tmux/conf", target = ".tmux.conf" }
 nvim = { source = "nvim", target = ".config/nvim" }
 
 [profiles.runfast.dots]
-runnerconfig = { source = "runfast/runners.toml", target = ".config/runners.toml" }
+runnerconfig = { source = "runfast/runners.toml", target = ".config/runfast/runners.toml" }
 
 [profiles.ssh.dots]
 sshconfig = { source = "ssh/config", target = ".ssh/config" }

@@ -106,8 +106,9 @@ eval `keychain --quiet --eval`
 export PS1="\[$(tput setaf 10)\]\u@$HOSTNAME \[$(tput setaf 11)\][\W] \[$(tput setaf 9)\]\$(git_info)\[$(tput sgr0)\]-> "
 . "$HOME/.cargo/env"
 
-. "$HOME/.local/bin/env"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+. "$HOME/.local/bin/env"
