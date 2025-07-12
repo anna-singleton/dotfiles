@@ -46,20 +46,40 @@ vim.keymap.set("n", "<leader>hm", '<cmd>lua require("harpoon.mark").add_file()<C
 
 vim.keymap.set("n", "<leader>h`", '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>')
 
+-- TESTS
+
 -- debug nearest test
 vim.keymap.set("n", "<leader>tt", '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>')
 
 -- run tests in file
 vim.keymap.set("n", "<leader>ta", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
 
+-- run all tests in project
+vim.keymap.set("n", "<leader>tA", '<cmd>lua require("neotest").run.run({ suite = true })<CR>')
+
 -- open neotest summary
 vim.keymap.set("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>')
 
+
+-- DEBUG
+
 -- place breakpoint
 vim.keymap.set("n", "<leader>db", '<cmd>lua require("dap").toggle_breakpoint()<CR>')
-
 -- open debug ui
 vim.keymap.set("n", "<leader>dd", '<cmd>lua require("dapui").toggle()<CR>')
+-- step over
+vim.keymap.set("n", "<leader>dj", '<cmd>lua require("dap").step_over()<CR>')
+-- step in
+vim.keymap.set("n", "<leader>dl", '<cmd>lua require("dap").step_in()<CR>')
+-- step out
+vim.keymap.set("n", "<leader>dh", '<cmd>lua require("dap").step_out()<CR>')
+-- continue
+vim.keymap.set("n", "<leader>dk", '<cmd>lua require("dap").continue()<CR>')
+-- disconnect
+vim.keymap.set("n", "<leader>ds", '<cmd>lua require("dap").disconnect()<CR>')
+-- terminate
+vim.keymap.set("n", "<leader>dS", '<cmd>lua require("dap").terminate()<CR>')
+
 
 -- format json
 vim.keymap.set("v", "<leader>fj", ":!jq .<CR>")

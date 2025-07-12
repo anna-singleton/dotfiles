@@ -89,4 +89,6 @@ return require('packer').startup(function(use)
             require("nvim-autopairs").setup {}
         end
     }
+    use 'Darazaki/indent-o-matic'
+    use 'nicholasmata/nvim-dap-cs'
 end)
