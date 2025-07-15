@@ -49,7 +49,6 @@ return require('packer').startup(function(use)
     use 'tpope/vim-surround'
     use 'folke/trouble.nvim'
     use 'tomtom/tcomment_vim'
-    use 'lervag/vimtex'
     use 'mfussenegger/nvim-lint'
     use { "lukas-reineke/indent-blankline.nvim", main = 'ibl' }
     use "EdenEast/nightfox.nvim"
