@@ -74,13 +74,7 @@ lsp.ensure_installed({
     'rust_analyzer',
     'lua_ls',
     'clangd',
-    'ltex'
 })
-
--- lsp.configure('pyright', {
---     cmd = { 'pyright-langserver', '-v /home/anna/.venvs/', '--stdio' },
---     venvPath = "/home/anna/.venvs/",
--- })
 
 lsp.configure('python', {
     venvPath = "/home/anna/.venvs/",
@@ -158,20 +152,15 @@ lsp.setup_nvim_cmp({
     select_behavior = cmp_select
 })
 
--- lsp.set_preferences({
---     suggest_lsp_servers = false,
---     sign_icons = {
---         error = 'E',
---         warn = 'W',
---         hint = 'H',
---         info = 'I'
---     }
--- })
 lsp.set_sign_icons({
-    error = '✘',
-    warn = '▲',
-    hint = '⚑',
-    info = '»'
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I'
+    -- error = '✘',
+    -- warn = '▲',
+    -- hint = '⚑',
+    -- info = '»'
 })
 lsp.on_attach(attach_func)
 
@@ -225,9 +214,6 @@ require("trouble").setup({
     },
 })
 
-require('mason').setup()
-require('csharp').setup()
-
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -245,4 +231,51 @@ vim.api.nvim_create_autocmd("LspAttach", {
             end,
         })
     end
+})
+
+require('mason').setup()
+require('csharp').setup({
+    lsp = {
+        -- Sets if you want to use omnisharp as your LSP
+        omnisharp = {
+        -- When set to false, csharp.nvim won't launch omnisharp automatically.
+            enable = true,
+            -- When set, csharp.nvim won't install omnisharp automatically. Instead, the omnisharp instance in the cmd_path will be used.
+            cmd_path = nil,
+            -- The default timeout when communicating with omnisharp
+            default_timeout = 1000,
+            -- Settings that'll be passed to the omnisharp server
+            enable_editor_config_support = true,
+            organize_imports = true,
+            load_projects_on_demand = false,
+            enable_analyzers_support = true,
+            enable_import_completion = true,
+            include_prerelease_sdks = true,
+            analyze_open_documents_only = false,
+            enable_package_auto_restore = true,
+            -- Launches omnisharp in debug mode
+            debug = false,
+        },
+        -- Sets if you want to use roslyn as your LSP
+        roslyn = {
+            -- When set to true, csharp.nvim will launch roslyn automatically.
+            enable = false,
+            -- Path to the roslyn LSP see 'Roslyn LSP Specific Prerequisites' above.
+            cmd_path = nil,
+        },
+        -- The capabilities to pass to the omnisharp server
+        capabilities = nil,
+        -- on_attach function that'll be called when the LSP is attached to a buffer
+        on_attach = nil
+    },
+    logging = {
+        -- The minimum log level.
+        level = "INFO",
+    },
+    dap = {
+        -- When set, csharp.nvim won't launch install and debugger automatically. Instead, it'll use the debug adapter specified.
+        --- @type string?
+        adapter_name = nil,
+    }
+
 })
