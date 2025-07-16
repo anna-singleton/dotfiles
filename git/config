@@ -8,6 +8,8 @@
 [alias]
     worktree-clone = "!sh $HOME/opt/git-clone-worktree"
     worktree-new-feat-branch = "!bash $HOME/opt/git-new-feat-branch"
+    obi = "push --force-with-lease"
+    unstage = "reset HEAD --"
 [push]
     autoSetupRemote = true
 [credential]
