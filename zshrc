@@ -1,8 +1,8 @@
+PATH="$PATH:$HOME/opt/"
+
 PROMPT="%F{12}anna@mac %F{9}[%~] %f-> "
 
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
-
 
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
@@ -31,9 +31,6 @@ alias pyv=". \$(fzf-py-venv)"
 alias sshkey="fzf-sshkey"
 
 alias ccat="bat -pp"
-
-alias protontricks='flatpak run com.github.Matoking.protontricks'
-alias protontricks-launch='flatpak run --command=protontricks-launch com.github.Matoking.protontricks'
 
 alias pretty_csv="sed 's/,/ ,/g' | column -t -s,"
 

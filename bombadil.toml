@@ -39,6 +39,7 @@ worktree-new-feat-branch = { source = "opt/git-worktree-new-feat-branch", target
 
 [profiles.tmux.dots]
 tmuxconf = { source = "tmux/conf", target = ".tmux.conf" }
+tmux_go = { source = "opt/tmux-go", target = "opt/tmux-go" }
 
 [profiles.nvim.dots]
 nvim = { source = "nvim", target = ".config/nvim" }
