@@ -19,8 +19,8 @@ cmd = "cargo run"
 quit_fast = false
 
 [[runners]]
-name = "dotter deploy"
-cmd = "dotter -v"
+name = "bombadil"
+cmd = "bombadil link -p {profiles}"
 quit_fast = false
 
 [[runners]]
