@@ -6,7 +6,7 @@
 [init]
     defaultBranch = main
 [alias]
-    worktree-clone = "!sh $HOME/opt/git-clone-worktree"
+    worktree-clone = "!sh $HOME/opt/git-worktree-clone"
     worktree-new-feat-branch = "!bash $HOME/opt/git-new-feat-branch"
     obi = "push --force-with-lease"
     unstage = "reset HEAD --"

@@ -1,0 +1,10 @@
+project_homes = [
+    "~/proj"
+]
+
+projects = [
+    "~/.dotfiles"
+]
+
+skip_current = true
+sort_mode = "recent"

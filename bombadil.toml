@@ -15,21 +15,27 @@ vars = ["vars/personalvars.toml", "vars/default.toml"]
 
 
 [profiles.basic]
-extra_profiles = ["bash", "git", "nvim", "tmux", "runfast", "ssh", "misc_opt"]
+extra_profiles = ["bash", "git", "nvim", "tmux", "runfast", "tps", "ssh", "misc_opt"]
 
 [profiles.desktop]
-extra_profiles = ["bash", "git", "nvim", "tmux", "runfast", "ssh", "misc_opt", "rofi", "kitty", "unison"]
+extra_profiles = ["bash", "git", "nvim", "tmux", "runfast", "tps", "ssh", "misc_opt", "rofi", "kitty", "unison"]
+
+[profiles.mac]
+extra_profiles = ["zsh", "git", "nvim", "tmux", "runfast", "tps", "ssh", "misc_opt", "kitty"]
 
 
 # basic
 
 [profiles.bash.dots]
 bashrc = { source = "bashrc", target = ".bashrc" }
-worktree-clone = { source = "opt/git-worktree-clone", target = "opt/git-worktree-clone" }
-worktree-new-feat-branch = { source = "opt/git-worktree-new-feat-branch", target = "opt/git-worktree-new-feat-branch" }
+
+[profiles.zsh.dots]
+zshrc = { source = "zshrc", target = ".zshrc" }
 
 [profiles.git.dots]
 gitconfig = { source = "git/config", target = ".gitconfig" }
+worktree-clone = { source = "opt/git-worktree-clone", target = "opt/git-worktree-clone" }
+worktree-new-feat-branch = { source = "opt/git-worktree-new-feat-branch", target = "opt/git-worktree-new-feat-branch" }
 
 [profiles.tmux.dots]
 tmuxconf = { source = "tmux/conf", target = ".tmux.conf" }
@@ -39,6 +45,9 @@ nvim = { source = "nvim", target = ".config/nvim" }
 
 [profiles.runfast.dots]
 runnerconfig = { source = "runfast/runners.toml", target = ".config/runfast/runners.toml" }
+
+[profiles.tps.dots]
+tps_config = { source = "tps/config.toml", target = ".config/tps/config.toml" }
 
 [profiles.ssh.dots]
 sshconfig = { source = "ssh/config", target = ".ssh/config" }
