@@ -1,5 +1,9 @@
 PROMPT="%F{12}anna@mac %F{9}[%~] %f-> "
 
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+
+
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
