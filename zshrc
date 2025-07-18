@@ -1,4 +1,5 @@
 PATH="$PATH:$HOME/opt/"
+PATH="/usr/local/share/dotnet:$PATH"
 
 PROMPT="%F{12}anna@mac %F{9}[%~] %f-> "
 
@@ -42,3 +43,19 @@ export GOOGLE_APPLICATION_CREDENTIALS=/home/anna/.config/gcloud/application_defa
 {% endif %}
 
 eval `keychain --quiet --eval`
+
+# dotnet-suggest shim script for zsh
+_dotnet_suggest_complete()
+{
+    local fullpath=`which ${words[1]}`
+    local position line
+    read -nl position
+    position=$(($position-1))
+    read -l line
+    line=$(echo "${line}" | sed s/\"/'\\\"'/g)
+    local completions=`dotnet-suggest get --executable "$fullpath" --position ${position} -- "${line}"`
+    reply=( "${(ps:\n:)completions}" )
+}
+
+compctl -K _dotnet_suggest_complete + -f `dotnet-suggest list` &> /dev/null
+
