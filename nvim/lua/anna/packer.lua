@@ -68,6 +68,7 @@ return require('packer').startup(function(use)
     use "nvim-neotest/nvim-nio"
     use "rcarriga/nvim-dap-ui"
     use "iabdelkareem/csharp.nvim"
+    use "seblyng/roslyn.nvim"
     use "Tastyep/structlog.nvim"
     use 'Issafalcon/lsp-overloads.nvim'
     use "Wansmer/sibling-swap.nvim"
