@@ -36,6 +36,7 @@ zshrc = { source = "zshrc", target = ".zshrc" }
 gitconfig = { source = "git/config", target = ".gitconfig" }
 worktree-clone = { source = "opt/git-worktree-clone", target = "opt/git-worktree-clone" }
 worktree-new-feat-branch = { source = "opt/git-worktree-new-feat-branch", target = "opt/git-worktree-new-feat-branch" }
+worktree-add-feat = { source = "opt/git-worktree-add-feat", target = "opt/git-worktree-add-feat" }
 
 [profiles.tmux.dots]
 tmuxconf = { source = "tmux/conf", target = ".tmux.conf" }

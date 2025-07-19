@@ -1,5 +1,4 @@
 PATH="$PATH:$HOME/opt/"
-PATH="/usr/local/share/dotnet:$PATH"
 
 PROMPT="%F{12}anna@mac %F{9}[%~] %f-> "
 
