@@ -91,4 +91,5 @@ return require('packer').startup(function(use)
     }
     use 'Darazaki/indent-o-matic'
     use 'nicholasmata/nvim-dap-cs'
+    use 'nvim-orgmode/orgmode'
 end)

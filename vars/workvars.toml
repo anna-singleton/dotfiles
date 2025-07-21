@@ -3,3 +3,6 @@ is_work = true
 
 [git]
 email = "anna.singleton@kroll.com"
+
+[nvim]
+org_dir = "~/org/"

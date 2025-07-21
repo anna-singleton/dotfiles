@@ -3,3 +3,6 @@ is_work = false
 
 [git]
 email = "annabeths111@gmail.com"
+
+[nvim]
+org_dir = "~/sync/org/"
