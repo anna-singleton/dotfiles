@@ -7,13 +7,18 @@ require('orgmode').setup({
     org_capture_templates = {
         b = {
             description = "Bug",
-            template = "** :bug:",
-            target = org_dir .. 'projects.org'
+            template = "** TODO %? :bug:",
+            target = org_dir .. "%^{Project Name|general}.org"
         },
         f = {
             description = "Feature",
-            template = "** :feature:",
-            target = org_dir .. 'projects.org'
+            template = "** TODO %? :feature:",
+            target = org_dir .. "%^{Project Name|general}.org"
+        },
+        t = {
+            description = "Task",
+            template = "** TODO %? :task:",
+            target = org_dir .. "%^{Project Name|general}.org"
         }
     }
 })
