@@ -1,7 +1,7 @@
 local dap = require('dap')
 
 local dap_python = require("dap-python")
-dap_python.setup("/home/anna/.venvs/debugvenv/bin/python")
+dap_python.setup("uv")
 dap_python.test_runner = 'pytest'
 
 require('dap-cs').setup()
