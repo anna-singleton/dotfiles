@@ -21,7 +21,8 @@ extra_profiles = ["bash", "git", "nvim", "tmux", "runfast", "tps", "ssh", "misc_
 extra_profiles = ["bash", "git", "nvim", "tmux", "runfast", "tps", "ssh", "misc_opt", "rofi", "kitty", "unison"]
 
 [profiles.mac]
-extra_profiles = ["zsh", "git", "nvim", "tmux", "runfast_mac", "tps_mac", "ssh", "misc_opt", "kitty_mac"]
+vars = ["vars/macvars.toml"]
+extra_profiles = ["zsh", "git", "nvim", "tmux", "runfast_mac", "tps_mac", "ssh", "misc_opt", "kitty"]
 
 
 # basic
@@ -76,9 +77,6 @@ config = { source = "rofi", target = ".config/rofi" }
 
 [profiles.kitty.dots]
 config = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
-
-[profiles.kitty_mac.dots]
-config = { source = "kitty/kitty.conf", target = "Library/Application Support/kitty/kitty.conf" }
 
 # work only
 [profiles.workopt.dots]
