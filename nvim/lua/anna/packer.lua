@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
     use "nvim-neotest/neotest"
     use "nvim-neotest/neotest-plenary"
     use "nvim-neotest/neotest-python"
-    use "Issafalcon/neotest-dotnet"
+    use "nsidorenco/neotest-vstest"
     use "antoinemadec/FixCursorHold.nvim"
     use "nvim-neotest/nvim-nio"
     use "rcarriga/nvim-dap-ui"
