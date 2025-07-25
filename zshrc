@@ -1,5 +1,17 @@
 PATH="$PATH:$HOME/opt/"
 
+export ZSH="$HOME/.oh-my-zsh"
+
+plugins=(
+    git
+    macos
+    gcloud
+    rust
+    dotnet
+)
+
+source $ZSH/oh-my-zsh.sh
+
 PROMPT="%F{12}anna@mac %F{9}[%~] %f-> "
 
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
