@@ -50,7 +50,7 @@ alias fucking="sudo"
 
 export EDITOR=nvim
 {% if basic.is_work %}
-export GOOGLE_APPLICATION_CREDENTIALS=/home/anna/.config/gcloud/application_default_credentials.json
+export GOOGLE_APPLICATION_CREDENTIALS=/Users/anna.singleton/.config/gcloud/application_default_credentials.json
 {% endif %}
 
 eval `keychain --quiet --eval`
