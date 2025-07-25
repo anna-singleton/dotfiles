@@ -223,11 +223,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
             callback = function()
                 -- Format the code before you run fix usings
                 vim.lsp.buf.format({ timeout = 1000, async = false })
-
-                -- If the file is C# then run fix usings
-                if vim.bo[0].filetype == "cs" then
-                    require("csharp").fix_usings()
-                end
             end,
         })
     end
